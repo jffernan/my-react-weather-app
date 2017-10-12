@@ -14,8 +14,9 @@ class App extends Component {
     var urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     var url = urlPrefix + location + urlSuffix;
 
-    
-
+    fetch(url).then(response => response.json()).then(data => self.setState({
+      data: data.body//JSON.parse(data.body)
+    });
   };
 
   changeLocation = (event) => {
