@@ -3,7 +3,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    location: ''
+    location: '',
+    data: {}
   };
 
   fetchData = (event) => {
@@ -14,9 +15,9 @@ class App extends Component {
     var urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     var url = urlPrefix + location + urlSuffix;
 
-    fetch(url).then(response => response.json()).then(data => self.setState({
-      data: data.body//JSON.parse(data.body)
-    });
+    fetch(url)
+      .then(response => response.json())
+      .then(data => self.setState({ data: data.body })); //JSON.parse(data.body)
   };
 
   changeLocation = (event) => {
@@ -26,6 +27,11 @@ class App extends Component {
   };
 
   render() {
+    var currentTemp = 'not loaded yet';
+    if (this.state.data.list) {
+      currentTemp = this.state.data.list[0].main.temp;
+    }
+
     return (
       <div>
         <h1>Weather</h1>
@@ -39,6 +45,10 @@ class App extends Component {
               />
           </label>
         </form>
+        <p className="temp-wrapper">
+          <span className="temp">{ currentTemp }</span>
+          <span className="temp-symbol">°C</span>
+        </p>
       </div>
     );
   }
