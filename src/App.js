@@ -43,6 +43,7 @@ class App extends Component {
     let currentCond = 'Not Loaded Yet';
     if (this.state.data.list) {
       currentTemp = this.state.data.list[0].main.temp;
+      currentCond = this.state.data.list[1].weather[0].main;
     }
 
     return (
@@ -59,12 +60,11 @@ class App extends Component {
           </label>
         </form>
         <p className="temp-wrapper">
-          <span className="temp"><b>Current Temperature: </b>{ currentTemp }</span>
+          <span className="temp">Current Temperature: { currentTemp }</span>
           <span className="temp-symbol">°F</span>
         </p>
-        <p className="temp-wrapper">
-          <span className="temp"><b>Current Conditions: </b>{ currentTemp }</span>
-          <span className="temp-symbol"></span>
+        <p className="cond-wrapper">
+          <span className="cond">Current Conditions: { currentCond }</span>
         </p>
       </div>
     );
