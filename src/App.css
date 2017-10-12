@@ -10,19 +10,42 @@ h1 {
 
 form {
   text-align: center;
+  line-height: 25px;
 }
 
-input {
-  border: none;
-  border-bottom: 1px dotted black;
-  margin-left: 0.5em;
-  font-size: 1em;
+input[type=text]{
+  text-align: center;
+  font: inherit;
+  font-weight: bold;
+  border: 3px solid #7B8585;
+  padding: 13px 12px;
+  font-size: 16px;
+  box-shadow: 0 1px 1px;
+  width: 330px;
   outline: none;
+  display: block;
+  color: black;
+  margin: 0 auto 25px;
+}
+
+input:focus {
+    background-color: #87CEFA;
 }
 
 .wrapper {
   max-width: 680px;
   margin: 0 auto;
+}
+
+.loc-wrapper {
+  text-align: center;
+  position: relative;
+}
+
+.loc {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 8px;
 }
 
 .temp-wrapper {
@@ -33,6 +56,7 @@ input {
 .temp {
   font-size: 16px;
   font-weight: bold;
+  margin-left: 8px;
 }
 
 .cond-wrapper {
@@ -43,6 +67,7 @@ input {
 .cond {
   font-size: 16px;
   font-weight: bold;
+  margin-left: 8px;
 }
 
 .temp-symbol {

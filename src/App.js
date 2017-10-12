@@ -24,7 +24,7 @@ class App extends Component {
         self.setState({
            data: data
         });
-      })  
+      })
   };
 
   changeLocation = (event) => {
@@ -45,21 +45,24 @@ class App extends Component {
       <div>
         <h1>My React Weather App</h1>
         <form onSubmit={this.fetchData}>
-          <label>Please Enter Your Location For Current Weather:
+          <label>Please Enter '<b>Location</b>' For Current Weather Below: 
             <input
-              placeholder={"City, State, Zip, Country, etc."}
+              placeholder={"City, State, Zip, Country, etc.  "}
               type="text"
               value={this.state.location}
               onChange={this.changeLocation}
               />
           </label>
         </form>
-        <p className="temp-wrapper">
-          <span className="temp">Current Temperature: { currentTemp }</span>
+        <p className="loc-wrapper">Current Location:
+          <span className="loc">{ this.state.location }</span>
+        </p>
+        <p className="temp-wrapper">Current Temperature:
+          <span className="temp">{ currentTemp }</span>
           <span className="temp-symbol">°F</span>
         </p>
-        <p className="cond-wrapper">
-          <span className="cond">Current Conditions: { currentCond }</span>
+        <p className="cond-wrapper">Current Conditions:
+          <span className="cond">{ currentCond }</span>
         </p>
       </div>
     );
