@@ -45,7 +45,7 @@ class App extends Component {
       <div>
         <h1>My React Weather App</h1>
         <form onSubmit={this.fetchData}>
-          <label>Please Enter '<b>Location</b>' For Current Weather Below:
+          <label>Please Enter '<b>Location</b>' To Fetch Current Weather:
             <input
               placeholder={"City, State, Zip, Country, etc.  "}
               type="text"
