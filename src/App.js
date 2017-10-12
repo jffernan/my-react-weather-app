@@ -18,18 +18,13 @@ class App extends Component {
 
     let self = this;
 
-    fetch(url)
-      .then( function(response) { return response; } )
-      .then( function(response) { return response.json(); } )
-      .then( function(data) {
-        self.setState({
-         data: data
-        });
-      })
-      /*
+    fetch(url) //.then( function(response) { return response; } )
       .then(response => response.json())
-      .then(data => self.setState({ data: data.body
-      })); //JSON.parse(data.body)*/
+      .then(data => {
+        self.setState({
+           data: data
+        });
+      })  
   };
 
   changeLocation = (event) => {
