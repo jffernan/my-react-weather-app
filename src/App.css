@@ -31,13 +31,13 @@ input {
 }
 
 .temp {
-  font-size: 32px;
+  font-size: 16px;
 }
 
 .temp-symbol {
   position: absolute;
-  top: 8px;
-  margin-left: 4px;
+  font-size: 10px;
+  margin-left: 2px;
 }
 
 .temp-date {
