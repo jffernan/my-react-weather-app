@@ -10,13 +10,13 @@ class App extends Component {
   fetchData = (event) => {
     event.preventDefault();
 
-    var location = encodeURIComponent(this.state.location);
+    let location = encodeURIComponent(this.state.location);
 
-    var urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
-    var urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
-    var url = urlPrefix + location + urlSuffix;
+    let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
+    let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
+    let url = urlPrefix + location + urlSuffix;
 
-    var self = this;
+    let self = this;
 
     fetch(url)
       .then( function(response) { return response; } )
@@ -24,7 +24,6 @@ class App extends Component {
       .then( function(data) {
         self.setState({
          data: data
-         //temperature: data.main.temp
         });
       })
       /*
@@ -40,7 +39,8 @@ class App extends Component {
   };
 
   render() {
-    var currentTemp = 'not loaded yet';
+    let currentTemp = 'Not Loaded Yet';
+    let currentCond = 'Not Loaded Yet';
     if (this.state.data.list) {
       currentTemp = this.state.data.list[0].main.temp;
     }
@@ -59,8 +59,12 @@ class App extends Component {
           </label>
         </form>
         <p className="temp-wrapper">
-          <span className="temp">{ currentTemp }</span>
+          <span className="temp"><b>Current Temperature: </b>{ currentTemp }</span>
           <span className="temp-symbol">°F</span>
+        </p>
+        <p className="temp-wrapper">
+          <span className="temp"><b>Current Conditions: </b>{ currentTemp }</span>
+          <span className="temp-symbol"></span>
         </p>
       </div>
     );

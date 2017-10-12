@@ -31,12 +31,12 @@ input {
 }
 
 .temp {
-  font-size: 64px;
+  font-size: 32px;
 }
 
 .temp-symbol {
   position: absolute;
-  top: 13px;
+  top: 8px;
   margin-left: 4px;
 }
 
