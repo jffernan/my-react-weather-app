@@ -50,7 +50,7 @@ class App extends Component {
         <form onSubmit={this.fetchData}>
           <label>Enter '<b>Location</b>' Below To Fetch Current Weather:
             <input
-              placeholder={"City, State, Zip, Country, etc.  "}
+              placeholder={"City, State, Zip, Country, etc."}
               type="text"
               autocomplete="on"
               value={this.state.location}
