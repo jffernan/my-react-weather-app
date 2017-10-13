@@ -61,7 +61,7 @@ class App extends Component {
             <Button
               id="submit"
               type="submit"
-              bsStyle="primary">
+              bsStyle="primary" active>
               <span>
               Fetch Weather
               </span>
