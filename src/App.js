@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import Button from 'react-bootstrap/lib/Button';
+// or
+//import { Button } from 'react-bootstrap';
 
 class App extends Component {
   state = {
@@ -37,7 +40,7 @@ class App extends Component {
     let currentTemp = 'Not Loaded Yet';
     let currentCond = 'Not Loaded Yet';
     if (this.state.data.list) {
-      currentTemp = this.state.data.list[0].main.temp;
+      currentTemp = Math.round(this.state.data.list[0].main.temp);
       currentCond = this.state.data.list[1].weather[0].main;
     }
 
@@ -45,7 +48,7 @@ class App extends Component {
       <div>
         <h1>My React Weather App</h1>
         <form onSubmit={this.fetchData}>
-          <label>Please Enter '<b>Location</b>' To Fetch Current Weather:
+          <label>Enter '<b>Location</b>' Below To Fetch Current Weather:
             <input
               placeholder={"City, State, Zip, Country, etc.  "}
               type="text"
@@ -54,9 +57,19 @@ class App extends Component {
               onChange={this.changeLocation}
               />
           </label>
-        </form>
+          <div className="submit">
+            <Button
+              id="submit"
+              type="submit"
+              bsStyle="primary">
+              <span>
+              Fetch Weather
+              </span>
+            </Button>
+          </div>
+        </form><br/>
         <p className="loc-wrapper">Current Location:
-          <span className="loc">{ this.state.location }</span>
+          <span className="loc">{ this.state.location  }</span>
         </p>
         <p className="temp-wrapper">Current Temperature:
           <span className="temp">{ currentTemp }</span>

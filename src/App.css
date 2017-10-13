@@ -13,10 +13,15 @@ form {
   line-height: 25px;
 }
 
+.button {
+  border-radius: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
 input[type=text]{
   text-align: center;
   font: inherit;
-  font-weight: bold;
   border: 3px solid #7B8585;
   padding: 13px 12px;
   font-size: 16px;
@@ -26,6 +31,9 @@ input[type=text]{
   display: block;
   color: black;
   margin: 0 auto 25px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
 input:focus {
@@ -72,7 +80,8 @@ input:focus {
 
 .temp-symbol {
   position: absolute;
-  font-size: 10px;
+  font-size: 14px;
+  font-weight: bold;
   margin-left: 2px;
 }
 
