@@ -20,20 +20,25 @@ export default class WeatherApp extends React.Component {
     location: 'Please Provide A Location.'
   };
 
-  fetchData = (event) => {
-    event.preventDefault();
+  fetchData = (location) => {
+    location.preventDefault();
 
     const main = this;
     let query = null;
 
     main.setState({
-        infoStatus: 'loading'
+      infoStatus: 'loading'
     });
 
-    let location = encodeURIComponent(this.state.location);
+    if (!location || location === '') {
+      query = this.props.location;
+    } else {
+      query = encodeURIComponent(this.state.location);
+    }
+
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
-    let url = urlPrefix + location + urlSuffix;
+    let url = urlPrefix + query + urlSuffix;
 
     fetch(url) //.then( function(response) { return response; } )
       .then(response => response.json())
