@@ -23,13 +23,11 @@ export default class WeatherApp extends React.Component {
   fetchData = (event) => {
     event.preventDefault();
 
+    const main = this;
     let location = encodeURIComponent(this.state.location);
-
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     let url = urlPrefix + location + urlSuffix;
-
-    let main = this;
 
     fetch(url) //.then( function(response) { return response; } )
       .then(response => response.json())
@@ -40,9 +38,9 @@ export default class WeatherApp extends React.Component {
       })
   };
 
-  changeLocation = (location) => {
+  changeLocation = (event) => {
     this.setState({
-      location: location.target.value
+      location: event.target.value
     });
   };
 
