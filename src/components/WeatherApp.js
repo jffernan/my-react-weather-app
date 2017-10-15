@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import LocationForm from './LocationForm'
+import OutputDisplay from './OutputDisplay'
 
 export default class WeatherApp extends React.Component {
   constructor(props) {
@@ -62,26 +63,10 @@ export default class WeatherApp extends React.Component {
   };
 
   render() {
-    let currentTemp = 'Not Loaded Yet';
-    let currentCond = 'Not Loaded Yet';
-    if (this.state.data.list) {
-      currentTemp = Math.round(this.state.data.list[0].main.temp);
-      currentCond = this.state.data.list[1].weather[0].main;
-    }
-
     return (
       <div className="weatherApp">
         <LocationForm/>
-        <p className="loc-wrapper">Current Location:
-          <span className="loc">{ this.state.location  }</span>
-        </p>
-        <p className="temp-wrapper">Current Temperature:
-          <span className="temp">{ currentTemp }</span>
-          <span className="temp-symbol">°F</span>
-        </p>
-        <p className="cond-wrapper">Current Conditions:
-          <span className="cond">{ currentCond }</span>
-        </p>
+        <OutputDisplay/>
       </div>
     );
   }
