@@ -96,7 +96,7 @@ input:focus {
 .outputDisplay {
   margin: auto;
   border: 4px solid black;
-  border-radius: 5px;
+  border-radius: 10px;
   position: relative;
   width: 330px;
 }
