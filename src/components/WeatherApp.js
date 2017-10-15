@@ -11,7 +11,9 @@ export default class WeatherApp extends React.Component {
       country: undefined,
       temperature: undefined,
       condition: undefined,
-      data: {}
+      data: {},
+      currentTemp: 'Not Loaded Yet',
+      currentCond: 'Not Loaded Yet'
     };
   };
 
@@ -63,6 +65,11 @@ export default class WeatherApp extends React.Component {
   };
 
   render() {
+    if (this.state.data.list) {
+      this.currentTemp.props = Math.round(this.state.data.list[0].main.temp);
+      this.currentCond.props = this.state.data.list[1].weather[0].main;
+    }
+
     return (
       <div className="weatherApp">
         <LocationForm/>
