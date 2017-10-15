@@ -8,12 +8,12 @@ h1 {
   text-align: center;
 }
 
-form {
+Form {
   text-align: center;
   line-height: 25px;
 }
 
-.button {
+Button {
   border-radius: 10px;
   transition: all 0.5s;
   cursor: pointer;

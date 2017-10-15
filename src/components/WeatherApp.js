@@ -1,8 +1,6 @@
 import React from 'react';
 import '../App.css';
-import Button from 'react-bootstrap/lib/Button';
-// or
-//import { Button } from 'react-bootstrap';
+import LocationForm from './LocationForm'
 
 export default class WeatherApp extends React.Component {
   constructor(props) {
@@ -72,29 +70,8 @@ export default class WeatherApp extends React.Component {
     }
 
     return (
-      <div>
-        <h1>My React Weather App</h1>
-        <form onSubmit={this.fetchData}>
-          <label>Please Select 'Location' On Map Or Enter Below:
-            <input
-              placeholder={"City, State, Zip, Country, etc."}
-              type="text"
-              autocomplete="on"
-              value={this.state.location}
-              onChange={this.changeLocation}
-              />
-          </label>
-          <div className="submit">
-            <Button
-              id="submit"
-              type="submit"
-              bsStyle="primary" active>
-              <span>
-              Fetch Weather
-              </span>
-            </Button>
-          </div>
-        </form><br/>
+      <div className="weatherApp">
+        <LocationForm/>
         <p className="loc-wrapper">Current Location:
           <span className="loc">{ this.state.location  }</span>
         </p>
