@@ -1,9 +1,9 @@
 
 import React from 'react';
-import Nav from 'Nav';
+//import Nav from 'Nav';
 //presentational component in pure function
-var Main = (props) => {
-  return(
+var Home = (props) => {
+  return (
     <div>
       <Nav />
         <div className="row">
@@ -15,4 +15,4 @@ var Main = (props) => {
   )
 };
 
-export default Main;
+export default Home;

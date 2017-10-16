@@ -4,9 +4,61 @@ import LocationForm from './LocationForm'
 import OutputDisplay from './OutputDisplay'
 import Home from 'Home';
 //import Forecast from 'Forecast';
-import Map  from 'Map';
+//import Map  from 'Map';
 import About from 'About';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
+const link = {
+  width: '100px',
+  padding: '12px',
+  margin: '0 6px 6px',
+  background: 'blue',
+  textDecoration: 'none',
+  color: 'white',
+}
+
+const Navbar = () =>
+  <div className="top-bar">
+    <div className="top-bar-left">
+      <ul className="menu">
+        <li className="menu-text">My React Weather App
+        </li>
+        <li>
+          <NavLink
+            to="/"
+            exact
+            style={link}
+            activeStyle={{
+              background: 'darkblue'
+            }}
+          >Home
+          </NavLink>
+        </li>
+        <li>
+          /*<NavLink
+            to="/map"
+            exact
+            style={link}
+            activeStyle={{
+              background: 'darkblue'
+            }}
+          >Map Location
+          </NavLink>*/
+        </li>
+        <li>
+          <NavLink
+            to="/about"
+            exact
+            style={link}
+            activeStyle={{
+              background: 'darkblue'
+            }}
+          >About
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  </div>;
 
 export default class WeatherApp extends React.Component {
   constructor(props) {
@@ -84,16 +136,25 @@ export default class WeatherApp extends React.Component {
     }
 
     return (
-      <div className="weatherApp">
-        <LocationForm
-          location = {this.state.location}
-        />
-        <OutputDisplay
-          location = {this.state.location}
-          currentTemp = {currentTemp}
-          currentCond = {currentCond}
-        />
-      </div>
+      <Router>
+        <div>
+          <Navbar />
+          <Route exact path="/" component={Home} />
+            //<Route exact="/map" component={Map} />
+            <Route exact path="/about" component={About}/>
+
+          <div className="weatherApp">
+            <LocationForm
+              location = {this.state.location}
+            />
+            <OutputDisplay
+              location = {this.state.location}
+              currentTemp = {currentTemp}
+              currentCond = {currentCond}
+            />
+          </div>
+        </div>
+      </Router>
     );
   }
 }
