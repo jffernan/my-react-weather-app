@@ -10,6 +10,20 @@
   color: #222;
 }
 
+.page-title {
+  text-align: center;
+  color: #0059b3;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.page-text {
+  text-align: center;
+  color: #0059b3;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
 h1 {
   text-align: center;
   color:  #0059b3;

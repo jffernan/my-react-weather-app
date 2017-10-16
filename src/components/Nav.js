@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 //var {Link, IndexLink} = require('react-router');
 
 class Nav extends React.Component{
@@ -16,6 +16,7 @@ class Nav extends React.Component{
             window.location.hash = '#/?location=' + encodedLocation;
         } */
     }
+  /*
   render() {
     return(
       <div className="top-bar">
@@ -23,17 +24,27 @@ class Nav extends React.Component{
           <ul className="menu">
             <li className="menu-text">My React Weather App</li>
             <li>
-              <IndexLink to="/" activeClassName="active" activeStyle={{ fontWeight: 'bold'}}>Home</IndexLink>
+              <IndexLink
+                to="/"
+                activeClassName="active"
+                activeStyle={{
+                  fontWeight: 'bold'}}
+              >Home
+              </IndexLink>
             </li>
-            <li>
+
+            /*<li>
               <Link to="/map" activeClassName="active" activeStyle={{ fontWeight: 'bold'}}>Map Location</Link>
             </li>
+            */
+            /*
+            
             <li>
               <Link to="/about" activeClassName="active" activeStyle={{ fontWeight: 'bold'}}>Examples</Link>
             </li>
           </ul>
         </div>
-          /*
+
           <div className="top-bar-right">
               <form onSubmit={this.onSearch}>
                   <ul className="menu">
@@ -45,10 +56,11 @@ class Nav extends React.Component{
                       </li>
                   </ul>
               </form>
-          </div>  */
+          </div>
       </div>
     )
   }
 };
 
 export default Nav;
+*/
