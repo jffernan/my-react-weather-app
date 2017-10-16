@@ -1,26 +1,17 @@
 import React from 'react';
 //var {Link} = require('react-router');
-
-var About = (props) => {
-  return (
-    <div>
-      <h1 className="text-center page-title">About</h1>
+//presentational component in pure function
+const About = () =>
+  <div>
+    <h1 className="text-center page-title">About</h1>
+      <p>Welcome to My React Weather App. For more info, please visit the links below:</p>
       <div className="page-text">
-        <p><b>Welcome to My React Weather App.  For more info, please visit the links below:</b></p>
-        <ul>
-          <li>
-            <a href="https://facebook.github.io/react">React</a> - JavaScript library for building user interface.
-          </li>
-          <li>
-            <a href="https://openweathermap.org">OpenWeatherMap</a> - Used to fetch weather data with free API key.
-          </li>
-          <li>
-            <a href="https://github.com/jffernan/my-react-weather-app">GitHub</a> - Clone My React Weather App repo to try.
-          </li>
-        </ul>
+        <a href="https://facebook.github.io/react">React
+        </a> - JavaScript framework for building user interfaces.<br/>
+        <a href="https://openweathermap.org">OpenWeatherMap API
+        </a> - Fetch weather data with free API key.<br/>
+        <a href="https://github.com/jffernan/my-react-weather-app">GitHub</a> - Download or clone My React Weather App repo to try.
       </div>
-    </div>
-  )
-};
+  </div>
 
 export default About;

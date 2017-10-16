@@ -1,4 +1,21 @@
-/*import React from 'react';
+import React from 'react';
+//var {Link} = require('react-router');
+
+var Map = (props) => {
+  return (
+    <div>
+      <h1 className="text-center page-title">Map Location</h1>
+      <div className="page-text">
+        <p><b>Search for an address below:</b></p>
+      </div>
+    </div>
+  )
+};
+
+export default Map;
+
+/*
+import React from 'react';
 import { connect } from "react-redux";
 
 class Map extends React.Component {
@@ -78,3 +95,4 @@ function mapStateToProps(state) {
 
 
 export default connect(mapStateToProps, {  })(Map);
+*/
