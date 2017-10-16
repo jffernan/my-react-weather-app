@@ -7,15 +7,15 @@ export default class WeatherApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: undefined,
+      location: '',
       country: undefined,
       temperature: undefined,
       condition: undefined,
-      data: {},
-      currentTemp: 'Not Loaded Yet',
-      currentCond: 'Not Loaded Yet'
+      data: {}
     };
-  };
+
+    this.changeLocation = this.changeLocation.bind(this);
+  }
 
   static defaultProps = {
     location: 'Please Provide A Location.'
@@ -58,22 +58,36 @@ export default class WeatherApp extends React.Component {
       })
   };
 
-  changeLocation = (event) => {
+  /*changeLocation = (event) => {
     this.setState({
       location: event.target.value
     });
-  };
+  };*/
+
+  changeLocation(location) {
+    this.setState({
+      location:location
+    });
+  }
 
   render() {
+    let currentTemp = 'Not Loaded Yet';
+    let currentCond = 'Not Loaded Yet';
     if (this.state.data.list) {
-      this.currentTemp.props = Math.round(this.state.data.list[0].main.temp);
-      this.currentCond.props = this.state.data.list[1].weather[0].main;
+       currentTemp = Math.round(this.state.data.list[0].main.temp);
+       currentCond = this.state.data.list[1].weather[0].main;
     }
 
     return (
       <div className="weatherApp">
-        <LocationForm/>
-        <OutputDisplay/>
+        <LocationForm
+          location = {this.state.location}
+        />
+        <OutputDisplay
+          location = {this.state.location}
+          currentTemp = {currentTemp}
+          currentCond = {currentCond}
+        />
       </div>
     );
   }
