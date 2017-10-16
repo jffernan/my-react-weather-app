@@ -1,3 +1,9 @@
+.page-title {
+    color: $title-color;
+    margin-top: $space-large;
+    margin-bottom: $space-large;
+}
+
 .body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;

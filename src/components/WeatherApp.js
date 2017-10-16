@@ -4,8 +4,8 @@ import LocationForm from './LocationForm'
 import OutputDisplay from './OutputDisplay'
 import Home from 'Home';
 //import Forecast from 'Forecast';
-import Map  from 'Map';
-import About from 'About';
+//import Map  from 'Map';
+//import About from 'About';
 
 
 export default class WeatherApp extends React.Component {
@@ -85,6 +85,7 @@ export default class WeatherApp extends React.Component {
 
     return (
       <div className="weatherApp">
+        <Home />
         <LocationForm
           location = {this.state.location}
         />
