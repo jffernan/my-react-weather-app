@@ -2,10 +2,10 @@ import React from 'react';
 import '../App.css';
 import LocationForm from './LocationForm'
 import OutputDisplay from './OutputDisplay'
-import Home from 'Home';
+import Home from './Home';
 //import Forecast from 'Forecast';
 //import Map  from 'Map';
-import About from 'About';
+import About from './About';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 const link = {
@@ -16,7 +16,7 @@ const link = {
   textDecoration: 'none',
   color: 'white',
 }
-
+//need map link
 const Navbar = () =>
   <div className="top-bar">
     <div className="top-bar-left">
@@ -35,15 +35,7 @@ const Navbar = () =>
           </NavLink>
         </li>
         <li>
-          /*<NavLink
-            to="/map"
-            exact
-            style={link}
-            activeStyle={{
-              background: 'darkblue'
-            }}
-          >Map Location
-          </NavLink>*/
+
         </li>
         <li>
           <NavLink
@@ -134,13 +126,12 @@ export default class WeatherApp extends React.Component {
        currentTemp = Math.round(this.state.data.list[0].main.temp);
        currentCond = this.state.data.list[1].weather[0].main;
     }
-
+//need route for map
     return (
       <Router>
         <div>
           <Navbar />
           <Route exact path="/" component={Home} />
-            //<Route exact="/map" component={Map} />
             <Route exact path="/about" component={About}/>
 
           <div className="weatherApp">
