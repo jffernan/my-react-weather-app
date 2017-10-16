@@ -2,6 +2,11 @@ import React from 'react';
 import '../App.css';
 import LocationForm from './LocationForm'
 import OutputDisplay from './OutputDisplay'
+import Home from 'Home';
+//import Forecast from 'Forecast';
+import Map  from 'Map';
+import About from 'About';
+
 
 export default class WeatherApp extends React.Component {
   constructor(props) {
