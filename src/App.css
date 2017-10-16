@@ -6,6 +6,8 @@
 
 h1 {
   text-align: center;
+  color:  #0059b3;
+  font-weight: bold;
 }
 
 Form {
@@ -25,7 +27,11 @@ Button {
 }
 
 label {
-  color:black;
+  font-weight: bold;
+}
+
+input::placeholder {
+  font-weight: bold;
 }
 
 input[type=text] {
@@ -45,9 +51,7 @@ input[type=text] {
 }
 
 input:focus {
-  background-color: #87cefa;
-  font-weight: bold;
-  color: black;
+  background-color: #98FB98;
 }
 
 .wrapper {
