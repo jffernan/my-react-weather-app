@@ -1,5 +1,6 @@
 import React from 'react';
 //var {Link} = require('react-router');
+//import { connect } from 'react-redux';
 
 var Map = (props) => {
   return (

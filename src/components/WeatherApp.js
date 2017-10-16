@@ -2,61 +2,12 @@ import React from 'react';
 import '../App.css';
 import LocationForm from './LocationForm'
 import OutputDisplay from './OutputDisplay'
+import NavBar from './NavBar';
 import Home from './Home';
 //import Forecast from 'Forecast';
 import Map  from './Map';
 import About from './About';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-
-const link = {
-  width: '100px',
-  padding: '12px',
-  margin: '0 6px 6px',
-  background: 'blue',
-  textDecoration: 'none',
-  color: 'white',
-}
-
-const Navbar = () =>
-  <div className="top-bar">
-    <div className="top-bar-left">
-      <ul className="menu">
-        <li>
-          <NavLink
-            to="/"
-            exact
-            style={link}
-            activeStyle={{
-              background: 'darkblue'
-            }}
-          >Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/map"
-            exact
-            style={link}
-            activeStyle={{
-              background: 'darkblue'
-            }}
-          >Map
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/about"
-            exact
-            style={link}
-            activeStyle={{
-              background: 'darkblue'
-            }}
-          >About
-          </NavLink>
-        </li>
-      </ul>
-    </div>
-  </div>;
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export default class WeatherApp extends React.Component {
   constructor(props) {
@@ -136,7 +87,7 @@ export default class WeatherApp extends React.Component {
     return (
       <Router>
         <div>
-          <Navbar />
+          <NavBar />
           <Route exact path="/" component={Home} />
           <Route exact path="/map" component={Map}/>
           <Route exact path="/about" component={About}/>
