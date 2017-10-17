@@ -10,6 +10,12 @@
   color: #222;
 }
 
+#map {
+  height: 400px;
+  width: 100%;
+  display:block;
+ }
+
 .page-title {
   text-align: center;
   color: green;
@@ -59,18 +65,18 @@ Form {
 }
 
 #nav {
-width:415px;
-margin:0 auto;
-list-style:none;
-}
+  width:415px;
+  margin:0 auto;
+  list-style:none;
+  }
 #nav li {
-float:left;
+  float:left;
 }
 #nav a {
-display:block;
-text-align:center;
-width:150px; /* fixed width */
-text-decoration:none;
+  display:block;
+  text-align:center;
+  width:150px; /* fixed width */
+  text-decoration:none;
 }
 
 .center {
