@@ -7,48 +7,32 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 //import InputGroup from 'react-bootstrap/lib/InputGroup';
 //import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
-export default class LocationForm extends React.Component {
-//handleSubmit
-  //constructor(props) {
-    //super(props);
-    //this.changeLocation = this.changeLocation.bind(this);
-
-  //}
-/*
-  changeLocation(e) {
-   this.props.changeLocation(e.target.value);
-  }
-*/
-  render() {
-    return (
-      <Form onSubmit={this.fetchData}>
-        <FormGroup bsSize="small" controlId="formValidationSuccess2" validationState="success">
-          <div className="form">
-            <ControlLabel>
-              Please Enter 'Location' for Current Weather Below:
-              <FormControl type="text"
-                id="location"
-                name = "location" //search
-                placeholder={"Type City, State, Zip, Country, etc."}
-                autocomplete="on"
-                value={this.props.location}
-                onChange={this.changeLocation}
-              />
-            </ControlLabel>
-          </div>
-          <div className="submit">
-            <Button
-              id="submit"
-              type="submit"
-              bsStyle="primary" active>
-              <span>
-              Fetch Weather
-              </span>
-            </Button>
-          </div>
-          <br/>
-        </FormGroup>
-      </Form>
-    );
-  }
-}
+const LocationForm = (props) =>
+  <Form onSubmit={this.props.fetchData}>
+    <FormGroup bsSize="small" controlId="formValidationSuccess2" validationState="success">
+      <div className="form">
+        <ControlLabel>
+          Please Enter 'Location' for Current Weather Below:
+          <FormControl type="text"
+            id="location"
+            name = "location" //search
+            placeholder={"Type City, State, Zip, Country, etc."}
+            autocomplete="on"
+            value={this.props.location}
+            onChange={this.props.changeLocation}
+          />
+        </ControlLabel>
+      </div>
+      <div className="submit">
+        <Button
+          id="submit"
+          type="submit"
+          bsStyle="primary" active>
+          <span>
+          Fetch Weather
+          </span>
+        </Button>
+      </div>
+      <br/>
+    </FormGroup>
+  </Form>;

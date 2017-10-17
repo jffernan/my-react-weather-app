@@ -19,8 +19,6 @@ export default class WeatherApp extends React.Component {
       condition: undefined,
       data: {}
     };
-
-    this.changeLocation = this.changeLocation.bind(this);
   }
 
   fetchData = (location) => {
