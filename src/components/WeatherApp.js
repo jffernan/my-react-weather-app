@@ -23,10 +23,6 @@ export default class WeatherApp extends React.Component {
     this.changeLocation = this.changeLocation.bind(this);
   }
 
-  static defaultProps = {
-    location: 'Please Provide A Location.'
-  };
-
   fetchData = (location) => {
     location.preventDefault();
 
@@ -97,9 +93,9 @@ export default class WeatherApp extends React.Component {
               location = {this.state.location}
             />
             <OutputDisplay
-              location = {this.state.location}
-              currentTemp = {currentTemp}
-              currentCond = {currentCond}
+              locOutput = {this.state.location}
+              tempOutput = {currentTemp}
+              condOutput = {currentCond}
             />
           </div>
         </div>
