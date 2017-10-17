@@ -8,7 +8,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 //import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 const LocationForm = (props) =>
-  <Form onSubmit={this.props.fetchData}>
+  <Form onSubmit={this.fetchData}>
     <FormGroup bsSize="small" controlId="formValidationSuccess2" validationState="success">
       <div className="form">
         <ControlLabel>
@@ -18,8 +18,8 @@ const LocationForm = (props) =>
             name = "location" //search
             placeholder={"Type City, State, Zip, Country, etc."}
             autocomplete="on"
-            value={this.props.location}
-            onChange={this.props.changeLocation}
+            value={this.location}
+            onChange={this.changeLocation}
           />
         </ControlLabel>
       </div>
@@ -36,3 +36,5 @@ const LocationForm = (props) =>
       <br/>
     </FormGroup>
   </Form>;
+
+  export default LocationForm;

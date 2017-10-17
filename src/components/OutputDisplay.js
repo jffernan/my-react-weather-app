@@ -1,14 +1,8 @@
 import React from 'react';
 
-const locOutput = this.props.locOutput;
-const tempOutput = this.props.tempOutput;
-const condOutput = this.props.condOutput;
-
-OutputDisplay.defaultProps = {
-  locOutput: 'Please Provide A Location.',
-  tempOutput: 'Not Loaded Yet',
-  condOutput: 'Not Loaded Yet'
-};
+const locOutput = this.props;
+const tempOutput = this.props;
+const condOutput = this.props;
 
 const OutputDisplay = (props) =>
   <div className="outputDisplay">
@@ -25,5 +19,11 @@ const OutputDisplay = (props) =>
     </p>
     <br/>
   </div>;
-
+/*
+  OutputDisplay.defaultProps = {
+    locOutput: 'Please Provide A Location.',
+    tempOutput: 'Not Loaded Yet',
+    condOutput: 'Not Loaded Yet'
+  };
+*/
   export default OutputDisplay;

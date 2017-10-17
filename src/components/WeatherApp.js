@@ -73,8 +73,8 @@ export default class WeatherApp extends React.Component {
   }
 
   render() {
-    let currentTemp;
-    let currentCond;
+    let currentTemp = 'Not Loaded Yet';
+    let currentCond = 'Not Loaded Yet';
     if (this.state.data.list) {
        currentTemp = Math.round(this.state.data.list[0].main.temp);
        currentCond = this.state.data.list[1].weather[0].main;
@@ -90,7 +90,7 @@ export default class WeatherApp extends React.Component {
           <Route exact path="/about" component={About}/>
           <div className="weatherApp">
             <LocationForm
-              onSubmit = {this.fetchData}
+              location = {this.state.location}
             />
             <OutputDisplay
               locOutput = {this.state.location}
