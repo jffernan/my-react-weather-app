@@ -4,8 +4,6 @@ import Form from 'react-bootstrap/lib/Form';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
-//import InputGroup from 'react-bootstrap/lib/InputGroup';
-//import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 const LocationForm = (props) =>
   <Form onSubmit={this.fetchData}>
@@ -15,7 +13,7 @@ const LocationForm = (props) =>
           Please Enter 'Location' for Current Weather Below:
           <FormControl type="text"
             id="location"
-            name = "location" //search
+            name = "location"
             placeholder={"Type City, State, Zip, Country, etc."}
             autocomplete="on"
             value={this.location}
