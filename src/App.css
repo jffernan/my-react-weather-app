@@ -41,6 +41,25 @@ Form {
   line-height: 25px;
 }
 
+.center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.col-md-12 column {
+   text-align:center;
+}
+
+.col-xs-4 column form {
+   margin:auto;
+}
+
+.col-md-12 column form {
+   margin:auto;
+}
+
 input {
   text-align: center;
   color: black;
@@ -56,9 +75,11 @@ label {
   font-weight: bold;
 }
 
-input::placeholder {
+::-webkit-input-placeholder {
   font-weight: bold;
+  text-align: center;
 }
+
 
 input[type=text] {
   text-align: center;

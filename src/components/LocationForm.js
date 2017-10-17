@@ -5,6 +5,8 @@ import Form from 'react-bootstrap/lib/Form';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
+//import InputGroup from 'react-bootstrap/lib/InputGroup';
+//import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 export default class LocationForm extends React.Component {
 //handleSubmit
@@ -21,7 +23,7 @@ export default class LocationForm extends React.Component {
   render() {
     return (
       <Form onSubmit={this.fetchData}>
-        <FormGroup controlId="formValidationSuccess2" validationState="success">
+        <FormGroup bsSize="small" controlId="formValidationSuccess2" validationState="success">
           <div className="form">
             <ControlLabel>
               Please Select 'Location' On Map Or Enter Below:
@@ -33,7 +35,6 @@ export default class LocationForm extends React.Component {
                 value={this.props.location}
                 onChange={this.changeLocation}
               />
-              <FormControl.Feedback />
             </ControlLabel>
           </div>
           <div className="submit">
