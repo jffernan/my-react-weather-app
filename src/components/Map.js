@@ -1,6 +1,5 @@
 import React from 'react';
-//var {Link} = require('react-router');
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 var Map = (props) => {
   return (
@@ -16,8 +15,7 @@ var Map = (props) => {
 export default Map;
 
 /*
-import React from 'react';
-import { connect } from "react-redux";
+
 
 class Map extends React.Component {
 

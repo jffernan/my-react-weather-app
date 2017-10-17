@@ -1,5 +1,4 @@
 import React from 'react';
-//var {Link} = require('react-router');
 //presentational component in pure function
 const About = () =>
   <div>
