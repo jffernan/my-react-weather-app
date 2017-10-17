@@ -5,7 +5,9 @@ const tempOutput = this.props.tempOutput;
 const condOutput = this.props.condOutput;
 
 OutputDisplay.defaultProps = {
-  locOutput: 'Please Provide A Location.'
+  locOutput: 'Please Provide A Location.',
+  tempOutput: 'Not Loaded Yet',
+  condOutput: 'Not Loaded Yet'
 };
 
 const OutputDisplay = (props) =>

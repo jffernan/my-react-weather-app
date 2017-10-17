@@ -14,18 +14,19 @@ export default class WeatherApp extends React.Component {
     super(props);
     this.state = {
       location: '',
-      country: undefined,
+      /*country: undefined,
       temperature: undefined,
-      condition: undefined,
+      condition: undefined,*/
       data: {}
     };
   }
 
-  fetchData = (location) => {
-    location.preventDefault();
+  fetchData = (event) => {
+    event.preventDefault();
 
     const main = this;
-    let query = null;
+    /*
+    let query;
 
     main.setState({
       infoStatus: 'loading'
@@ -34,12 +35,13 @@ export default class WeatherApp extends React.Component {
     if (!location || location === '') {
       query = this.props.location;
     } else {
-      query = encodeURIComponent(this.state.location);//?query = location?
+      query = encodeURIComponent(location);//?query = location?
     }
-
+    */
+    let location = encodeURIComponent(this.state.location);
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
-    let url = urlPrefix + query + urlSuffix;
+    let url = urlPrefix + location + urlSuffix;
 
     fetch(url)
       .then((response) => response)
@@ -64,15 +66,15 @@ export default class WeatherApp extends React.Component {
     });
   };*/
 
-  changeLocation(location) {
+  changeLocation(event) {
     this.setState({
-      location:location
+      location: event.target.value
     });
   }
 
   render() {
-    let currentTemp = 'Not Loaded Yet';
-    let currentCond = 'Not Loaded Yet';
+    let currentTemp;
+    let currentCond;
     if (this.state.data.list) {
        currentTemp = Math.round(this.state.data.list[0].main.temp);
        currentCond = this.state.data.list[1].weather[0].main;
@@ -88,7 +90,7 @@ export default class WeatherApp extends React.Component {
           <Route exact path="/about" component={About}/>
           <div className="weatherApp">
             <LocationForm
-              location = {this.state.location}
+              onSubmit = {this.fetchData}
             />
             <OutputDisplay
               locOutput = {this.state.location}
