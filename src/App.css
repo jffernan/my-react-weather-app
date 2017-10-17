@@ -22,11 +22,18 @@
   color: #0059b3;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
+  font-weight: bold;
 }
 
 h1 {
   text-align: center;
   color:  #0059b3;
+  font-weight: bold;
+}
+
+h2 {
+  text-align: center;
+  color:  green;
   font-weight: bold;
 }
 

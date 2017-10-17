@@ -26,7 +26,7 @@ export default class LocationForm extends React.Component {
         <FormGroup bsSize="small" controlId="formValidationSuccess2" validationState="success">
           <div className="form">
             <ControlLabel>
-              Please Select 'Location' On Map Or Enter Below:
+              Please Enter 'Location' for Current Weather Below:
               <FormControl type="text"
                 id="location"
                 name = "location" //search

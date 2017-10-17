@@ -7,7 +7,7 @@ var Map = (props) => {
     <div>
       <h1 className="text-center page-title">Map Location</h1>
       <div className="page-text">
-        <p><b>Search for an address below:</b></p>
+        <p><b>Search for an address on map:</b></p>
       </div>
     </div>
   )
