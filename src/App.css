@@ -1,7 +1,7 @@
 .page-title {
-    color: $title-color;
-    margin-top: $space-large;
-    margin-bottom: $space-large;
+  color: $title-color;
+  margin-top: $space-large;
+  margin-bottom: $space-large;
 }
 
 .body {
@@ -12,7 +12,7 @@
 
 .page-title {
   text-align: center;
-  color: #0059b3;
+  color: green;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
@@ -37,6 +37,12 @@ h2 {
   font-weight: bold;
 }
 
+h4 {
+  text-align: center;
+  color:  #0059b3;
+  font-weight: bold;
+}
+
 p {
   text-align: center;
   color:  #0059b3;
@@ -48,6 +54,25 @@ Form {
   line-height: 25px;
 }
 
+.menu {
+  margin: auto;
+}
+
+#nav {
+width:415px;
+margin:0 auto;
+list-style:none;
+}
+#nav li {
+float:left;
+}
+#nav a {
+display:block;
+text-align:center;
+width:150px; /* fixed width */
+text-decoration:none;
+}
+
 .center {
   position: absolute;
   left: 0;
@@ -56,7 +81,7 @@ Form {
 }
 
 .col-md-12 column {
-   text-align:center;
+  text-align:center;
 }
 
 .col-xs-4 column form {

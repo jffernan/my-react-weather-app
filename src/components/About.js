@@ -4,7 +4,7 @@ import React from 'react';
 const About = () =>
   <div>
     <h1 className="text-center page-title">About</h1>
-      <p>Welcome to My React Weather App. For more info, please visit the links below:</p>
+      <h4>Welcome!  For more info, please visit the website links below:</h4>
       <div className="page-text">
         <a href="https://facebook.github.io/react">React
         </a> - JavaScript framework for building user interfaces.<br/>

@@ -4,10 +4,10 @@ import LocationForm from './LocationForm'
 import OutputDisplay from './OutputDisplay'
 import NavBar from './NavBar';
 import Home from './Home';
-//import Forecast from 'Forecast';
 import Map  from './Map';
 import About from './About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+//import Forecast from 'Forecast';
 
 export default class WeatherApp extends React.Component {
   constructor(props) {
@@ -88,6 +88,7 @@ export default class WeatherApp extends React.Component {
       <Router>
         <div>
           <NavBar />
+          <br/><br/>
           <Route exact path="/" component={Home} />
           <Route exact path="/map" component={Map}/>
           <Route exact path="/about" component={About}/>
