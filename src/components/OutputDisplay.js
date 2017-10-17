@@ -19,11 +19,5 @@ const OutputDisplay = (props) =>
     </p>
     <br/>
   </div>;
-/*
-  OutputDisplay.defaultProps = {
-    locOutput: 'Please Provide A Location.',
-    tempOutput: 'Not Loaded Yet',
-    condOutput: 'Not Loaded Yet'
-  };
-*/
+
   export default OutputDisplay;

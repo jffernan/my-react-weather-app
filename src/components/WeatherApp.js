@@ -9,8 +9,8 @@ import About from './About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export default class WeatherApp extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       location: '',
       data: {}        //Obj contains weather date from API
@@ -42,11 +42,13 @@ export default class WeatherApp extends React.Component {
   }
 
   render() {
+    let currentLoc = 'Please Provide A Location.';
     let currentTemp = 'Not Loaded Yet';
     let currentCond = 'Not Loaded Yet';
     if (this.state.data.list) {
-       currentTemp = Math.round(this.state.data.list[0].main.temp);
-       currentCond = this.state.data.list[1].weather[0].main;
+      currentTemp = Math.round(this.state.data.list[0].main.temp);
+      currentCond = this.state.data.list[1].weather[0].main;
+      currentLoc = this.state.location
     }
 
     return (
@@ -59,10 +61,11 @@ export default class WeatherApp extends React.Component {
           <Route exact path="/about" component={About}/>
           <div className="weatherApp">
             <LocationForm
-              location = {this.state.location}
+              onSubmit={fetchData}
+              //location = {this.state.location}
             />
             <OutputDisplay
-              locOutput = {this.state.location}
+              locOutput = {currentLoc}
               tempOutput = {currentTemp}
               condOutput = {currentCond}
             />
