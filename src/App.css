@@ -108,6 +108,10 @@ Button {
   cursor: pointer;
 }
 
+.button-text {
+  font-size: 12px;
+}
+
 label {
   font-weight: bold;
 }
@@ -124,7 +128,7 @@ input[type=text] {
   border: 2px solid;
   border-color: #87cefa;
   padding: 13px 12px;
-  font-size: 16px;
+  font-size: 14px;
   box-shadow: 0 1px 1px;
   border-width: 2px;
   outline: none;
