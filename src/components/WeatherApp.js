@@ -34,6 +34,7 @@ export default class WeatherApp extends React.Component {
           data: data
         });
       })
+      .catch(error => alert("Error In Loading!"))
   };
 
   changeLocation = (event) => {
