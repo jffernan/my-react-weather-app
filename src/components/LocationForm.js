@@ -5,8 +5,8 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 
-const LocationForm = () =>
-  <Form> //onSubmit={this.fetchData}
+const LocationForm = (props) =>
+  <Form>
     <FormGroup bsSize="small" controlId="formValidationSuccess2" validationState="success">
       <div className="form">
         <ControlLabel>
@@ -16,8 +16,6 @@ const LocationForm = () =>
             name = "location"
             placeholder={"Type City, State, Zip, Country, etc."}
             autocomplete="on"
-            value={this.state.location}
-            onChange={this.changeLocation}
           />
         </ControlLabel>
       </div>
@@ -33,6 +31,6 @@ const LocationForm = () =>
       </div>
       <br/>
     </FormGroup>
-  </Form>;
+  </Form>
 
   export default LocationForm;
