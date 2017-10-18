@@ -6,16 +6,15 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 
 const LocationForm = (props) =>
-  <Form>
+  <Form onSubmit={props.fetchData}>
     <FormGroup bsSize="medium" controlId="formValidationSuccess2" validationState="success">
       <div className="form">
-        <ControlLabel>
-          Please Enter 'Location' for Current Weather Below:
-          <FormControl type="text"
+        <ControlLabel>Please Enter 'Location' for Current Weather Below:
+          <FormControl
+            type="text"
             id="location"
-            name = "location"
             placeholder={"Type City, State, Zip, Country, etc."}
-            autocomplete="on"
+            value={props.location}
             onChange={props.changeLocation}
           />
         </ControlLabel>
@@ -25,12 +24,10 @@ const LocationForm = (props) =>
           id="submit"
           type="submit"
           bsStyle="primary" active>
-          <span className = "button-text">
-            Fetch Weather
+          <span className = "button-text">Fetch Weather
           </span>
         </Button>
       </div>
-      <br/>
     </FormGroup>
   </Form>
 
