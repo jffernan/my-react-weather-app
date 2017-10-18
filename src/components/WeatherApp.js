@@ -17,8 +17,8 @@ export default class WeatherApp extends React.Component {
     };
   }
 
-  fetchData = (event) => {
-    event.preventDefault();
+  fetchData = (handleSubmit) => {
+    handleSubmit.preventDefault();
 
     const main = this;
     let location = encodeURIComponent(this.state.location);
