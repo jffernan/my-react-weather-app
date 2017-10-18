@@ -43,14 +43,14 @@ export default class WeatherApp extends React.Component {
   }
 
   render() {
-    let currentLoc = 'Please Enter Above.';
-    let currentTemp = 'Not Loaded Yet.';
-    let currentCond = 'Not Loaded Yet.';
+    let currentLoc = 'Please Enter Above';
+    let currentTemp = 'Not Loaded Yet';
+    let currentCond = 'Not Loaded Yet';
 
     if (this.state.data.list) {
       currentLoc = this.state.location;
       currentTemp = Math.round(this.state.data.list[0].main.temp);
-      currentCond = this.state.data.list[1].weather[0].main;
+      currentCond = this.state.data.list[1].weather[0].description; //Or main for short.
     }
 
     return (
