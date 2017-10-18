@@ -16,6 +16,7 @@ const LocationForm = (props) =>
               name="location"
               id="location"
               placeholder={"Type City, State, Zip, Country, etc."}
+              autocomplete="on"
               value={props.location}
               onChange={props.changeLocationSubmit}
             />

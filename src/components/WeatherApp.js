@@ -21,10 +21,11 @@ export default class WeatherApp extends React.Component {
     handleSubmit.preventDefault();
 
     const main = this;
-    let location = encodeURIComponent(this.state.location);
+    let query;
+    query = encodeURIComponent(this.state.location);
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
-    let url = urlPrefix + location + urlSuffix;
+    let url = urlPrefix + query + urlSuffix;
 
     fetch(url)
       .then(response => response.json())
