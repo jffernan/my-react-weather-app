@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-//import LocationForm from './LocationForm'
+import LocationForm from './LocationForm'
 import OutputDisplay from './OutputDisplay'
 import NavBar from './NavBar';
 import Home from './Home';
@@ -8,18 +8,12 @@ import Map  from './Map';
 import About from './About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Button from 'react-bootstrap/lib/Button';
-import Form from 'react-bootstrap/lib/Form';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import FormControl from 'react-bootstrap/lib/FormControl';
-
 export default class WeatherApp extends React.Component {
   constructor() {
     super();
     this.state = {
       location: '',
-      data: {}        //Obj contains weather date from API
+      data: {}
     };
   }
 
@@ -67,31 +61,11 @@ export default class WeatherApp extends React.Component {
           <Route exact path="/map" component={Map}/>
           <Route exact path="/about" component={About}/>
           <div className="weatherApp">
-            <Form onSubmit={this.fetchData}>
-              <FormGroup bsSize="medium" controlId="formValidationSuccess2" validationState="success">
-                <div className="form">
-                  <ControlLabel>Please Enter 'Location' for Current Weather Below:
-                    <FormControl
-                      type="text"
-                      name="location"
-                      id="location"
-                      placeholder={"Type Address, City, State, Zip, or Country."}
-                      value={this.state.location}
-                      onChange={this.changeLocation}
-                    />
-                  </ControlLabel>
-                </div>
-                <div className="submit">
-                  <Button
-                    id="submit"
-                    type="submit"
-                    bsStyle="primary" active>
-                    <span className = "button-text">Fetch Weather
-                    </span>
-                  </Button>
-                </div>
-              </FormGroup>
-            </Form>
+            <LocationForm
+              fetchDataSubmit = { this.fetchData}
+              changeLocationSubmit = { this.changeLocation }
+              location = { this.state.location }
+            />
             <OutputDisplay
               locOutput = { currentLoc }
               tempOutput = { currentTemp }
