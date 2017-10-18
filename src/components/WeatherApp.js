@@ -1,12 +1,18 @@
 import React from 'react';
 import '../App.css';
-import LocationForm from './LocationForm'
+//import LocationForm from './LocationForm'
 import OutputDisplay from './OutputDisplay'
 import NavBar from './NavBar';
 import Home from './Home';
 import Map  from './Map';
 import About from './About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Button from 'react-bootstrap/lib/Button';
+import Form from 'react-bootstrap/lib/Form';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
 
 export default class WeatherApp extends React.Component {
   constructor() {
@@ -30,7 +36,7 @@ export default class WeatherApp extends React.Component {
       .then(response => response.json())
       .then(data => {
         main.setState({
-           data: data
+          data: data
         });
       })
   };
@@ -42,10 +48,12 @@ export default class WeatherApp extends React.Component {
   }
 
   render() {
+    let currentLoc = 'Please Enter Above.';
     let currentTemp = 'Not Loaded Yet.';
     let currentCond = 'Not Loaded Yet.';
 
     if (this.state.data.list) {
+      currentLoc = this.state.location;
       currentTemp = Math.round(this.state.data.list[0].main.temp);
       currentCond = this.state.data.list[1].weather[0].main;
     }
@@ -59,11 +67,35 @@ export default class WeatherApp extends React.Component {
           <Route exact path="/map" component={Map}/>
           <Route exact path="/about" component={About}/>
           <div className="weatherApp">
-            <LocationForm />
+            <Form onSubmit={this.fetchData}>
+              <FormGroup bsSize="medium" controlId="formValidationSuccess2" validationState="success">
+                <div className="form">
+                  <ControlLabel>Please Enter 'Location' for Current Weather Below:
+                    <FormControl
+                      type="text"
+                      name="location"
+                      id="location"
+                      placeholder={"Type Address, City, State, Zip, or Country."}
+                      value={this.state.location}
+                      onChange={this.changeLocation}
+                    />
+                  </ControlLabel>
+                </div>
+                <div className="submit">
+                  <Button
+                    id="submit"
+                    type="submit"
+                    bsStyle="primary" active>
+                    <span className = "button-text">Fetch Weather
+                    </span>
+                  </Button>
+                </div>
+              </FormGroup>
+            </Form>
             <OutputDisplay
-              locOutput = { this.state.location }
-              tempOutput = {currentTemp}
-              condOutput = {currentCond}
+              locOutput = { currentLoc }
+              tempOutput = { currentTemp }
+              condOutput = { currentCond }
             />
           </div>
         </div>

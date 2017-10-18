@@ -8,7 +8,7 @@ const OutputDisplay = (props) =>
     </p>
     <p className="temp-wrapper">Current Temperature:
       <span className="temp">{ props.tempOutput }</span>
-      <span className="temp-symbol">°F</span>
+      <span className="temp-symbol"> °F</span>
     </p>
     <p className="cond-wrapper">Current Conditions:
       <span className="cond">{ props.condOutput }</span>

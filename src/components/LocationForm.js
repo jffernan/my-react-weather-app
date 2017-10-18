@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import Button from 'react-bootstrap/lib/Button';
 import Form from 'react-bootstrap/lib/Form';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
@@ -12,6 +12,7 @@ const LocationForm = (props) =>
         <ControlLabel>Please Enter 'Location' for Current Weather Below:
           <FormControl
             type="text"
+            name="location"
             id="location"
             placeholder={"Type City, State, Zip, Country, etc."}
             value={props.location}
@@ -32,3 +33,4 @@ const LocationForm = (props) =>
   </Form>
 
   export default LocationForm;
+*/
