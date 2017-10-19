@@ -19,4 +19,4 @@ const Map = (props) => {
 };
 
 export default Map;
-//+ props.route.gLocation
+//+ props.route.gLocation DOES NOT WORK in rrv4.0

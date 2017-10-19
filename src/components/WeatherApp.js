@@ -8,6 +8,15 @@ import Map from './Map';
 import About from './About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+const MyMap = (props) => {
+  return (
+    <Map
+      gLocation={this.gLocation.bind(this)}
+      {...props}
+    />
+  );
+}
+
 export default class WeatherApp extends React.Component {
   constructor() {
     super();
@@ -64,8 +73,9 @@ export default class WeatherApp extends React.Component {
           <NavBar />
           <br/><br/>
           <Route exact path="/" component={Home} />
-          <Route exact path="/map" component={Map} gLocation = { googleLoc }/>
-          <Route exact path="/about" component={About}/>
+          <Route exact path="/map" render={MyMap} />
+          //<Route exact path="/abc" render={props => <TestWidget someProp="2" {...props} />} />
+          <Route exact path="/about" component={About} />
           <div className="weatherApp">
             <LocationForm
               fetchDataSubmit = { this.fetchData}
