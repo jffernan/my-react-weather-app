@@ -47,12 +47,14 @@ export default class WeatherApp extends React.Component {
     let currentLoc = 'Please Enter Above.';
     let currentTemp = 'Not Loaded Yet.';
     let currentCond = 'Not Loaded Yet.';
+    let googleLoc = "Seattle";
     let testLat, testLon;
     testLat = "test";
     testLon = "test";
 
     if (this.state.data.list) {
       currentLoc = this.state.location;
+      googleLoc = this.state.location;
       currentTemp = Math.round(this.state.data.list[0].main.temp);
       currentCond = this.state.data.list[1].weather[0].description;
       testLat =     this.state.data.city.coord.lat;
@@ -65,8 +67,7 @@ export default class WeatherApp extends React.Component {
           <NavBar />
           <br/><br/>
           <Route exact path="/" component={Home} />
-          <Route exact path="/map" component={Map}>
-          </Route>
+          <Route exact path="/map" component={Map} gLocation = { googleLoc }/>
           <Route exact path="/about" component={About}/>
           <div className="weatherApp">
             <LocationForm
