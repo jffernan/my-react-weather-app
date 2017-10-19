@@ -65,7 +65,10 @@ export default class WeatherApp extends React.Component {
           <NavBar />
           <br/><br/>
           <Route exact path="/" component={Home} />
-          <Route exact path="/map" component={Map} />
+          <Route exact path="/map" component={Map}>
+            location = { this.state.location }
+            test = "test"
+          </Route>
           <Route exact path="/about" component={About}/>
           <div className="weatherApp">
             <LocationForm

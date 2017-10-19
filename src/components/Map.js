@@ -7,10 +7,12 @@ const Map = (props) => {
     <div>
       <h1 className="text-center page-title">Map Location</h1>
         <h4>
-          <a href="https://www.google.com/maps/search/{ props.location}" data-confirm="Are you sure you want to visit an external website?">
+          <a href={"https://www.google.com/maps/search/" + props.location}
+            onclick="return confirm('Are you sure you want to leave?')">
             'Click' To Google Map Your Location
           </a>
         </h4>
+        <p>test: {props.test}</p>
     </div>
   )
 };
