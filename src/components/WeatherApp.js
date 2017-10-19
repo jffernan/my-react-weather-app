@@ -47,18 +47,15 @@ export default class WeatherApp extends React.Component {
     let currentLoc = 'Please Enter Above.';
     let currentTemp = 'Not Loaded Yet.';
     let currentCond = 'Not Loaded Yet.';
-    let googleLoc = "Seattle";
-    let testLat, testLon;
-    testLat = "test";
-    testLon = "test";
+    let googleLoc = "Location";
 
     if (this.state.data.list) {
       currentLoc = this.state.location;
-      googleLoc = this.state.location;
+      googleLoc = encodeURIComponent(this.state.location);
       currentTemp = Math.round(this.state.data.list[0].main.temp);
       currentCond = this.state.data.list[1].weather[0].description;
-      testLat =     this.state.data.city.coord.lat;
-      testLon = this.state.data.city.coord.lon;
+      //currentLat = this.state.data.city.coord.lat;
+      //currentLon = this.state.data.city.coord.lon;
     }
 
     return (
@@ -80,8 +77,6 @@ export default class WeatherApp extends React.Component {
               tempOutput = { currentTemp }
               condOutput = { currentCond }
             />
-            <p>test: { testLat }</p>
-            <p>test: { testLon }</p>
           </div>
         </div>
       </Router>

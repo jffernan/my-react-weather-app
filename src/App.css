@@ -159,6 +159,12 @@ input:focus {
   text-transform: capitalize;
 }
 
+.gloc {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
 .temp-wrapper {
   text-align: center;
   position: relative;
