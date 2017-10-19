@@ -1,7 +1,7 @@
 import React from 'react';
 //import { connect } from 'react-redux';
 
-var Map = (props) => {
+const Map = (props) => {
   return (
     <div>
       <h1 className="text-center page-title">Map Location</h1>
