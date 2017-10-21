@@ -7,41 +7,29 @@ import Home from './Home';
 import Map from './Map';
 import About from './About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {
+  changeLocation,
+  fetchData
+ } from './actions';
 
-export default class WeatherApp extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      location: '',
-      data: {}
-    };
-  }
+class WeatherApp extends React.Component {
 
   fetchData = (handleSubmit) => {
     handleSubmit.preventDefault();
 
-    const main = this;
-    let query;
-    query = encodeURIComponent(this.state.location);
+    //const main = this;
+    //let query;
+    let location = encodeURIComponent(this.props.location);
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
-    let url = urlPrefix + query + urlSuffix;
-
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        main.setState({
-          data: data
-        });
-      })
-      .catch(error => alert("Error In Loading!"))
+    let url = urlPrefix + location + urlSuffix;
+    this.props.dispatch(fetchData(url));
   };
 
   changeLocation = (event) => {
-    this.setState({
-      location: event.target.value
-    });
-  }
+    this.props.dispatch(changeLocation(event.target.value));
+  };
 
   render() {
     let currentLoc = 'Please Enter Above.';
@@ -49,11 +37,11 @@ export default class WeatherApp extends React.Component {
     let currentCond = 'Not Loaded Yet.';
     let googleLoc = "Location";
 
-    if (this.state.data.list) {
-      currentLoc = this.state.location;
-      googleLoc = this.state.location;
-      currentTemp = Math.round(this.state.data.list[0].main.temp);
-      currentCond = this.state.data.list[1].weather[0].description;
+    if (this.props.data.list) {
+      currentLoc = this.props.location;
+      googleLoc = this.props.location;
+      currentTemp = Math.round(this.props.data.list[0].main.temp);
+      currentCond = this.props.data.list[1].weather[0].description;
       //currentLat = this.state.data.city.coord.lat;
       //currentLon = this.state.data.city.coord.lon;
     }
@@ -76,7 +64,7 @@ export default class WeatherApp extends React.Component {
             <LocationForm
               fetchDataSubmit = { this.fetchData}
               changeLocationSubmit = { this.changeLocation }
-              location = { this.state.location }
+              location = { this.props.location }
             />
             <OutputDisplay
               locOutput = { currentLoc }
@@ -89,3 +77,9 @@ export default class WeatherApp extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps)(WeatherApp);
