@@ -24,6 +24,8 @@ const NavBar = () =>
           background: 'darkblue',
           fontWeight: 'bold'
         }}
+        onClick={ refreshPage }
+        //refresh="true" does NOT WORK in RRv4.0
       >Home
       </NavLink>
       </li>
@@ -52,5 +54,8 @@ const NavBar = () =>
       </li>
     </ul>
   </div>
+
+let refreshPage = () =>
+  window.location.reload();
 
 export default NavBar;
