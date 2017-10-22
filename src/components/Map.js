@@ -6,7 +6,7 @@ const Map = (props) => {
       <h1 className="text-center page-title">Map Location</h1>
         <h4>
           <a target="_blank" href={"https://www.google.com/maps/search/" + encodeURIComponent(props.gLocation)}
-            onclick="return confirm('Are you sure you want to leave?')">
+            onclick="window.confirm('Are you sure you want to leave?')">
             'Click' Here To GoogleMap </a>
           <span className=".gloc">{ props.gLocation }</span>
         </h4>

@@ -16,7 +16,7 @@ export function fetchData(url) {
   return function thunk(dispatch) {
     fetch(url)
       .then(response => response.json())
-      .then(data => dispatch({ type: 'SET_DATA', data }));
-      //.catch(error => alert("Error In Loading!")); Is this still needed?
+      .then(data => dispatch({ type: 'SET_DATA', data }))
+      .catch(error => window.alert("Error In Loading!"));
   }
 }
