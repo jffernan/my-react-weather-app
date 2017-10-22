@@ -15,4 +15,4 @@ const Map = (props) => {
 };
 
 export default Map;
-//+ props.route.gLocation DOES NOT WORK in rrv4.0
+//+ props.route.gLocation DOES NOT WORK in React-Router Version 4.0

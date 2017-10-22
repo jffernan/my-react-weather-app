@@ -18,9 +18,7 @@ class WeatherApp extends React.Component {
   fetchData = (handleSubmit) => {
     handleSubmit.preventDefault();
 
-    //const main = this;
-    //let query;
-    let location = encodeURIComponent(this.props.location);
+    let location = encodeURIComponent(this.props.location); //let query;
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     let url = urlPrefix + location + urlSuffix;
@@ -51,16 +49,16 @@ class WeatherApp extends React.Component {
         <div>
           <NavBar />
           <br/><br/>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/map"
+          <Route exact path = "/" component = {Home}/>
+          <Route exact path = "/map"
             render = {props =>
               <Map
                 gLocation = { googleLoc } {...props}
               />
             }
           />
-          <Route exact path="/about" component={About} />
-          <div className="weatherApp">
+          <Route exact path = "/about" component = {About}/>
+          <div className = "weatherApp">
             <LocationForm
               fetchDataSubmit = { this.fetchData}
               changeLocationSubmit = { this.changeLocation }

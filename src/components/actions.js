@@ -17,5 +17,6 @@ export function fetchData(url) {
     fetch(url)
       .then(response => response.json())
       .then(data => dispatch({ type: 'SET_DATA', data }));
+      //.catch(error => alert("Error In Loading!"));
   }
 }
