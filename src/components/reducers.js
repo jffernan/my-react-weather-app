@@ -1,4 +1,4 @@
-var initialState = {
+let initialState = {
   location: '',
   data: {}
 };
