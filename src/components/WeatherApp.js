@@ -23,6 +23,10 @@ class WeatherApp extends React.Component {
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     let url = urlPrefix + location + urlSuffix;
     this.props.dispatch(fetchData(url));
+    //reset state to blank string & clear out input form after SUBMIT 
+    this.setState({
+      location: ''
+    });
   };
 
   changeLocation = (event) => {
