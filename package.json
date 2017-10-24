@@ -1,8 +1,10 @@
 {
   "name": "my-react-weather-app",
+  "homepage": "https://jffernan.github.io/my-react-weather-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "google-map-react": "^0.24.0",
     "google-maps-react": "^1.1.0",
     "react": "^16.0.0",
@@ -14,6 +16,8 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
