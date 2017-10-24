@@ -22,3 +22,4 @@ ReactDOM.render(
 );
 
 registerServiceWorker();
+//any JS and CSS files must be inside src folder or Webpack won’t see them
