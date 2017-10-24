@@ -59,6 +59,7 @@ class WeatherApp extends React.Component {
             }
           />
           <Route exact path = "/about" component = {About}/>
+          <br/>
           <div className = "weatherApp">
             <LocationForm
               fetchDataSubmit = { this.fetchData}

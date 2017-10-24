@@ -53,7 +53,6 @@ const NavBar = () =>
       </Link>
       </li>
     </ul>
-    <br/>
   </div>
 
 let refreshPage = () =>
