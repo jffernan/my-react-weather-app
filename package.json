@@ -3,6 +3,7 @@
   "homepage": "https://jffernan.github.io/my-react-weather-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "gh-pages": "^1.0.0",
     "google-map-react": "^0.24.0",
