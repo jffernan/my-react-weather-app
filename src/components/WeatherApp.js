@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../App.css';
 import LocationForm from './LocationForm'
 import OutputDisplay from './OutputDisplay'
@@ -13,7 +13,7 @@ import {
   fetchData
  } from './actions';
 
-class WeatherApp extends React.Component {
+class WeatherApp extends Component {
 
   fetchData = (handleSubmit) => {
     handleSubmit.preventDefault();
