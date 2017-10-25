@@ -79,8 +79,8 @@ class WeatherApp extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return state;
 }
-
+//return entire state instead of location: state.location
 export default connect(mapStateToProps)(WeatherApp);
