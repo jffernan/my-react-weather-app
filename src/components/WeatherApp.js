@@ -22,7 +22,7 @@ class WeatherApp extends Component {
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     let url = urlPrefix + location + urlSuffix;
-    this.props.dispatch(fetchData(url));
+    this.props.dispatch(fetchData(url));//call function thunked action
     //reset state to blank string & clear out input form after SUBMIT
     //this.setState({location: ''});
   };

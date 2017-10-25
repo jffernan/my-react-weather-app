@@ -13,7 +13,7 @@ export function setData(data) {
 };
 
 export function fetchData(url) {
-  return function thunk(dispatch) {
+  return (dispatch) => {
     fetch(url)
       .then(response => response.json())
       .then(data => dispatch({ type: 'SET_DATA', data }))
