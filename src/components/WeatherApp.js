@@ -23,8 +23,6 @@ class WeatherApp extends Component {
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     let url = urlPrefix + location + urlSuffix;
     this.props.dispatch(fetchData(url));//call function thunked action
-    //reset state to blank string & clear out input form after SUBMIT
-    //this.setState({location: ''});
   };
 
 /*
@@ -50,15 +48,7 @@ class WeatherApp extends Component {
     let currentTemp = 'Not Loaded Yet.';
     let currentCond = 'Not Loaded Yet.';
     let googleLoc = "Location";
-    let cities = this.props.cities;
-    let searchString = this.props.location.trim().toLowerCase();
-
-    if(searchString.length > 0){
-      cities = cities.filter(function(city){
-        return city.name.toLowerCase().match( searchString );
-      });
-    }
-
+    
     if (this.props.data.list) {
       currentLoc = this.props.location;
       googleLoc = this.props.location;
