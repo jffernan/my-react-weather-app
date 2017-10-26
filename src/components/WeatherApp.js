@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
-import LocationForm from './LocationForm'
-import OutputDisplay from './OutputDisplay'
+import LocationForm from './LocationForm';
+import CitiesContainer from './CitiesContainer';
+import OutputDisplay from './OutputDisplay';
 import NavBar from './NavBar';
 import Home from './Home';
 import Map from './Map';
@@ -14,13 +15,6 @@ import {
  } from './actions';
 
 class WeatherApp extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      cities: []
-    };
-  }
-
   fetchData = (handleSubmit) => {
     handleSubmit.preventDefault();
 
@@ -33,10 +27,11 @@ class WeatherApp extends Component {
     //this.setState({location: ''});
   };
 
+/*
   fetchCities = () => {
     let main = this;
 
-    fetch('http://localhost:3001/api/v1/cities')
+    fetch('http://localhost:3001/api/v1/cities') .json?
       .then(response => response.json())
       .then(cities => {
         main.setState({
@@ -44,6 +39,7 @@ class WeatherApp extends Component {
         });
       })
   };
+  */
 
   changeLocation = (event) => {
     this.props.dispatch(changeLocation(event.target.value));
@@ -54,11 +50,10 @@ class WeatherApp extends Component {
     let currentTemp = 'Not Loaded Yet.';
     let currentCond = 'Not Loaded Yet.';
     let googleLoc = "Location";
-    let cities = this.state.cities;
+    let cities = this.props.cities;
     let searchString = this.props.location.trim().toLowerCase();
 
     if(searchString.length > 0){
-// We are searching. Filter the results.
       cities = cities.filter(function(city){
         return city.name.toLowerCase().match( searchString );
       });
@@ -94,13 +89,7 @@ class WeatherApp extends Component {
               changeLocationSubmit = { this.changeLocation }
               location = { this.props.location }
             />
-            <div className = "cityList">
-            <ul>
-              { cities.map(function(city){
-                return <li>{city.name}</li>
-              }) }
-            </ul>
-            </div>
+            <CitiesContainer />
             <OutputDisplay
               locOutput = { currentLoc }
               tempOutput = { currentTemp }
