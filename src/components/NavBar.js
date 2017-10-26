@@ -55,7 +55,5 @@ const NavBar = () =>
     </ul>
   </div>
 
-//let refreshPage = () =>
-//  window.location.reload();
-
+//let refreshPage = () => window.location.reload();
 export default NavBar;
