@@ -15,7 +15,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <WeatherApp />
+    <WeatherApp names={ cities }/>
   </Provider>,
   document.getElementById('root')
 );
