@@ -29,7 +29,7 @@ class WeatherApp extends Component {
   fetchCities = () => {
     let main = this;
 
-    fetch('http://localhost:3001/api/v1/cities') .json?
+    fetch('/api/v1/cities') .json?
       .then(response => response.json())
       .then(cities => {
         main.setState({
@@ -48,7 +48,7 @@ class WeatherApp extends Component {
     let currentTemp = 'Not Loaded Yet.';
     let currentCond = 'Not Loaded Yet.';
     let googleLoc = "Location";
-    
+
     if (this.props.data.list) {
       currentLoc = this.props.location;
       googleLoc = this.props.location;
@@ -79,7 +79,9 @@ class WeatherApp extends Component {
               changeLocationSubmit = { this.changeLocation }
               location = { this.props.location }
             />
-            <CitiesContainer />
+            <CitiesContainer
+              searchString = { this.props.location }
+              />
             <OutputDisplay
               locOutput = { currentLoc }
               tempOutput = { currentTemp }

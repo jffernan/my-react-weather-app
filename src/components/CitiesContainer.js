@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class CitiesContainer extends Component {
-  constructor(props) {
+  /*constructor(props) {
     super(props);
     this.state = {
       cities: []
@@ -19,12 +19,26 @@ class CitiesContainer extends Component {
     })
     .catch(error => console.log(error))
   };
-
+*/
   render() {
-    let cities = this.state.cities
+    let cities = [
+      {name: "New York"},
+      {name: "Los Angeles"},
+      {name: "Chicago"},
+      {name: "Houston"},
+      {name: "Phoenix"}
+    ];
+    
+    let searchString = this.props.searchString.trim().toLowerCase();
+
+    if(searchString.length > 0){
+      cities = cities.filter(function(city){
+        return city.name.toLowerCase().match( searchString );
+      });
+    }
 
     return (
-      <div>
+      <div className = "cityList">
         <ul>
           { cities.map(function(city){
             return <li>{city.name}</li>
