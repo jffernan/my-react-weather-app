@@ -33,19 +33,16 @@ class WeatherApp extends Component {
     //this.setState({location: ''});
   };
 
-  fetchCities = (handleSubmit) => {
-    handleSubmit.preventDefault();
-
-    let location = encodeURIComponent(this.props.location);
+  fetchCities = () => {
     let main = this;
 
-    fetch(/api/v1/cities)
+    fetch('http://localhost:3001/api/v1/cities')
       .then(response => response.json())
       .then(cities => {
         main.setState({
            cities: cities
-      });
-    })
+        });
+      })
   };
 
   changeLocation = (event) => {
@@ -57,8 +54,8 @@ class WeatherApp extends Component {
     let currentTemp = 'Not Loaded Yet.';
     let currentCond = 'Not Loaded Yet.';
     let googleLoc = "Location";
-    let cities = this.props.items,
-        searchString = this.props.location.trim().toLowerCase();
+    let cities = this.state.cities;
+    let searchString = this.props.location.trim().toLowerCase();
 
     if(searchString.length > 0){
 // We are searching. Filter the results.
@@ -97,11 +94,13 @@ class WeatherApp extends Component {
               changeLocationSubmit = { this.changeLocation }
               location = { this.props.location }
             />
+            <div className = "cityList">
             <ul>
               { cities.map(function(city){
                 return <li>{city.name}</li>
               }) }
             </ul>
+            </div>
             <OutputDisplay
               locOutput = { currentLoc }
               tempOutput = { currentTemp }
