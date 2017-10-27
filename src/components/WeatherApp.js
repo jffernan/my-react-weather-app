@@ -67,6 +67,8 @@ class WeatherApp extends Component {
             />
             <CitiesContainer
               searchString = { this.props.location }
+              fetchDataClick = { this.fetchData}
+              location = { this.props.location }
               />
             <OutputDisplay
               locOutput = { currentLoc }

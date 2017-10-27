@@ -19,6 +19,10 @@ export default class CitiesContainer extends Component {
     });
   };
 
+  clickHandler() {
+    this.props.fetchDataClick();
+  };
+
   render() {
 
     let cities = this.state.cityList;

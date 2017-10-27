@@ -238,6 +238,7 @@ p.capitalize {
   position: relative;
   text-align: center;
   font-weight: bold;
+  cursor: pointer;
   transition: 0.3s;
 }
 
