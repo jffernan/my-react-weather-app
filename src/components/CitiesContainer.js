@@ -46,6 +46,15 @@ export default class CitiesContainer extends Component {
             );
           })}
         </ul>
+        <div className="submit">
+          <Button
+            id="submit"
+            type="submit"
+            bsStyle="primary" active>
+            <span className = "button-text">New City
+            </span>
+          </Button>
+        </div>
       </div>
     );
   }
