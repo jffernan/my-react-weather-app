@@ -25,20 +25,6 @@ class WeatherApp extends Component {
     this.props.dispatch(fetchData(url));//call function thunked action
   };
 
-/*
-  fetchCities = () => {
-    let main = this;
-
-    fetch('/api/v1/cities') .json?
-      .then(response => response.json())
-      .then(cities => {
-        main.setState({
-           cities: cities
-        });
-      })
-  };
-  */
-
   changeLocation = (event) => {
     this.props.dispatch(changeLocation(event.target.value));
   };
