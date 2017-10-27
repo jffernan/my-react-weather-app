@@ -24,6 +24,16 @@ export default class CitiesContainer extends Component {
     this.props.fetchDataClick();
   };
 
+  addNewCity = () => {
+    fetch('/api/v1/cities', {city: {name: ''}})
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => console.log(error))
+  }
+
+
+
   render() {
 
     let cities = this.state.cityList;
@@ -50,8 +60,10 @@ export default class CitiesContainer extends Component {
           <Button
             id="submit"
             type="submit"
-            bsStyle="primary" active>
-            <span className = "button-text">New City
+            bsStyle="primary" active
+            onClick={this.addNewCity} >
+            <span className = "button-text">
+              New City
             </span>
           </Button>
         </div>
