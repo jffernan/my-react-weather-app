@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import City from './City'
 
 export default class CitiesContainer extends Component {
   constructor(props) {
@@ -41,9 +42,7 @@ export default class CitiesContainer extends Component {
         <ul>
           { cities.map((city) => {
             return (
-              <div className = "cityList" key={cities.id}>
-                <li>{city.name}</li>
-              </div>
+              <City cities={city} key={cities.id} />
             );
           })}
         </ul>
