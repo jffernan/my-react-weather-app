@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 
 class City extends Component {
-//editing an existing city on click
-//fetchData of existing city on click
-  handleClick = () => {
-    this.props.onClick(this.props.cities.id)
+//fetchDataClick of existing city on click
+  clickHandler = () => {
+    this.props.fetchDataClick(this.props.name)
   }
 
   render () {
     return (
       <div className = "cityList"
-        <li onClick={this.handleClick}>
-          {this.props.cities.name}
+        <li onClick={this.clickHandler}>
+          {this.props.name}
         </li>
       </div>
     )
@@ -19,12 +18,3 @@ class City extends Component {
 }
 
 export default City;
-
-/*
-const City = ({cities}) =>
-  <div className = "cityList" key={cities.id}>
-    <li>{cities.name}</li>
-  </div>
-
-export default City;
-*/

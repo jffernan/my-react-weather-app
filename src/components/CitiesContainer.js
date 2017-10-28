@@ -8,7 +8,8 @@ export default class CitiesContainer extends Component {
     super(props);
     this.state = {
       cityList: [],
-      editingCityId: null
+      editingCityId: null,
+      data: {}
     };
   };
 
@@ -22,11 +23,7 @@ export default class CitiesContainer extends Component {
       });
     });
   };
-/*
-  clickHandler() {
-    this.props.fetchDataClick();
-  };
-*/
+
   addNewCity = () => {
     fetch('/api/v1/cities', {city: {name: ''}})
     .then(response => {
@@ -54,19 +51,16 @@ export default class CitiesContainer extends Component {
   enableEditing = (id) => {
     this.setState({editingCityId: id})
   }
-/*
-  fetchDataClick = (event) => {
-    event.preventDefault();
 
-    let query = encodeURIComponent({city});
+  fetchDataCity = (name) => {
 
+    let query = encodeURIComponent({name});
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     let url = urlPrefix + query + urlSuffix;
+    let self = this;
 
-    let main = this;
-
-    fetch(url) //.then( function(response) { return response; } )
+    fetch(url)
       .then(response => response.json())
       .then(data => {
         main.setState({
@@ -74,10 +68,9 @@ export default class CitiesContainer extends Component {
         });
       })
   };
-*/
 
   render() {
-
+    let self = this;
     let cities = this.state.cityList;
     let searchString = this.props.searchString.trim().toLowerCase();
 
@@ -87,6 +80,18 @@ export default class CitiesContainer extends Component {
           city.name.toLowerCase().match( searchString )
         );
       });
+    }
+
+    let currentLoc = 'Please Enter Above.';
+    let currentTemp = 'Not Loaded Yet.';
+    let currentCond = 'Not Loaded Yet.';
+    let googleLoc = "Location";
+
+    if (this.props.data.list) {
+      currentLoc = name;
+      googleLoc = name;
+      currentTemp = Math.round(this.props.data.list[0].main.temp);
+      currentCond = this.props.data.list[1].weather[0].description;
     }
 
     return (
@@ -107,8 +112,8 @@ export default class CitiesContainer extends Component {
                   cities={city}
                   key={cities.id}
                   //onClick={this.enableEditing}
-                  onClick={this.props.fetchDataClick}
-                  city={ this.props.location }
+                  name = {city.name}
+                  fetchDataClick={self.fetchDataCity}
                 />
             );
           })}
@@ -123,9 +128,6 @@ export default class CitiesContainer extends Component {
               New City
             </span>
           </Button>
-          <span className="notification">
-            {this.state.notification}
-          </span>
         </div>
       </div>
     );
