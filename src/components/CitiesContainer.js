@@ -8,7 +8,8 @@ export default class CitiesContainer extends Component {
     super(props);
     this.state = {
       cityList: [],
-      editingCityId: null
+      editingCityId: null,
+      notification: ''
     };
   };
 
@@ -41,6 +42,42 @@ export default class CitiesContainer extends Component {
     .catch(error => console.log(error))
   }
 
+  updateCity = (city) => {
+    const cityIndex = this.state.cities.findIndex(x => x.id === cities.id)
+    const cities = update(this.state.cityList, {
+      [cityIndex]: { $set: city }
+    })
+    this.setState({
+      cityList: cities,
+      notification: 'New City Saved'
+    })
+  }
+
+  enableEditing = (id) => {
+    this.setState({editingCityId: id})
+  }
+/*
+  fetchDataClick = (event) => {
+    event.preventDefault();
+
+    let query = encodeURIComponent({city});
+
+    let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
+    let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
+    let url = urlPrefix + query + urlSuffix;
+
+    let main = this;
+
+    fetch(url) //.then( function(response) { return response; } )
+      .then(response => response.json())
+      .then(data => {
+        main.setState({
+           data: data
+        });
+      })
+  };
+*/
+
   render() {
 
     let cities = this.state.cityList;
@@ -59,10 +96,23 @@ export default class CitiesContainer extends Component {
         <ul>
           { cities.map((city) => {
             if(this.state.editingCityId === cities.id) {
-              return(<CityForm cities={city} key={city.id} />)
+              return (
+                <CityForm
+                  cities={city}
+                  key={city.id}
+                  updateCity={this.updateCity}
+                  resetNotification={this.resetNotification}
+                />
+              )
             } else {
               return (
-                <City cities={city} key={cities.id} />
+                <City
+                  cities={city}
+                  key={cities.id}
+                  //onClick={this.enableEditing}
+                  onClick={this.props.fetchDataClick}
+                  city={ this.props.location }
+                />
             );
           })}
         </ul>
@@ -76,6 +126,9 @@ export default class CitiesContainer extends Component {
               New City
             </span>
           </Button>
+          <span className="notification">
+            {this.state.notification}
+          </span>
         </div>
       </div>
     );

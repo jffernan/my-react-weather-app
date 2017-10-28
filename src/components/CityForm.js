@@ -14,13 +14,35 @@ class CityForm extends Component {
   }
 
   handleInput = (event) => {
+    this.props.resetNotification()
     this.setState({[event.target.name]: event.target.value})
+  }
+
+  resetNotification = () => {
+    this.setState({notification: ''})
+  }
+
+  handleBlur = () => {
+    const city = {
+      name: this.state.name
+    }
+
+    fetch(
+      `/api/v1/cities/${this.props.city.id}`,
+      {
+        city: city
+      })
+    .then(response => {
+      console.log(response)
+      this.props.updateCity(response.data)
+    })
+    .catch(error => console.log(error))
   }
 
   render() {
     return (
       <div>
-        <Form>
+        <Form onBlur={this.handleBlur} >
           <FormGroup bsSize="medium" controlId="formValidationSuccess2" validationState="success">
             <div className="form">
               <FormControl
@@ -30,8 +52,6 @@ class CityForm extends Component {
                 onChange={this.handleInput} />
                 id="name"
                 placeholder={"Enter Name Of New City."}
-                value={props.location}
-                onChange={props.changeLocationSubmit}
               />
             </div>
             <div className="submit">
