@@ -8,6 +8,7 @@
     "gh-pages": "^1.0.0",
     "google-map-react": "^0.24.0",
     "google-maps-react": "^1.1.0",
+    "immutability-helper": "^2.4.0",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^16.0.0",

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import City from './City'
+import update from 'immutability-helper'
 
 export default class CitiesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cityList: []
+      cityList: [],
+      editingCityId: null
     };
   };
 
@@ -19,20 +21,24 @@ export default class CitiesContainer extends Component {
       });
     });
   };
-
+/*
   clickHandler() {
     this.props.fetchDataClick();
   };
-
+*/
   addNewCity = () => {
     fetch('/api/v1/cities', {city: {name: ''}})
     .then(response => {
-      console.log(response)
+      const cities = update(this.state.cityList, {
+      $splice: [[0, 0, response.data]]
+    })
+      this.setState({
+        cityList: cities,
+        editingCityId: response.data.id
+      })
     })
     .catch(error => console.log(error))
   }
-
-
 
   render() {
 
@@ -51,8 +57,11 @@ export default class CitiesContainer extends Component {
       <div>
         <ul>
           { cities.map((city) => {
-            return (
-              <City cities={city} key={cities.id} />
+            if(this.state.editingCityId === cities.id) {
+              return(<CityForm cities={city} key={city.id} />)
+            } else {
+              return (
+                <City cities={city} key={cities.id} />
             );
           })}
         </ul>
