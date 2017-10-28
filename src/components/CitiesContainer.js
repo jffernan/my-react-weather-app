@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import City from './City'
 import update from 'immutability-helper'
 import CityForm from './CityForm'
+import Button from 'react-bootstrap/lib/Button';
 
 export default class CitiesContainer extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ export default class CitiesContainer extends Component {
     this.state = {
       cityList: [],
       editingCityId: null,
-      data: {}
+      data: {},
+      display: ''
     };
   };
 
@@ -63,8 +65,9 @@ export default class CitiesContainer extends Component {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        main.setState({
-           data: data
+        self.setState({
+           data: data,
+           display: name
         });
       })
   };
@@ -73,7 +76,7 @@ export default class CitiesContainer extends Component {
     let self = this;
     let cities = this.state.cityList;
     let searchString = this.props.searchString.trim().toLowerCase();
-
+//Displays all cities
     if(searchString.length > 0){
       cities = cities.filter((city) => {
         return (
@@ -87,11 +90,11 @@ export default class CitiesContainer extends Component {
     let currentCond = 'Not Loaded Yet.';
     let googleLoc = "Location";
 
-    if (this.props.data.list) {
-      currentLoc = name;
-      googleLoc = name;
-      currentTemp = Math.round(this.props.data.list[0].main.temp);
-      currentCond = this.props.data.list[1].weather[0].description;
+    if (this.state.data.list) {
+      currentLoc = this.state.display;
+      googleLoc = this.state.display;
+      currentTemp = Math.round(this.state.data.list[0].main.temp);
+      currentCond = this.state.data.list[1].weather[0].description;
     }
 
     return (
@@ -106,29 +109,31 @@ export default class CitiesContainer extends Component {
                   updateCity={this.updateCity}
                 />
               )
-            } else {
+            }
+            else {
               return (
                 <City
                   cities={city}
                   key={cities.id}
-                  //onClick={this.enableEditing}
                   name = {city.name}
                   fetchDataClick={self.fetchDataCity}
                 />
-            );
+              )
+            }
           })}
         </ul>
-        <div className="submit">
+        <div className="submitNewCity">
           <Button
             id="submit"
             type="submit"
             bsStyle="primary" active
             onClick={this.addNewCity} >
             <span className = "button-text">
-              New City
+              Add New City
             </span>
           </Button>
         </div>
+        <br/>
       </div>
     );
   }

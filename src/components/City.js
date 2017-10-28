@@ -8,7 +8,7 @@ class City extends Component {
 
   render () {
     return (
-      <div className = "cityList"
+      <div className = "cityList">
         <li onClick={this.clickHandler}>
           {this.props.name}
         </li>
