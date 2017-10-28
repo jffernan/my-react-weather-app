@@ -8,8 +8,7 @@ export default class CitiesContainer extends Component {
     super(props);
     this.state = {
       cityList: [],
-      editingCityId: null,
-      notification: ''
+      editingCityId: null
     };
   };
 
@@ -48,8 +47,7 @@ export default class CitiesContainer extends Component {
       [cityIndex]: { $set: city }
     })
     this.setState({
-      cityList: cities,
-      notification: 'New City Saved'
+      cityList: cities
     })
   }
 
@@ -101,7 +99,6 @@ export default class CitiesContainer extends Component {
                   cities={city}
                   key={city.id}
                   updateCity={this.updateCity}
-                  resetNotification={this.resetNotification}
                 />
               )
             } else {

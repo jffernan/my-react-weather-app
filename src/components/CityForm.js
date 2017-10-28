@@ -14,12 +14,7 @@ class CityForm extends Component {
   }
 
   handleInput = (event) => {
-    this.props.resetNotification()
     this.setState({[event.target.name]: event.target.value})
-  }
-
-  resetNotification = () => {
-    this.setState({notification: ''})
   }
 
   handleBlur = () => {
@@ -59,8 +54,6 @@ class CityForm extends Component {
                 id="submit"
                 type="submit"
                 bsStyle="primary" active>
-                <span className = "button-text">Fetch Weather
-                </span>
               </Button>
             </div>
           </FormGroup>

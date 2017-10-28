@@ -10,7 +10,7 @@ const LocationForm = (props) =>
     <Form onSubmit={props.fetchDataSubmit}>
       <FormGroup bsSize="medium" controlId="formValidationSuccess2" validationState="success">
         <div className="form">
-          <ControlLabel>Please Enter 'Location' for Current Weather Below:
+          <ControlLabel>Please Enter 'Location' Or 'Select' City Below:
             <FormControl
               type="text"
               name="location"
