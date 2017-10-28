@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import City from './City'
 import update from 'immutability-helper'
+import CityForm from './CityForm'
 
 export default class CitiesContainer extends Component {
   constructor(props) {
