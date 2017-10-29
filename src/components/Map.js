@@ -12,11 +12,11 @@ const Map = (props) => {
     </div>
   )
 };
-
+/*
 Map.defaultProps = {
   gLocation: "Location"
 };
-
+*/
 export default Map;
 //+ props.route.gLocation DOES NOT WORK in React-Router Version 4.0
-//onClick={alert('Are you sure you want to leave?')} 
+//onClick={alert('Are you sure you want to leave?')}

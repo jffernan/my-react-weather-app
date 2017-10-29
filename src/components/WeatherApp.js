@@ -15,8 +15,9 @@ import {
  } from './actions';
 
 class WeatherApp extends Component {
-  fetchData = () => {
-    //handleSubmit.preventDefault();
+
+  fetchData = (handleSubmit) => {
+    handleSubmit.preventDefault();
     let location = encodeURIComponent(this.props.location);
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
@@ -29,7 +30,11 @@ class WeatherApp extends Component {
   };
 
   render() {
-    let currentLoc, currentTemp, currentCond, googleLoc;
+    let currentLoc = 'Please Enter Above.';
+    let currentTemp = 'Not Loaded Yet.';
+    let currentCond = 'Not Loaded Yet.';
+    let googleLoc = "Location";
+
     if (this.props.data.list) {
       currentLoc = this.props.location;
       currentTemp = Math.round(this.props.data.list[0].main.temp);
@@ -53,7 +58,6 @@ class WeatherApp extends Component {
             }
           />
           <Route exact path = "/about" component = {About}/>
-          <br/>
           <div className = "weatherApp">
             <LocationForm
               fetchDataSubmit = { this.fetchData}
@@ -62,8 +66,7 @@ class WeatherApp extends Component {
             />
             <CitiesContainer
               searchString = { this.props.location }
-              fetchDataClick = { this.fetchData}
-              />
+            />
             <OutputDisplay
               locOutput = { currentLoc }
               tempOutput = { currentTemp }
@@ -81,3 +84,4 @@ const mapStateToProps = (state) => {
 }
 //return entire state instead of location: state.location
 export default connect(mapStateToProps)(WeatherApp);
+//fetchDataClick = { this.fetchData}

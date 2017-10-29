@@ -9,8 +9,7 @@ export default class CitiesContainer extends Component {
     super(props);
     this.state = {
       cityList: [],
-      editingCityId: null,
-      loc: ''
+      editingCityId: null
     };
   };
 //CDM id: city.id, ?????
@@ -47,12 +46,12 @@ export default class CitiesContainer extends Component {
       cityList: cities
     })
   }
-
+/*
   passCityName =  ( name ) => {
     this.setState( { loc: name } );
     this.props.fetchDataClick(this.state.loc)
   }
-
+*/
 /*
   enableEditing = (id) => {
     this.setState({editingCityId: id})
@@ -60,7 +59,7 @@ export default class CitiesContainer extends Component {
 */
 
   render() {
-    let self = this;
+//let self = this;
     let cities = this.state.cityList;
     let searchString = this.props.searchString.trim().toLowerCase();
 //Shows all cities
@@ -92,7 +91,7 @@ export default class CitiesContainer extends Component {
                   cities={city}
                   key={city.id}
                   cityName = {city.name}
-                  handleClick={self.passCityName}
+                  //handleClick={self.passCityName}
                 />
               )
             }

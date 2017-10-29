@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 
 class City extends Component {
 //fetchDataClick of existing city on click
-  clickHandler = () => {
+/*  clickHandler = () => {
     this.props.handleClick(this.props.cityName)
   }
+*/
 /*
   handleClick = () => {
     this.props.onClick(this.props.city.id) Grab id ????
@@ -13,7 +14,7 @@ class City extends Component {
   render () {
     return (
       <div className = "cityList" >
-        <li onClick={this.clickHandler} >
+        <li>
           <b>{this.props.cityName}</b>
         </li>
       </div>
@@ -22,3 +23,4 @@ class City extends Component {
 }
 
 export default City;
+//li onClick={this.clickHandler} not working?
