@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import City from './City'
-import update from 'immutability-helper'
-import CityForm from './CityForm'
+//import CityForm from './CityForm'
 import Button from 'react-bootstrap/lib/Button';
 
 export default class CitiesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cityList: [],
-      editingCityId: null
+      cityList: []
     };
   };
 //CDM id: city.id, ?????
@@ -23,38 +21,11 @@ export default class CitiesContainer extends Component {
     });
   };
 
-  addNewCity = () => {
-    fetch('/api/v1/cities', {city: {name: ''}})
-    .then(cities => {
-      update(this.state.cityList, {
-        $splice: [[0, 0, cities]]
-    })
-      this.setState({
-        cityList: cities,
-        editingCityId: cities.id
-      })
-    })
-    .catch(error => console.log(error))
-  }
-
-  updateCity = (city) => {
-    const cityIndex = this.state.cityList.findIndex(x => x.id === city.id)
-    const cities = update(this.state.cityList, {
-      [cityIndex]: { $set: city }
-    })
-    this.setState({
-      cityList: cities
-    })
-  }
+//
 /*
   passCityName =  ( name ) => {
     this.setState( { loc: name } );
     this.props.fetchDataClick(this.state.loc)
-  }
-*/
-/*
-  enableEditing = (id) => {
-    this.setState({editingCityId: id})
   }
 */
 
@@ -71,30 +42,18 @@ export default class CitiesContainer extends Component {
       });
     }
 
-//TypeError: cities.map is not a function define ABOVE????
     return (
       <div>
         <ul>
           { cities.map((city) => {
-            if(this.state.editingCityId === city.id) {
-              return (
-                <CityForm
-                  cities={city}
-                  key={city.id}
-                  updateCity={this.updateCity}
-                />
-              )
-            }
-            else {
-              return (
-                <City
-                  cities={city}
-                  key={city.id}
-                  cityName = {city.name}
-                  //handleClick={self.passCityName}
-                />
-              )
-            }
+            return (
+              <City
+                cities={city}
+                key={city.id}
+                cityName = {city.name}
+                //handleClick={self.passCityName}
+              />
+            )
           })}
         </ul>
         <div className="submitNewCity">
@@ -102,7 +61,8 @@ export default class CitiesContainer extends Component {
             id="submit"
             type="submit"
             bsStyle="primary" active
-            onClick={this.addNewCity} >
+            //onClick={this.displayCityForm}
+            >
             <span className = "button-text">
               Add New City
             </span>

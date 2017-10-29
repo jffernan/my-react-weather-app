@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import { Button, Form, FormControl, FormGroup } from 'react-bootstrap';
 
 class CityForm extends Component {
@@ -60,3 +60,4 @@ class CityForm extends Component {
 }
 
 export default CityForm
+*/
