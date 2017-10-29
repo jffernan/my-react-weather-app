@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import City from './City'
-//import CityForm from './CityForm'
+import CityForm from './CityForm'
 import Button from 'react-bootstrap/lib/Button';
 
 export default class CitiesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cityList: []
+      cityList: [],
+      showButton: false
     };
   };
 //CDM id: city.id, ?????
@@ -28,6 +29,9 @@ export default class CitiesContainer extends Component {
     this.props.fetchDataClick(this.state.loc)
   }
 */
+  onClick() {
+    this.setState({showButton: !this.state.showButton});
+  }
 
   render() {
 //let self = this;
@@ -56,19 +60,19 @@ export default class CitiesContainer extends Component {
             )
           })}
         </ul>
-        <div className="submitNewCity">
+        <div className="addNewCity" >
           <Button
+            onClick={() => this.onClick()}
             id="submit"
             type="submit"
-            bsStyle="primary" active
-            //onClick={this.displayCityForm}
-            >
+            style={{marginBottom: '5px'}}
+            bsStyle="primary" active>
             <span className = "button-text">
               Add New City
             </span>
           </Button>
         </div>
-        <br/>
+        { this.state.showButton ? <CityForm /> : null }
       </div>
     );
   }

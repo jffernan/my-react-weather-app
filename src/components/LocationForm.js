@@ -23,7 +23,8 @@ const LocationForm = (props) =>
             id="submit"
             type="submit"
             bsStyle="primary" active>
-            <span className = "button-text">Fetch Weather
+            <span className = "button-text">
+              Fetch Weather
             </span>
           </Button>
         </div>

@@ -115,7 +115,7 @@ Button {
   text-align: center;
 }
 
-.submitNewCity {
+.addNewCity {
   border-radius: 20px;
   transition: all 0.5s;
   cursor: pointer;
@@ -227,6 +227,8 @@ p.capitalize {
   border-radius: 10px;
   position: relative;
   width: 330px;
+  line-height: 6px;
+  padding: 10px 10px;
 }
 
 .cityList{
