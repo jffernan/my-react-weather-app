@@ -91,7 +91,7 @@ export default class CitiesContainer extends Component {
                 <City
                   cities={city}
                   key={city.id}
-                  name = {city.name}
+                  cityName = {city.name}
                   handleClick={self.passCityName}
                 />
               )

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class City extends Component {
 //fetchDataClick of existing city on click
   clickHandler = () => {
-    this.props.handleClick(this.props.name)
+    this.props.handleClick(this.props.cityName)
   }
 /*
   handleClick = () => {
@@ -14,7 +14,7 @@ class City extends Component {
     return (
       <div className = "cityList" >
         <li onClick={this.clickHandler} >
-          <b>{this.props.name}</b>
+          <b>{this.props.cityName}</b>
         </li>
       </div>
     )
