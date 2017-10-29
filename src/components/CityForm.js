@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/lib/Button';
-import Form from 'react-bootstrap/lib/Form';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import FormControl from 'react-bootstrap/lib/FormControl';
+import { Button, Form, FormControl, FormGroup } from 'react-bootstrap';
 
 class CityForm extends Component {
   constructor(props) {
