@@ -43,7 +43,14 @@ class WeatherApp extends Component {
         <div>
           <NavBar />
           <br/><br/>
-          <Route exact path = "/" component = {Home}/>
+          //<Route exact path = "/" component = {Home}/>
+          <Route exact path = "/" component = {Home}
+            render = {props =>
+              <LocationForm
+                value = '' {...props}
+              />
+            }
+          />
           <Route exact path = "/map"
             render = {props =>
               <Map
