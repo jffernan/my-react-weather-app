@@ -10,7 +10,6 @@ export default class CitiesContainer extends Component {
     this.state = {
       cityList: [],
       editingCityId: null,
-      data: {},
       location: ''
     };
   };
@@ -48,28 +47,17 @@ export default class CitiesContainer extends Component {
       cityList: cities
     })
   }
+
+  passCityName =  ( name ) => {
+    this.setState( { location: name } );
+    this.props.fetchDataClick(this.state.location)
+  }
+
 /*
   enableEditing = (id) => {
     this.setState({editingCityId: id})
   }
 */
-  fetchDataCity = (name) => {
-
-    let query = encodeURIComponent({name});
-    let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
-    let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
-    let url = urlPrefix + query + urlSuffix;
-    let self = this;
-
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        self.setState({
-           data: data,
-           location: name
-        });
-      })
-  };
 
   render() {
     let self = this;
@@ -83,19 +71,7 @@ export default class CitiesContainer extends Component {
         );
       });
     }
-/*
-    let currentLoc = 'Please Enter Above.';
-    let currentTemp = 'Not Loaded Yet.';
-    let currentCond = 'Not Loaded Yet.';
-    let googleLoc = "Location";
 
-    if (this.state.data.list) {
-      currentLoc = this.state.location;
-      googleLoc = this.state.location;
-      currentTemp = Math.round(this.state.data.list[0].main.temp);
-      currentCond = this.state.data.list[1].weather[0].description;
-    }
-*/
 //TypeError: cities.map is not a function define ABOVE????
     return (
       <div>
@@ -116,7 +92,7 @@ export default class CitiesContainer extends Component {
                   cities={city}
                   key={city.id}
                   name = {city.name}
-                  fetchDataClick={self.fetchDataCity}
+                  handleClick={self.passCityName}
                 />
               )
             }

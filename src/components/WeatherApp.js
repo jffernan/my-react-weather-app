@@ -15,9 +15,8 @@ import {
  } from './actions';
 
 class WeatherApp extends Component {
-  fetchData = (handleSubmit) => {
-    handleSubmit.preventDefault();
-
+  fetchData = () => {
+    //handleSubmit.preventDefault();
     let location = encodeURIComponent(this.props.location); //let query;
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
@@ -67,6 +66,7 @@ class WeatherApp extends Component {
             />
             <CitiesContainer
               searchString = { this.props.location }
+              fetchDataClick = { this.fetchData}
               />
             <OutputDisplay
               locOutput = { currentLoc }

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class City extends Component {
 //fetchDataClick of existing city on click
   clickHandler = () => {
-    this.props.fetchDataClick(this.props.name)
+    this.props.handleClick(this.props.name)
   }
 /*
   handleClick = () => {
