@@ -29,16 +29,11 @@ class WeatherApp extends Component {
   };
 
   render() {
-    let currentLoc = 'Please Enter Above.';
-    let currentTemp = 'Not Loaded Yet.';
-    let currentCond = 'Not Loaded Yet.';
-    let googleLoc = "Location";
-
     if (this.props.data.list) {
-      currentLoc = this.props.location;
-      googleLoc = this.props.location;
-      currentTemp = Math.round(this.props.data.list[0].main.temp);
-      currentCond = this.props.data.list[1].weather[0].description;
+      let currentLoc = this.props.location;
+      let currentTemp = Math.round(this.props.data.list[0].main.temp);
+      let currentCond = this.props.data.list[1].weather[0].description;
+      let googleLoc = this.props.location;
       //currentLat = this.state.data.city.coord.lat;
       //currentLon = this.state.data.city.coord.lon;
     }

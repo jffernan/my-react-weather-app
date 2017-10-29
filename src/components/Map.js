@@ -14,5 +14,9 @@ const Map = (props) => {
   )
 };
 
+Map.defaultProps = {
+  gLocation = "Location"
+};
+
 export default Map;
 //+ props.route.gLocation DOES NOT WORK in React-Router Version 4.0
