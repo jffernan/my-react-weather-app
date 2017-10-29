@@ -8,7 +8,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 const LocationForm = (props) =>
   <div className="weatherApp">
     <Form onSubmit={props.fetchDataSubmit}>
-      <FormGroup bsSize="medium" controlId="formValidationSuccess2" validationState="success">
+      <FormGroup validationState="success">
         <div className="form">
           <ControlLabel>Please Enter 'Location' Or 'Select' City Below:
             <FormControl
@@ -16,7 +16,7 @@ const LocationForm = (props) =>
               name="location"
               id="location"
               placeholder={"Type Address, City, State, Zip, or Country."}
-              autocomplete="on"
+              autoComplete="on"
               value={props.location}
               onChange={props.changeLocationSubmit}
             />

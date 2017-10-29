@@ -37,7 +37,7 @@ class CityForm extends Component {
     return (
       <div>
         <Form onBlur={this.handleBlur} >
-          <FormGroup bsSize="medium" controlId="formValidationSuccess2" validationState="success">
+          <FormGroup validationState="success">
             <div className="form">
               <FormControl
                 type="text"

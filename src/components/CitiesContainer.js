@@ -10,7 +10,7 @@ export default class CitiesContainer extends Component {
     this.state = {
       cityList: [],
       editingCityId: null,
-      location: ''
+      loc: ''
     };
   };
 //CDM id: city.id, ?????
@@ -49,8 +49,8 @@ export default class CitiesContainer extends Component {
   }
 
   passCityName =  ( name ) => {
-    this.setState( { location: name } );
-    this.props.fetchDataClick(this.state.location)
+    this.setState( { loc: name } );
+    this.props.fetchDataClick(this.state.loc)
   }
 
 /*

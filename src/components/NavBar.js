@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const link = {
   width: '100px',
@@ -16,33 +16,31 @@ const NavBar = () =>
   <div className="menu">
     <ul id="nav">
       <li>
-      <NavLink to="/"
-        activeClassName="active"
+      <NavLink
+        to="/"
         exact
         style={link}
         activeStyle={{
           background: 'darkblue',
           fontWeight: 'bold'
         }}
-        //onClick={ refreshPage }
-        //refresh="true" does NOT WORK in RRv4.0
       >Home
       </NavLink>
       </li>
       <li>
-      <Link to="/map"
-        activeClassName="active"
+      <NavLink
+        to="/map"
         exact
         style={link}
         activeStyle={{
           background: 'darkblue',
           fontWeight: 'bold'}}
       >Map
-      </Link>
+      </NavLink>
       </li>
       <li>
-      <Link to="/about"
-        activeClassName="active"
+      <NavLink
+        to="/about"
         exact
         style={link}
         activeStyle={{
@@ -50,10 +48,12 @@ const NavBar = () =>
           fontWeight: 'bold'
         }}
       >About
-      </Link>
+      </NavLink>
       </li>
     </ul>
   </div>
 
 export default NavBar;
+//onClick={ refreshPage }
+//refresh="true" does NOT WORK in RRv4.0
 //let refreshPage = () => window.location.reload();

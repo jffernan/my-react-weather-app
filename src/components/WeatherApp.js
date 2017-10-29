@@ -17,7 +17,7 @@ import {
 class WeatherApp extends Component {
   fetchData = () => {
     //handleSubmit.preventDefault();
-    let location = encodeURIComponent(this.props.location); //let query;
+    let location = encodeURIComponent(this.props.location);
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     let url = urlPrefix + location + urlSuffix;
@@ -29,11 +29,12 @@ class WeatherApp extends Component {
   };
 
   render() {
+    let currentLoc, currentTemp, currentCond, googleLoc;
     if (this.props.data.list) {
-      let currentLoc = this.props.location;
-      let currentTemp = Math.round(this.props.data.list[0].main.temp);
-      let currentCond = this.props.data.list[1].weather[0].description;
-      let googleLoc = this.props.location;
+      currentLoc = this.props.location;
+      currentTemp = Math.round(this.props.data.list[0].main.temp);
+      currentCond = this.props.data.list[1].weather[0].description;
+      googleLoc = this.props.location;
       //currentLat = this.state.data.city.coord.lat;
       //currentLon = this.state.data.city.coord.lon;
     }
@@ -43,14 +44,7 @@ class WeatherApp extends Component {
         <div>
           <NavBar />
           <br/><br/>
-          //<Route exact path = "/" component = {Home}/>
-          <Route exact path = "/" component = {Home}
-            render = {props =>
-              <LocationForm
-                value = '' {...props}
-              />
-            }
-          />
+          <Route exact path = "/" component = {Home} />
           <Route exact path = "/map"
             render = {props =>
               <Map
