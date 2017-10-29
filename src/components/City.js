@@ -5,12 +5,16 @@ class City extends Component {
   clickHandler = () => {
     this.props.fetchDataClick(this.props.name)
   }
-
+/*
+  handleClick = () => {
+    this.props.onClick(this.props.city.id) Grab id ????
+  }
+*/
   render () {
     return (
-      <div className = "cityList">
-        <li onClick={this.clickHandler}>
-          {this.props.name}
+      <div className = "cityList" >
+        <li onClick={this.clickHandler} >
+          <b>{this.props.name}</b>
         </li>
       </div>
     )

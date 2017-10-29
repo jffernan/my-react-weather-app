@@ -11,16 +11,15 @@ export default class CitiesContainer extends Component {
       cityList: [],
       editingCityId: null,
       data: {},
-      display: ''
+      location: ''
     };
   };
-
+//CDM id: city.id, ?????
   componentDidMount() {
     fetch('/api/v1/cities', {accept: 'application/json'})
     .then(response => response.json())
     .then(cities => {
       this.setState({
-        id: cities.id,
         cityList: cities
       });
     });
@@ -28,20 +27,20 @@ export default class CitiesContainer extends Component {
 
   addNewCity = () => {
     fetch('/api/v1/cities', {city: {name: ''}})
-    .then(response => {
-      const cities = update(this.state.cityList, {
-      $splice: [[0, 0, response.data]]
+    .then(cities => {
+      update(this.state.cityList, {
+        $splice: [[0, 0, cities]]
     })
       this.setState({
         cityList: cities,
-        editingCityId: response.data.id
+        editingCityId: cities.id
       })
     })
     .catch(error => console.log(error))
   }
 
   updateCity = (city) => {
-    const cityIndex = this.state.cities.findIndex(x => x.id === cities.id)
+    const cityIndex = this.state.cityList.findIndex(x => x.id === city.id)
     const cities = update(this.state.cityList, {
       [cityIndex]: { $set: city }
     })
@@ -49,11 +48,11 @@ export default class CitiesContainer extends Component {
       cityList: cities
     })
   }
-
+/*
   enableEditing = (id) => {
     this.setState({editingCityId: id})
   }
-
+*/
   fetchDataCity = (name) => {
 
     let query = encodeURIComponent({name});
@@ -67,7 +66,7 @@ export default class CitiesContainer extends Component {
       .then(data => {
         self.setState({
            data: data,
-           display: name
+           location: name
         });
       })
   };
@@ -76,7 +75,7 @@ export default class CitiesContainer extends Component {
     let self = this;
     let cities = this.state.cityList;
     let searchString = this.props.searchString.trim().toLowerCase();
-//Displays all cities
+//Shows all cities
     if(searchString.length > 0){
       cities = cities.filter((city) => {
         return (
@@ -84,24 +83,25 @@ export default class CitiesContainer extends Component {
         );
       });
     }
-
+/*
     let currentLoc = 'Please Enter Above.';
     let currentTemp = 'Not Loaded Yet.';
     let currentCond = 'Not Loaded Yet.';
     let googleLoc = "Location";
 
     if (this.state.data.list) {
-      currentLoc = this.state.display;
-      googleLoc = this.state.display;
+      currentLoc = this.state.location;
+      googleLoc = this.state.location;
       currentTemp = Math.round(this.state.data.list[0].main.temp);
       currentCond = this.state.data.list[1].weather[0].description;
     }
-
+*/
+//TypeError: cities.map is not a function define ABOVE????
     return (
       <div>
         <ul>
           { cities.map((city) => {
-            if(this.state.editingCityId === cities.id) {
+            if(this.state.editingCityId === city.id) {
               return (
                 <CityForm
                   cities={city}
@@ -114,7 +114,7 @@ export default class CitiesContainer extends Component {
               return (
                 <City
                   cities={city}
-                  key={cities.id}
+                  key={city.id}
                   name = {city.name}
                   fetchDataClick={self.fetchDataCity}
                 />
