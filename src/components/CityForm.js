@@ -4,20 +4,8 @@ import { Button, ControlLabel, Form, FormControl, FormGroup } from 'react-bootst
 class CityForm extends Component {
 
   onCitySubmit() {
-    let name = this.refs.name.value;
-    fetch('/api/v1/cities', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: document.getElementById('cityName').value
-      })
-    })
-    .then((city) => {
-        this.props.handleSubmit(city);
-    });
+    let cityName = this.refs.cityName.value;
+    this.props.handleSubmit(cityName);
   }
 
   render() {
@@ -29,8 +17,8 @@ class CityForm extends Component {
               <ControlLabel>
               <FormControl
                 type="text"
-                name="name"
-                ref='name'
+                name="cityName"
+                ref='cityName'
                 //value={this.state.name}
                 //onChange={this.handleInput} />
                 id="cityName"

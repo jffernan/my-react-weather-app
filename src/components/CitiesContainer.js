@@ -8,7 +8,7 @@ export default class CitiesContainer extends Component {
     super(props);
     this.state = {
       cityList: [],
-      showButton: false
+      showCityForm: false
     };
   };
 //CDM id: city.id, ?????
@@ -34,11 +34,12 @@ export default class CitiesContainer extends Component {
   }
 */
   onClick() {
-    this.setState({showButton: !this.state.showButton});
+    this.setState({showCityForm: !this.state.showCityForm});
   }
 
-  handleSubmit(city) {
-    let newCityList = this.state.cityList.concat(city);
+  handleSubmit(cityName) {
+    console.log(cityName);
+    let newCityList = this.state.cityList.concat(cityName);
     this.setState({ cityList: newCityList })
   };
 
@@ -81,7 +82,7 @@ export default class CitiesContainer extends Component {
             </span>
           </Button>
         </div>
-        { this.state.showButton ?
+        { this.state.showCityForm ?
           <CityForm
             handleSubmit={this.handleSubmit}
           />
