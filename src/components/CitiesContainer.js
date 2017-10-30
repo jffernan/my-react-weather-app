@@ -21,9 +21,13 @@ export default class CitiesContainer extends Component {
       });
     });
   };
-
-//
 /*
+  componentDidMount() {
+    $.getJSON('/api/v1/cities.json', (response) =>
+      { this.setState({ items: response })
+    });
+  };
+
   passCityName =  ( name ) => {
     this.setState( { loc: name } );
     this.props.fetchDataClick(this.state.loc)
@@ -32,6 +36,11 @@ export default class CitiesContainer extends Component {
   onClick() {
     this.setState({showButton: !this.state.showButton});
   }
+
+  handleSubmit(city) {
+    let newCityList = this.state.cityList.concat(city);
+    this.setState({ cityList: newCityList })
+  };
 
   render() {
 //let self = this;
@@ -72,7 +81,12 @@ export default class CitiesContainer extends Component {
             </span>
           </Button>
         </div>
-        { this.state.showButton ? <CityForm /> : null }
+        { this.state.showButton ?
+          <CityForm
+            handleSubmit={this.handleSubmit}
+          />
+          : null
+        }
       </div>
     );
   }

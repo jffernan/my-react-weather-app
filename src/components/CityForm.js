@@ -2,6 +2,24 @@ import React, { Component } from 'react';
 import { Button, ControlLabel, Form, FormControl, FormGroup } from 'react-bootstrap';
 
 class CityForm extends Component {
+
+  onCitySubmit() {
+    let name = this.refs.name.value;
+    fetch('/api/v1/cities', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: document.getElementById('cityName').value
+      })
+    })
+    .then((city) => {
+        this.props.handleSubmit(city);
+    });
+  }
+
   render() {
     return (
       <div>
@@ -12,9 +30,10 @@ class CityForm extends Component {
               <FormControl
                 type="text"
                 name="name"
+                ref='name'
                 //value={this.state.name}
                 //onChange={this.handleInput} />
-                id="name"
+                id="cityName"
                 placeholder={"Enter Name Of New City."}
                 autoComplete="on"
               />
@@ -22,6 +41,7 @@ class CityForm extends Component {
             </div>
             <div className="submit">
               <Button
+                onClick={this.onCitySubmit}
                 id="submit"
                 type="submit"
                 bsStyle="primary" active>
