@@ -3,12 +3,20 @@ import { Button, ControlLabel, Form, FormControl, FormGroup } from 'react-bootst
 
 class CityForm extends Component {
 
-  onCitySubmit() {
-    let cityName = this.refs.cityName.value;
-    this.props.handleSubmit(cityName);
+  constructor() {
+    super();
+    this.state = {
+      name: ''
+    };
   }
 
+  handleNameChange = (evt) => this.setState({ name: evt.target.value });
+
   render() {
+    const { name } = this.state;
+    const isEnabled =
+      name.length > 0;
+
     return (
       <div>
         <Form>
@@ -17,11 +25,10 @@ class CityForm extends Component {
               <ControlLabel>
               <FormControl
                 type="text"
-                name="cityName"
-                ref='cityName'
+                name="name"
                 //value={this.state.name}
                 //onChange={this.handleInput} />
-                id="cityName"
+                id="name"
                 placeholder={"Enter Name Of New City."}
                 autoComplete="on"
               />
@@ -29,6 +36,7 @@ class CityForm extends Component {
             </div>
             <div className="submit">
               <Button
+                disabled={!isEnabled}
                 onClick={this.onCitySubmit}
                 id="submit"
                 type="submit"

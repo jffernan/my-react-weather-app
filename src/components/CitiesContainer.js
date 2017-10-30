@@ -33,7 +33,7 @@ export default class CitiesContainer extends Component {
     this.props.fetchDataClick(this.state.loc)
   }
 */
-  onClick() {
+  handleClick() {
     this.setState({showCityForm: !this.state.showCityForm});
   }
 
@@ -72,8 +72,7 @@ export default class CitiesContainer extends Component {
         </ul>
         <div className="addNewCity" >
           <Button
-            onClick={() => this.onClick()}
-            id="submit"
+            onClick={() => this.handleClick()}
             type="submit"
             style={{marginBottom: '5px'}}
             bsStyle="primary" active>
@@ -82,11 +81,10 @@ export default class CitiesContainer extends Component {
             </span>
           </Button>
         </div>
-        { this.state.showCityForm ?
+        { this.state.showCityForm &&
           <CityForm
             handleSubmit={this.handleSubmit}
           />
-          : null
         }
       </div>
     );
