@@ -32,6 +32,12 @@ export default class CitiesContainer extends Component {
     this.setState({showCityForm: !this.state.showCityForm});
   }
 
+  handleChange = (event) => {
+    this.setState({
+      name: event.target.value
+    });
+  }
+//TypeError: Cannot read property 'state' of undefined
   addNewCity(handleSubmit) {
     handleSubmit.preventDefault();
     let name = this.state.name;
@@ -62,16 +68,10 @@ export default class CitiesContainer extends Component {
     });
   };
 
-  handleChange = (event) => {
-    this.setState({
-      name: event.target.value
-    });
-  }
-
   render() {
     let cities = this.state.cityList;
     let searchString = this.props.searchString.trim().toLowerCase();
-//Shows all cities
+
     if(searchString.length > 0){
       cities = cities.filter((city) => {
         return (
@@ -86,7 +86,7 @@ export default class CitiesContainer extends Component {
           { cities.map((city) => {
             return (
               <City
-                cityName = {this.city}
+                cityName = {city.name}
                 //handleClick={self.passCityName}
               />
             )
