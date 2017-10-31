@@ -22,12 +22,11 @@ export default class CitiesContainer extends Component {
       });
     });
   };
-/*
+
   passCityName =  ( name ) => {
-    this.setState( { loc: name } );
-    this.props.fetchDataClick(this.state.loc)
+    this.props.fetchDataClick(name)
   }
-*/
+
   handleClick() {
     this.setState({showCityForm: !this.state.showCityForm});
   }
@@ -91,7 +90,7 @@ export default class CitiesContainer extends Component {
             return (
               <City
                 cityName = {city.name}
-                //handleClick={self.passCityName}
+                onClick={this.passCityName}
               />
             )
           })}

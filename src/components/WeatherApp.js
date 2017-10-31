@@ -9,19 +9,25 @@ import Map from './Map';
 import About from './About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {
-  changeLocation,
-  fetchData
- } from './actions';
-//fetchData when user submits location or if user clicks on city Name from list
+import { changeLocation, fetchData } from './actions';
+
 class WeatherApp extends Component {
 
-  fetchData = (handleSubmit) => {
-    handleSubmit.preventDefault();
-    let location = encodeURIComponent(this.props.location);
+  callFetchData = (name) => {
+    this.fetchData(null, name)
+  }
+
+  fetchData = (e, location) => {
+
+    if (e) {
+        e.preventDefault();
+    }
+
+    let newLocation = this.props.location || location
+    let encodedLocation = encodeURIComponent(newLocation);
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
-    let url = urlPrefix + location + urlSuffix;
+    let url = urlPrefix + encodedLocation + urlSuffix;
     this.props.dispatch(fetchData(url));//call function thunked action
   };
 
@@ -70,6 +76,7 @@ class WeatherApp extends Component {
               disabled={!isEnabled}
             />
             <CitiesContainer
+              fetchDataClick= {this.callFetchData}
               searchString = { this.props.location }
             />
             <OutputDisplay
@@ -89,4 +96,3 @@ const mapStateToProps = (state) => {
 }
 //return entire state instead of location: state.location
 export default connect(mapStateToProps)(WeatherApp);
-//fetchDataClick = { this.fetchData}
