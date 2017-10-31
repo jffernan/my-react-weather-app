@@ -227,8 +227,8 @@ p.capitalize {
   border-radius: 10px;
   position: relative;
   width: 330px;
-  line-height: 6px;
-  padding: 10px 10px;
+  line-height: 15px;
+  padding: 6px 6px;
 }
 
 .cityList{

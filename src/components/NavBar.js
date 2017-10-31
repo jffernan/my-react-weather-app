@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 const link = {
   width: '100px',
-  padding: '12px',
-  margin: '0 6px 6px',
+  padding: '6px',
+  margin: '0 3px 3px',
   background: 'green',
   textDecoration: 'none',
   color: 'white',
-  borderRadius: '10px',
-  position: 'center'
+  borderRadius: '6px',
+  position: 'center',
+  fontSize: '14px'
 }
 
 const NavBar = () =>

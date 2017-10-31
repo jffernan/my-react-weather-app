@@ -13,7 +13,7 @@ import {
   changeLocation,
   fetchData
  } from './actions';
-
+//fetchData when user submits location or if user clicks on city Name from list
 class WeatherApp extends Component {
 
   fetchData = (handleSubmit) => {
