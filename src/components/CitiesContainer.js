@@ -38,7 +38,7 @@ export default class CitiesContainer extends Component {
     });
   }
 //TypeError: Cannot read property 'state' of undefined
-  addNewCity(handleSubmit) {
+  addNewCity = (handleSubmit) => {
     handleSubmit.preventDefault();
     let name = this.state.name;
     let self = this;
