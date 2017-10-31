@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const link = {
-  width: '100px',
+  width: '106px',
   padding: '6px',
   margin: '0 3px 3px',
   background: 'green',

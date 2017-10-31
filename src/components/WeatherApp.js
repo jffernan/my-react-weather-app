@@ -39,13 +39,11 @@ class WeatherApp extends Component {
     const isEnabled =
       location.length > 0;
 
-    let currentLoc = 'Please Enter Above.';
     let currentTemp = 'Not Loaded Yet.';
     let currentCond = 'Not Loaded Yet.';
     let googleLoc = "Location";
 
     if (this.props.data.list) {
-      currentLoc = this.props.location;
       currentTemp = Math.round(this.props.data.list[0].main.temp);
       currentCond = this.props.data.list[1].weather[0].description;
       googleLoc = this.props.location;
@@ -79,7 +77,6 @@ class WeatherApp extends Component {
               searchString = { this.props.location }
             />
             <OutputDisplay
-              locOutput = { currentLoc }
               tempOutput = { currentTemp }
               condOutput = { currentCond }
             />
