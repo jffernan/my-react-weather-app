@@ -31,7 +31,7 @@ export default class CitiesContainer extends Component {
     this.setState({showCityForm: !this.state.showCityForm});
   }
 
-  addNewCity = (handleSubmit) {
+  addNewCity(handleSubmit) {
     handleSubmit.preventDefault();
 
     fetch('/api/v1/cities', {
@@ -40,16 +40,14 @@ export default class CitiesContainer extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        name: name
-      })
+      body: JSON.stringify({city: {name: ''}})
     })
     .then(response => {
-      const newCityList = this.state.cityList.concat(name);
+      const newCityList = this.state.cityList.concat(response);
       this.setState({
         cityList: newCityList
-      });
-    });
+      })
+    })
     .catch(error => console.log(error))
   };
 
@@ -72,8 +70,7 @@ export default class CitiesContainer extends Component {
           { cities.map((city) => {
             return (
               <City
-                key={city.id}
-                city = {city}
+                cityName = {city.name}
                 //handleClick={self.passCityName}
               />
             )
@@ -93,8 +90,7 @@ export default class CitiesContainer extends Component {
         { this.state.showCityForm &&
           <CityForm
             addNewCitySubmit={this.addNewCity}
-            city={city}
-            key={city.id}
+            //city = {city}
           />
         }
       </div>

@@ -9,7 +9,7 @@ class City extends Component {
   render () {
     return (
       <div className = "cityList" >
-        <li>{this.props.city.name}</li>
+        <li>{this.props.cityName}</li>
       </div>
     )
   }

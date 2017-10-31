@@ -6,7 +6,7 @@ class CityForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.city.name
+      name: ''
     };
   }
 
@@ -29,7 +29,7 @@ class CityForm extends Component {
                 type="text"
                 name="name"
                 value={this.state.name}
-                onChange={this.handleNameChange} />
+                onChange={this.handleNameChange}
                 id="name"
                 placeholder={"Enter Name Of New City."}
                 autoComplete="on"
