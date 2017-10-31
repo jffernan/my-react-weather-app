@@ -8,6 +8,7 @@ export default class CitiesContainer extends Component {
     super(props);
     this.state = {
       cityList: [],
+      name: '',
       showCityForm: false
     };
   };
@@ -31,28 +32,43 @@ export default class CitiesContainer extends Component {
     this.setState({showCityForm: !this.state.showCityForm});
   }
 
+  handleChange = (event) => {
+    this.setState({
+      name: event.target.value
+    });
+  }
+
   addNewCity(handleSubmit) {
     handleSubmit.preventDefault();
+    //let name = this.state.name; ??????
+    let self = this;
+    let data = {
+      name: this.state.name
+    }
 
     fetch('/api/v1/cities', {
-      method: "post",
+      method: "POST",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({city: {name: ''}})
+      body: JSON.stringify(data)
     })
-    .then(response => {
-      const newCityList = this.state.cityList.concat(response);
-      this.setState({
+    .then(response => response.json());
+    .then(data => {
+      const newCityList = this.state.cityList.concat(data);
+      self.setState({
         cityList: newCityList
       })
-    })
-    .catch(error => console.log(error))
+    });
+    .catch(error => console.log(error));
+//reset name state to a blank string onSubmit to clear input form
+    self.setState({
+      name: ''
+    });
   };
 
   render() {
-//let self = this;
     let cities = this.state.cityList;
     let searchString = this.props.searchString.trim().toLowerCase();
 //Shows all cities
@@ -70,7 +86,7 @@ export default class CitiesContainer extends Component {
           { cities.map((city) => {
             return (
               <City
-                cityName = {city.name}
+                cityName = {city}
                 //handleClick={self.passCityName}
               />
             )
@@ -90,7 +106,8 @@ export default class CitiesContainer extends Component {
         { this.state.showCityForm &&
           <CityForm
             addNewCitySubmit={this.addNewCity}
-            //city = {city}
+            name={this.state.name}
+            handleNameChange={this.handleChange}
           />
         }
       </div>
