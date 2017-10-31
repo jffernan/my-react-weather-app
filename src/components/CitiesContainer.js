@@ -37,7 +37,7 @@ export default class CitiesContainer extends Component {
       name: event.target.value
     });
   }
-//TypeError: Cannot read property 'state' of undefined
+
   addNewCity = (handleSubmit) => {
     handleSubmit.preventDefault();
     let name = this.state.name;
