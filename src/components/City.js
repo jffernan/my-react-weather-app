@@ -1,26 +1,19 @@
 import React, { Component } from 'react'
 
 class City extends Component {
-//fetchDataClick of existing city on click
-/*  clickHandler = () => {
-    this.props.handleClick(this.props.cityName)
-  }
-*/
-/*
+/*fetchDataClick of existing city on click
   handleClick = () => {
-    this.props.onClick(this.props.city.id) Grab id ????
+    this.props.onClick(this.props.city.name)
   }
 */
   render () {
     return (
       <div className = "cityList" >
-        <li>
-          <b>{this.props.cityName}</b>
-        </li>
+        <li>{this.props.city.name}</li>
       </div>
     )
   }
 }
 
 export default City;
-//li onClick={this.clickHandler} not working?
+//li onClick={this.handleClick} not working?

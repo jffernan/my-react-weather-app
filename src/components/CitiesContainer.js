@@ -11,7 +11,7 @@ export default class CitiesContainer extends Component {
       showCityForm: false
     };
   };
-//CDM id: city.id, ?????
+
   componentDidMount() {
     fetch('/api/v1/cities', {accept: 'application/json'})
     .then(response => response.json())
@@ -22,12 +22,6 @@ export default class CitiesContainer extends Component {
     });
   };
 /*
-  componentDidMount() {
-    $.getJSON('/api/v1/cities.json', (response) =>
-      { this.setState({ items: response })
-    });
-  };
-
   passCityName =  ( name ) => {
     this.setState( { loc: name } );
     this.props.fetchDataClick(this.state.loc)
@@ -37,10 +31,26 @@ export default class CitiesContainer extends Component {
     this.setState({showCityForm: !this.state.showCityForm});
   }
 
-  handleSubmit(cityName) {
-    console.log(cityName);
-    let newCityList = this.state.cityList.concat(cityName);
-    this.setState({ cityList: newCityList })
+  addNewCity = (handleSubmit) {
+    handleSubmit.preventDefault();
+
+    fetch('/api/v1/cities', {
+      method: "post",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name
+      })
+    })
+    .then(response => {
+      const newCityList = this.state.cityList.concat(name);
+      this.setState({
+        cityList: newCityList
+      });
+    });
+    .catch(error => console.log(error))
   };
 
   render() {
@@ -62,9 +72,8 @@ export default class CitiesContainer extends Component {
           { cities.map((city) => {
             return (
               <City
-                cities={city}
                 key={city.id}
-                cityName = {city.name}
+                city = {city}
                 //handleClick={self.passCityName}
               />
             )
@@ -83,7 +92,9 @@ export default class CitiesContainer extends Component {
         </div>
         { this.state.showCityForm &&
           <CityForm
-            handleSubmit={this.handleSubmit}
+            addNewCitySubmit={this.addNewCity}
+            city={city}
+            key={city.id}
           />
         }
       </div>
