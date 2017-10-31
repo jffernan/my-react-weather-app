@@ -15,6 +15,8 @@ const OutputDisplay = (props) =>
     </p>
     <br/>
   </div>
+
+export default OutputDisplay;
 /*
 OutputDisplay.defaultProps = {
   locOutput: 'Please Enter Above.',
@@ -22,4 +24,3 @@ OutputDisplay.defaultProps = {
   condOutput: 'Not Loaded Yet.'
 };
 */
-export default OutputDisplay;

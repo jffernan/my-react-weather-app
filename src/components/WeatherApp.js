@@ -18,9 +18,8 @@ class WeatherApp extends Component {
   }
 
   fetchData = (e, location) => {
-
     if (e) {
-        e.preventDefault();
+      e.preventDefault();
     }
 
     let newLocation = this.props.location || location
