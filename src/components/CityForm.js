@@ -22,7 +22,9 @@ const CityForm = (props) =>
           <Button
             id="submit"
             type="submit"
-            bsStyle="primary" active>
+            bsStyle="primary"
+            disabled={props.disabled}
+            active>
             <span className = "button-text">
               Save New City
             </span>
@@ -33,9 +35,3 @@ const CityForm = (props) =>
   </div>
 
 export default CityForm;
-/*
-const { name } = this.state;
-const isEnabled =
-  name.length > 0;
-disabled={!isEnabled}
-*/

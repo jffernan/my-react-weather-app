@@ -30,6 +30,10 @@ class WeatherApp extends Component {
   };
 
   render() {
+    const { location } = this.props;
+    const isEnabled =
+      location.length > 0;
+
     let currentLoc = 'Please Enter Above.';
     let currentTemp = 'Not Loaded Yet.';
     let currentCond = 'Not Loaded Yet.';
@@ -63,6 +67,7 @@ class WeatherApp extends Component {
               fetchDataSubmit = { this.fetchData}
               changeLocationSubmit = { this.changeLocation }
               location = { this.props.location }
+              disabled={!isEnabled}
             />
             <CitiesContainer
               searchString = { this.props.location }

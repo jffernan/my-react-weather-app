@@ -22,7 +22,9 @@ const LocationForm = (props) =>
           <Button
             id="submit"
             type="submit"
-            bsStyle="primary" active>
+            bsStyle="primary"
+            disabled={props.disabled} 
+            active>
             <span className = "button-text">
               Fetch Weather
             </span>

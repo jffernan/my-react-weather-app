@@ -80,6 +80,10 @@ export default class CitiesContainer extends Component {
       });
     }
 
+    const { name } = this.state;
+    const isEnabled =
+      name.length > 0;
+
     return (
       <div>
         <ul>
@@ -108,6 +112,7 @@ export default class CitiesContainer extends Component {
             addNewCitySubmit={this.addNewCity}
             name={this.state.name}
             handleNameChange={this.handleChange}
+            disabled={!isEnabled}
           />
         }
       </div>
