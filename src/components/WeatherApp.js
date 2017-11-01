@@ -47,8 +47,8 @@ class WeatherApp extends Component {
       currentTemp = Math.round(this.props.data.list[0].main.temp);
       currentCond = this.props.data.list[1].weather[0].description;
       googleLoc = this.props.location;
-      //currentLat = this.state.data.city.coord.lat;
-      //currentLon = this.state.data.city.coord.lon;
+      //currentLat = this.props.data.city.coord.lat;
+      //currentLon = this.props.data.city.coord.lon;
     }
 
     return (
@@ -90,5 +90,5 @@ class WeatherApp extends Component {
 const mapStateToProps = (state) => {
   return state;
 }
-//return entire state instead of location: state.location
+
 export default connect(mapStateToProps)(WeatherApp);
