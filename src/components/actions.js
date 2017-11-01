@@ -1,18 +1,18 @@
-export function changeLocation(location) {
+export const changeLocation = (location) => {
   return {
     type: 'CHANGE_LOCATION',
     location: location
   };
 }
 
-export function setData(data) {
+export const setData = (data) => {
   return {
     type: 'SET_DATA',
     data: data
   };
 };
 
-export function fetchData(url) {
+export const fetchData = (url) => {
   return (dispatch) => {
     fetch(url)
       .then(response => response.json())
