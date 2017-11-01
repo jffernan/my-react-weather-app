@@ -20,3 +20,10 @@ export const fetchData = (url) => {
       .catch(error => window.alert("Error In Loading!"));
   }
 }
+
+export const handleChange = (name) => {
+  return {
+    type: 'CHANGE_NAME',
+    name: name
+  };
+}

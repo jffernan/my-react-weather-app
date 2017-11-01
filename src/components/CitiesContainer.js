@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import City from './City'
 import CityForm from './CityForm'
 import Button from 'react-bootstrap/lib/Button';
+import { connect } from 'react-redux';
+import { handleChange } from './actions';
 
-export default class CitiesContainer extends Component {
+export class CitiesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,14 +34,12 @@ export default class CitiesContainer extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({
-      name: event.target.value
-    });
+    this.props.dispatch(handleChange(event.target.value));
   }
 
   addNewCity = (handleSubmit) => {
     handleSubmit.preventDefault();
-    let name = this.state.name;
+    let name = this.props.name;
     let self = this;
     let data = {
       name: name
@@ -79,7 +79,7 @@ export default class CitiesContainer extends Component {
       });
     }
 
-    const { name } = this.state;
+    const { name } = this.props;
     const isEnabled =
       name.length > 0;
 
@@ -109,7 +109,7 @@ export default class CitiesContainer extends Component {
         { this.state.showCityForm &&
           <CityForm
             addNewCitySubmit={this.addNewCity}
-            name={this.state.name}
+            name={this.props.name}
             handleNameChange={this.handleChange}
             disabled={!isEnabled}
           />
@@ -118,3 +118,9 @@ export default class CitiesContainer extends Component {
     );
   }
 };
+
+const mapStateToProps = (state) => {
+  return state;
+}
+
+export default connect(mapStateToProps)(CitiesContainer);
