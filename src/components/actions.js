@@ -1,3 +1,5 @@
+//Action is a plain JS object describing WHAT HAPPENED or changed after action.
+
 export const changeLocation = (location) => {
   return {
     type: 'CHANGE_LOCATION',
@@ -27,3 +29,11 @@ export const handleChange = (name) => {
     name: name
   };
 }
+
+export const handleClick = (showCityForm) => {
+  return {
+    type: 'CLICK_SHOW_CITY_FORM',
+    showCityForm: !showCityForm
+  };
+}
+//Action clicked showCityForm: true

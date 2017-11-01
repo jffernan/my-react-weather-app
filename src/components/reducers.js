@@ -3,7 +3,8 @@ import { combineReducers } from 'redux';
 const mainReducer = combineReducers({
   location: locationReducer,
   data: dataReducer,
-  name: nameReducer
+  name: nameReducer,
+  showCityForm: showCityFormReducer
 });
 
 function locationReducer(state = '', action) {
@@ -30,6 +31,16 @@ function nameReducer(state = '', action) {
   switch (action.type) {
     case 'CHANGE_NAME':
       return action.name;
+
+    default:
+      return state;
+  }
+}
+
+function showCityFormReducer(state = false, action) {
+  switch (action.type) {
+    case 'CLICK_SHOW_CITY_FORM':
+      return action.showCityForm;
 
     default:
       return state;

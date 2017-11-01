@@ -3,15 +3,14 @@ import City from './City'
 import CityForm from './CityForm'
 import Button from 'react-bootstrap/lib/Button';
 import { connect } from 'react-redux';
-import { handleChange } from './actions';
+import { handleChange, handleClick } from './actions';
 
 export class CitiesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       cityList: [],
-      name: '',
-      showCityForm: false
+      name: ''
     };
   };
 
@@ -30,7 +29,8 @@ export class CitiesContainer extends Component {
   }
 
   handleClick() {
-    this.setState({showCityForm: !this.state.showCityForm});
+    this.props.dispatch(handleClick(this.props.showCityForm));
+    //this.setState({showCityForm: !this.props.showCityForm});
   }
 
   handleChange = (event) => {
@@ -106,7 +106,7 @@ export class CitiesContainer extends Component {
             </span>
           </Button>
         </div>
-        { this.state.showCityForm &&
+        { this.props.showCityForm &&
           <CityForm
             addNewCitySubmit={this.addNewCity}
             name={this.props.name}
