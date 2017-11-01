@@ -30,7 +30,6 @@ export class CitiesContainer extends Component {
 
   handleClick() {
     this.props.dispatch(handleClick(this.props.showCityForm));
-    //this.setState({showCityForm: !this.props.showCityForm});
   }
 
   handleChange = (event) => {
