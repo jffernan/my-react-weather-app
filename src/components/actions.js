@@ -1,7 +1,7 @@
 /*Action creators are functions that return action
 Action is a plain JS object describing WHAT HAPPENED or changed after action
 */
-export const changeLocation = (location) => {
+export const locationChangeLocation = (location) => {
   return {
     type: 'CHANGE_LOCATION',
     location: location
@@ -15,7 +15,7 @@ export const setData = (data) => {
   };
 };
 
-export const fetchData = (url) => {
+export const dataFetchData = (url) => {
   return (dispatch) => {
     fetch(url)
       .then(response => response.json())
