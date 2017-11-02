@@ -3,6 +3,7 @@ import City from './City'
 import CityForm from './CityForm'
 import Button from 'react-bootstrap/lib/Button';
 import { connect } from 'react-redux'; //connect component to Redux store
+//import { bindActionCreators } from 'redux';
 import { nameHandleChange, showCityFormOnClick } from './actions';
 
 export class CitiesContainer extends Component {

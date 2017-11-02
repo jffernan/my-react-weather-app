@@ -9,6 +9,7 @@ import Map from './Map';
 import About from './About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { locationChangeLocation, dataFetchData } from './actions';
 
 class WeatherApp extends Component {
@@ -27,11 +28,11 @@ class WeatherApp extends Component {
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     let url = urlPrefix + encodedLocation + urlSuffix;
-    this.props.dispatch(dataFetchData(url));//call function thunked action
+    this.props.fetchData(url);
   };
 
   changeLocation = (event) => {
-    this.props.dispatch(locationChangeLocation(event.target.value));
+    this.props.changeLocation(event.target.value);
   };
 
   render() {
@@ -47,10 +48,8 @@ class WeatherApp extends Component {
       currentTemp = Math.round(this.props.data.list[0].main.temp);
       currentCond = this.props.data.list[1].weather[0].description;
       googleLoc = this.props.location;
-      //currentLat = this.props.data.city.coord.lat;
-      //currentLon = this.props.data.city.coord.lon;
     }
-
+//currentLat = this.props.data.city.coord.lat;currentLon = this.props.data.city.coord.lon;
     return (
       <Router>
         <div>
@@ -94,13 +93,11 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps)(WeatherApp);
-/*
 const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: (url) => dispatch(dataFetchData(url)),
+  return bindActionCreators({
+    fetchData: dataFetchData,
+    changeLocation: locationChangeLocation
+    }, dispatch);
   };
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherApp);
-*/
