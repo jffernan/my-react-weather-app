@@ -95,3 +95,12 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(WeatherApp);
+/*
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchData: (url) => dispatch(dataFetchData(url)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherApp);
+*/
