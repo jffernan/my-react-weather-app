@@ -1,5 +1,6 @@
-//Action is a plain JS object describing WHAT HAPPENED or changed after action.
-
+/*Action creators are functions that return action
+Action is a plain JS object describing WHAT HAPPENED or changed after action
+*/
 export const changeLocation = (location) => {
   return {
     type: 'CHANGE_LOCATION',
@@ -36,4 +37,4 @@ export const showCityFormOnClick = (boolean) => {
     showCityForm: !boolean
   };
 }
-//Action clicked showCityForm: true
+//Above Action clicked showCityForm: true

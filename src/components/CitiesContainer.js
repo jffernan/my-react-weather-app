@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import City from './City'
 import CityForm from './CityForm'
 import Button from 'react-bootstrap/lib/Button';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'; //connect component to Redux store
 import { nameHandleChange, showCityFormOnClick } from './actions';
 
 export class CitiesContainer extends Component {
@@ -13,7 +13,7 @@ export class CitiesContainer extends Component {
       name: ''
     };
   };
-
+//call function thunked action (fetchCityList) in Line 100
   componentDidMount() {
     fetch('/api/v1/cities', {accept: 'application/json'})
     .then(response => response.json())
@@ -117,7 +117,7 @@ export class CitiesContainer extends Component {
     );
   }
 };
-
+//map Redux st@te & dispatkhing of action creator to object of props
 const mapStateToProps = (state) => {
   return {
     cityList: state.cityList,
@@ -125,5 +125,7 @@ const mapStateToProps = (state) => {
     name: state.name
   };
 }
+//dis-patch fetchCityList() action creator with prop
 
+//connect to Redux for mapping props to use.
 export default connect(mapStateToProps)(CitiesContainer);
