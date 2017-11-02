@@ -1,4 +1,5 @@
-//Action is a plain JS object describing WHAT HAPPENED or changed after action.
+/*Action creators are functions that return action
+Action is a plain JS object describing WHAT HAPPENED or changed after action */
 export const changeLocation = (location) => {
   return {
     type: 'CHANGE_LOCATION',
@@ -35,21 +36,21 @@ export const handleClick = (showCityForm) => {
     showCityForm: !showCityForm
   };
 };
-//Action clicked showCityForm: true
+//Above Action clicked showCityForm: true
 export const setCitiesToCityList = (cityList) => {
   return {
     type: 'SET_CITIES_TO_CITY_LIST',
     cityList
   };
 };
-
+//Above called when fetchCityList successful
 export const addNewCityToCityList = (name) => {
   return {
     type: 'ADD_NEW_CITY_TO_CITY_LIST',
     cityList: name
   };
 };
-
+//thunk below returns function
 export const fetchCityList = () => {
   return (dispatch) => {
     fetch('/api/v1/cities', {accept: 'application/json'})
