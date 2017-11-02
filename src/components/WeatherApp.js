@@ -97,7 +97,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     fetchData: dataFetchData,
     changeLocation: locationChangeLocation
-    }, dispatch);
-  };
+  }, dispatch);
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherApp);

@@ -3,7 +3,7 @@ import City from './City'
 import CityForm from './CityForm'
 import Button from 'react-bootstrap/lib/Button';
 import { connect } from 'react-redux'; //connect component to Redux store
-//import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { nameHandleChange, showCityFormOnClick } from './actions';
 
 export class CitiesContainer extends Component {
@@ -30,11 +30,11 @@ export class CitiesContainer extends Component {
   }
 
   handleClick() {
-    this.props.dispatch(showCityFormOnClick(this.props.showCityForm));
+    this.props.handleClick((this.props.showCityForm));
   }
 
   handleChange = (event) => {
-    this.props.dispatch(nameHandleChange(event.target.value));
+    this.props.handleChange((event.target.value));
   }
 
   addNewCity = (handleSubmit) => {
@@ -127,6 +127,11 @@ const mapStateToProps = (state) => {
   };
 }
 //dis-patch fetchCityList() action creator with prop
-
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    handleClick: showCityFormOnClick,
+    handleChange: nameHandleChange
+  }, dispatch);
+};
 //connect to Redux for mapping props to use.
-export default connect(mapStateToProps)(CitiesContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CitiesContainer);
