@@ -4,7 +4,8 @@ const mainReducer = combineReducers({
   location: locationReducer,
   data: dataReducer,
   name: nameReducer,
-  showCityForm: showCityFormReducer
+  showCityForm: showCityFormReducer,
+  cityList: setCityListReducer
 });
 
 function locationReducer(state = '', action) {
@@ -46,5 +47,31 @@ function showCityFormReducer(state = false, action) {
       return state;
   }
 }
+//cities to cityList: [...state.cityList,{cities}] NOT WORKING
+//cities to cityList {cityList: state.cityList.concat(cities)} NOT WORKING
+function setCityListReducer(state = [], action) {
+  switch (action.type) {
+    case 'SET_CITIES_TO_CITY_LIST':
+      return Object.assign({}, state, {
+        cityList: [
+          ...state.cityList,
+          {cityList: action.cityList
+          }
+        ]
+      })
 
+    case 'ADD_NEW_CITY_TO_CITY_LIST':
+      return Object.assign({}, state, {
+        cityList: [
+          ...state.cityList,
+          {name: action.name
+          }
+        ]
+      })
+
+    default:
+      return state;
+  }
+}
+//Add New City name to cityList array
 export default mainReducer;
