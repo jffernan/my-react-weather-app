@@ -57,10 +57,19 @@ function cityListReducer(state = [], action) {
         cityList: action.cityList
       };
 
+    case 'ADD_NEW_CITY_TO_CITY_LIST':
+      return Object.assign({}, state, {
+        cityList: [
+          ...state.cityList,
+          {name: action.name
+          }
+        ]
+      })
 
     default:
       return state;
   }
 }
+//Add New City name to cityList array
 */
 export default mainReducer;

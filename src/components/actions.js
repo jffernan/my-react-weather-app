@@ -53,4 +53,28 @@ export const cityListFetchCities = (url) => {
       .catch(error => window.alert("Error Loading!"));
   };
 };
+
+export const addNewCityToCityList = (name) => {
+  return {
+    type: 'ADD_NEW_CITY_TO_CITY_LIST',
+    cityList: name
+  };
+};
+
+export const fetchAddNewCity = (name) => {
+  return (dispatch) => {
+    fetch('/api/v1/cities', {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(name)
+    })
+      .then(response => response.json())
+      .then(name => dispatch({ type: 'ADD_NEW_CITY_TO_CITY_LIST', name }))
+      .catch(error => window.alert("Error In Loading!"));
+  };
+};
+
 */
