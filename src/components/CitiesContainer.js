@@ -3,7 +3,7 @@ import City from './City'
 import CityForm from './CityForm'
 import Button from 'react-bootstrap/lib/Button';
 import { connect } from 'react-redux'; //connect component to Redux store
-import { bindActionCreators } from 'redux';
+//import { bindActionCreators } from 'redux';
 import { nameHandleChange,
          showCityFormOnClick,
          cityListFetchCities
@@ -19,7 +19,8 @@ export class CitiesContainer extends Component {
   };
 //call function thunked action (fetchCityList) in Line 100
   componentDidMount() {
-    this.props.cityListFetchCities('/api/v1/cities', {accept: 'application/json'});
+    //console.log(cityList);
+    this.props.dispatch(cityListFetchCities('/api/v1/cities', {accept: 'application/json'}));
   }
 
   passCityName =  ( name ) => {
@@ -27,11 +28,11 @@ export class CitiesContainer extends Component {
   }
 
   handleClick() {
-    this.props.handleClick((this.props.showCityForm));
+    this.props.dispatch(showCityFormOnClick(this.props.showCityForm));
   }
 
   handleChange = (event) => {
-    this.props.handleChange((event.target.value));
+    this.props.dispatch(nameHandleChange(event.target.value));
   }
 
   addNewCity = (handleSubmit) => {
@@ -123,7 +124,9 @@ const mapStateToProps = (state) => {
     name: state.name
   };
 }
-//dis-patch fetchCityList() action creator with prop
+
+export default connect(mapStateToProps)(CitiesContainer);
+/*dis-patch fetchCityList() action creator with prop
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     handleClick: showCityFormOnClick,
@@ -131,5 +134,6 @@ const mapDispatchToProps = (dispatch) => {
     cityListFetchCities: cityListFetchCities
   }, dispatch);
 };
-//connect to Redux for mapping props to use.
+connect to Redux for mapping props to use.
 export default connect(mapStateToProps, mapDispatchToProps)(CitiesContainer);
+*/

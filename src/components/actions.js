@@ -53,5 +53,4 @@ export const cityListFetchCities = (url) => {
       .catch(error => window.alert("Error Loading!"));
   };
 };
-
 //cityListPostCityName
