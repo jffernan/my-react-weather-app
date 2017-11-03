@@ -95,6 +95,13 @@ export class CitiesContainer extends Component {
       );
     }
 
+    cities = cities.map(city =>
+      <City
+        cityName = {city.name}
+        onClick={this.passCityName}
+      />
+    );
+
     const { name } = this.props;
     const isEnabled =
       name.length > 0;
@@ -102,12 +109,7 @@ export class CitiesContainer extends Component {
     return (
       <div>
         <ul>
-          { cities.map(city =>
-              <City
-                cityName = {city.name}
-                onClick={this.passCityName}
-              />
-          )}
+          { cities }
         </ul>
         <div className="addNewCity" >
           <Button
