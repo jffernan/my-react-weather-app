@@ -37,7 +37,7 @@ export const showCityFormOnClick = (boolean) => {
     showCityForm: !boolean
   };
 };
-//Called when cityListFetchCityList successful, then return cityList array
+/*Called when cityListFetchCityList successful, then return cityList array
 export const cityListSetCities = (cityList) => {
   return {
     type: 'SET_CITIES_TO_CITY_LIST',
@@ -53,4 +53,4 @@ export const cityListFetchCities = (url) => {
       .catch(error => window.alert("Error Loading!"));
   };
 };
-//cityListPostCityName
+*/

@@ -5,10 +5,9 @@ import Button from 'react-bootstrap/lib/Button';
 import { connect } from 'react-redux'; //connect component to Redux store
 //import { bindActionCreators } from 'redux';
 import { nameHandleChange,
-         showCityFormOnClick,
-         cityListFetchCities
+         showCityFormOnClick
        } from './actions';
-
+//cityListFetchCities
 export class CitiesContainer extends Component {
   constructor(props) {
     super(props);
@@ -17,11 +16,21 @@ export class CitiesContainer extends Component {
       name: ''
     };
   };
-//call function thunked action (fetchCityList) in Line 100
+/*call function thunked action (fetchCityList) in Line 100
   componentDidMount() {
-    //console.log(cityList);
+
     this.props.dispatch(cityListFetchCities('/api/v1/cities', {accept: 'application/json'}));
   }
+*/
+  componentDidMount() {
+    fetch('/api/v1/cities', {accept: 'application/json'})
+    .then(response => response.json())
+    .then(cities => {
+      this.setState({
+        cityList: cities
+      });
+    });
+  };
 
   passCityName =  ( name ) => {
     this.props.fetchDataClick(name)
@@ -53,7 +62,7 @@ export class CitiesContainer extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      const cities = this.props.cityList.concat(data);
+      const cities = this.state.cityList.concat(data);
       self.setState({
         cityList: cities
       })
@@ -66,7 +75,7 @@ export class CitiesContainer extends Component {
   };
 
   render() {
-    let cities = this.props.cityList;
+    let cities = this.state.cityList;
     let searchString = this.props.searchString.trim().toLowerCase();
 
     if(searchString.length > 0){

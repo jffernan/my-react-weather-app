@@ -4,10 +4,9 @@ const mainReducer = combineReducers({
   location: locationReducer,
   data: dataReducer,
   name: nameReducer,
-  showCityForm: showCityFormReducer,
-  cityList: cityListReducer
+  showCityForm: showCityFormReducer
 });
-
+//cityList: cityListReducer
 function locationReducer(state = '', action) {
   switch (action.type) {
     case 'CHANGE_LOCATION':
@@ -47,15 +46,21 @@ function showCityFormReducer(state = false, action) {
       return state;
   }
 }
-
+/*
 function cityListReducer(state = [], action) {
   switch (action.type) {
     case 'SET_CITIES_TO_CITY_LIST':
       return action.cityList;
+      OR?
+      return {
+        ...state,
+        cityList: action.cityList
+      };
+
 
     default:
       return state;
   }
 }
-
+*/
 export default mainReducer;
