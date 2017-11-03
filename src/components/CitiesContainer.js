@@ -7,7 +7,7 @@ import { connect } from 'react-redux'; //connect component to Redux store
 import { nameHandleChange,
          showCityFormOnClick
        } from './actions';
-//cityListFetchCities
+
 export class CitiesContainer extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +20,12 @@ export class CitiesContainer extends Component {
   componentDidMount() {
 
     this.props.dispatch(cityListFetchCities('/api/v1/cities', {accept: 'application/json'}));
+  }
+*/
+//call function thunked action (fetchCityList) in Line 100
+/*import fetchCities
+  componentDidMount() {
+    this.props.dispatch(fetchCities());
   }
 */
   fetchCitiesData(url) {
@@ -36,7 +42,7 @@ export class CitiesContainer extends Component {
   componentDidMount() {
     this.fetchCitiesData('/api/v1/cities', {accept: 'application/json'});
   }
-
+  
   passCityName =  ( name ) => {
     this.props.fetchDataClick(name)
   }

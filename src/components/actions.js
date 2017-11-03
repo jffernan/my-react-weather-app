@@ -37,7 +37,17 @@ export const showCityFormOnClick = (boolean) => {
     showCityForm: !boolean
   };
 };
-/*Called when cityListFetchCityList successful, then return cityList array
+/*
+export function fetchCities() {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_CITIES' });
+    return fetch('/api/v1/cities', {accept: 'application/json'})
+      .then(response => response.json())
+      .then(cities => dispatch({ type: 'FETCH_CITIES', cities }));
+  };
+};
+
+Called when cityListFetchCityList successful, then return cityList array
 export const cityListSetCities = (cityList) => {
   return {
     type: 'SET_CITIES_TO_CITY_LIST',

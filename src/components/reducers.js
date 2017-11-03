@@ -6,7 +6,7 @@ const mainReducer = combineReducers({
   name: nameReducer,
   showCityForm: showCityFormReducer
 });
-//cityList: cityListReducer
+
 function locationReducer(state = '', action) {
   switch (action.type) {
     case 'CHANGE_LOCATION':
@@ -47,10 +47,25 @@ function showCityFormReducer(state = false, action) {
   }
 }
 /*
+cityList: cityListReducer
+function cityListReducer(state = [], action) {
+  switch (action.type) {
+    case 'FETCH_CITIES':
+      return {
+        ...state,
+        cityList: action.cityList
+      }
+
+    default:
+      return state;
+  }
+};
+
+
 function cityListReducer(state = [], action) {
   switch (action.type) {
     case 'SET_CITIES_TO_CITY_LIST':
-      return action.cityList;
+      return action.cityList
       OR?
       return {
         ...state,
