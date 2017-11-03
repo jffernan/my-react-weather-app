@@ -4,7 +4,10 @@ import CityForm from './CityForm'
 import Button from 'react-bootstrap/lib/Button';
 import { connect } from 'react-redux'; //connect component to Redux store
 import { bindActionCreators } from 'redux';
-import { nameHandleChange, showCityFormOnClick } from './actions';
+import { nameHandleChange,
+         showCityFormOnClick,
+         cityListFetchCities
+       } from './actions';
 
 export class CitiesContainer extends Component {
   constructor(props) {
@@ -15,19 +18,8 @@ export class CitiesContainer extends Component {
     };
   };
 //call function thunked action (fetchCityList) in Line 100
-  fetchCitiesData(url) {
-    fetch(url)
-      .then(response => response.json())
-      .then(cities => {
-        this.setState({
-          cityList: cities
-        })
-      })
-      .catch(error => window.alert("Error In Loading!"));
-  }
-  //call function thunked action (fetchCityList) in Line 100
   componentDidMount() {
-    this.fetchCitiesData('/api/v1/cities', {accept: 'application/json'});
+    this.props.cityListFetchCities('/api/v1/cities', {accept: 'application/json'});
   }
 
   passCityName =  ( name ) => {
@@ -60,20 +52,20 @@ export class CitiesContainer extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      const cities = this.state.cityList.concat(data);
+      const cities = this.props.cityList.concat(data);
       self.setState({
         cityList: cities
       })
     })
-    .catch(error => console.log(error))
-//reset name state to a blank string onSubmit to clear input form
+    .catch(error => window.alert("Error Loading!"))
+//reset name st@te to a blank string onSubmit to clear input form
     self.setState({
       name: ''
     });
   };
 
   render() {
-    let cities = this.state.cityList;
+    let cities = this.props.cityList;
     let searchString = this.props.searchString.trim().toLowerCase();
 
     if(searchString.length > 0){
@@ -135,7 +127,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     handleClick: showCityFormOnClick,
-    handleChange: nameHandleChange
+    handleChange: nameHandleChange,
+    cityListFetchCities: cityListFetchCities
   }, dispatch);
 };
 //connect to Redux for mapping props to use.

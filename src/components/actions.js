@@ -20,7 +20,7 @@ export const dataFetchData = (url) => {
     fetch(url)
       .then(response => response.json())
       .then(data => dispatch({ type: 'SET_DATA', data }))
-      .catch(error => window.alert("Error In Loading!"));
+      .catch(error => window.alert("Error Loading!"));
   };
 };
 
@@ -30,11 +30,28 @@ export const nameHandleChange = (name) => {
     name: name
   };
 };
-
+//Action clicked showCityForm: true
 export const showCityFormOnClick = (boolean) => {
   return {
     type: 'CLICK_SHOW_CITY_FORM',
     showCityForm: !boolean
   };
 };
-//Above Action clicked showCityForm: true
+//Called when cityListFetchCityList successful, then return cityList array
+export const cityListSetCities = (cityList) => {
+  return {
+    type: 'SET_CITIES_TO_CITY_LIST',
+    cityList
+  };
+};
+//thunk below returns function
+export const cityListFetchCities = (url) => {
+  return (dispatch) => {
+    fetch(url)
+      .then(response => response.json())
+      .then(cities => dispatch({ type: 'SET_CITIES_TO_CITY_LIST', cities }))
+      .catch(error => window.alert("Error Loading!"));
+  };
+};
+
+//cityListPostCityName

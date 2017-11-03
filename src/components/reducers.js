@@ -4,7 +4,8 @@ const mainReducer = combineReducers({
   location: locationReducer,
   data: dataReducer,
   name: nameReducer,
-  showCityForm: showCityFormReducer
+  showCityForm: showCityFormReducer,
+  cityList: cityListReducer
 });
 
 function locationReducer(state = '', action) {
@@ -41,6 +42,16 @@ function showCityFormReducer(state = false, action) {
   switch (action.type) {
     case 'CLICK_SHOW_CITY_FORM':
       return action.showCityForm;
+
+    default:
+      return state;
+  }
+}
+
+function cityListReducer(state = [], action) {
+  switch (action.type) {
+    case 'SET_CITIES_TO_CITY_LIST':
+      return action.cityList;
 
     default:
       return state;
