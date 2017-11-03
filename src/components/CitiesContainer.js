@@ -7,7 +7,7 @@ import { connect } from 'react-redux'; //connect component to Redux store
 import { nameHandleChange,
          showCityFormOnClick
        } from './actions';
-import * as actions from './actions.js';
+//import * as actions from './actions.js';
 export class CitiesContainer extends Component {
   constructor(props) {
     super(props);
@@ -90,11 +90,9 @@ export class CitiesContainer extends Component {
     let searchString = this.props.searchString.trim().toLowerCase();
 
     if(searchString.length > 0){
-      cities = cities.filter((city) => {
-        return (
-          city.name.toLowerCase().match( searchString )
-        );
-      });
+      cities = cities.filter(city =>
+        city.name.toLowerCase().match( searchString )
+      );
     }
 
     const { name } = this.props;
@@ -104,14 +102,12 @@ export class CitiesContainer extends Component {
     return (
       <div>
         <ul>
-          { cities.map((city) => {
-            return (
+          { cities.map(city =>
               <City
                 cityName = {city.name}
                 onClick={this.passCityName}
               />
-            )
-          })}
+          )}
         </ul>
         <div className="addNewCity" >
           <Button
