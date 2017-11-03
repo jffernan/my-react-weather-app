@@ -55,13 +55,10 @@ function cityListReducer(state = [], action) {
         ...state,
         cityList: action.cityList
       }
-
     default:
       return state;
   }
 };
-
-
 function cityListReducer(state = [], action) {
   switch (action.type) {
     case 'SET_CITIES_TO_CITY_LIST':
@@ -71,7 +68,6 @@ function cityListReducer(state = [], action) {
         ...state,
         cityList: action.cityList
       };
-
     case 'ADD_NEW_CITY_TO_CITY_LIST':
       return Object.assign({}, state, {
         cityList: [
@@ -80,7 +76,6 @@ function cityListReducer(state = [], action) {
           }
         ]
       })
-
     default:
       return state;
   }
