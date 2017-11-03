@@ -49,7 +49,7 @@ class WeatherApp extends Component {
       currentTemp = Math.round(this.props.data.list[0].main.temp);
       currentCond = this.props.data.list[1].weather[0].description;
       googleLoc = this.props.location;
-    }
+    };
 //currentLat = this.props.data.city.coord.lat;currentLon = this.props.data.city.coord.lon;
     return (
       <Router>
