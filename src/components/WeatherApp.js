@@ -41,9 +41,7 @@ class WeatherApp extends Component {
     const isEnabled =
       location.length > 0;
 
-    let currentTemp = 'Not Loaded Yet.';
-    let currentCond = 'Not Loaded Yet.';
-    let googleLoc = "Location";
+    let currentTemp, currentCond, googleLoc;
 
     if (this.props.data.list) {
       currentTemp = Math.round(this.props.data.list[0].main.temp);

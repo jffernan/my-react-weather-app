@@ -177,6 +177,7 @@ input:focus {
   font-size: 18px;
   font-weight: bold;
   text-transform: capitalize;
+  color: green;
 }
 
 .temp-wrapper {
