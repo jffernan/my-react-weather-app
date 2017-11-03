@@ -10,7 +10,8 @@ import About from './About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { locationChangeLocation, dataFetchData } from './actions';
+import * as actions from './actions.js';
+//import { locationChangeLocation, dataFetchData } from './actions';
 
 class WeatherApp extends Component {
 
@@ -28,11 +29,11 @@ class WeatherApp extends Component {
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     let url = urlPrefix + encodedLocation + urlSuffix;
-    this.props.fetchData(url);
+    this.props.actions.fetchData(url);
   };
 
   changeLocation = (event) => {
-    this.props.changeLocation(event.target.value);
+    this.props.actions.changeLocation(event.target.value);
   };
 
   render() {
@@ -94,10 +95,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    fetchData: dataFetchData,
-    changeLocation: locationChangeLocation
-  }, dispatch);
+  return {actions: bindActionCreators(actions, dispatch)}
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherApp);

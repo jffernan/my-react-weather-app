@@ -7,7 +7,7 @@ import { connect } from 'react-redux'; //connect component to Redux store
 import { nameHandleChange,
          showCityFormOnClick
        } from './actions';
-
+import * as actions from './actions.js';
 export class CitiesContainer extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +42,7 @@ export class CitiesContainer extends Component {
   componentDidMount() {
     this.fetchCitiesData('/api/v1/cities', {accept: 'application/json'});
   }
-  
+
   passCityName =  ( name ) => {
     this.props.fetchDataClick(name)
   }
