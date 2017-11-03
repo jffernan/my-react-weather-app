@@ -15,15 +15,20 @@ export class CitiesContainer extends Component {
     };
   };
 //call function thunked action (fetchCityList) in Line 100
+  fetchCitiesData(url) {
+    fetch(url)
+      .then(response => response.json())
+      .then(cities => {
+        this.setState({
+          cityList: cities
+        })
+      })
+      .catch(error => window.alert("Error In Loading!"));
+  }
+  //call function thunked action (fetchCityList) in Line 100
   componentDidMount() {
-    fetch('/api/v1/cities', {accept: 'application/json'})
-    .then(response => response.json())
-    .then(cities => {
-      this.setState({
-        cityList: cities
-      });
-    });
-  };
+    this.fetchCitiesData('/api/v1/cities', {accept: 'application/json'});
+  }
 
   passCityName =  ( name ) => {
     this.props.fetchDataClick(name)

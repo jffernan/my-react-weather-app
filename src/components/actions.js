@@ -6,7 +6,7 @@ export const locationChangeLocation = (location) => {
     type: 'CHANGE_LOCATION',
     location: location
   };
-}
+};
 
 export const setData = (data) => {
   return {
@@ -21,20 +21,20 @@ export const dataFetchData = (url) => {
       .then(response => response.json())
       .then(data => dispatch({ type: 'SET_DATA', data }))
       .catch(error => window.alert("Error In Loading!"));
-  }
-}
+  };
+};
 
 export const nameHandleChange = (name) => {
   return {
     type: 'CHANGE_NAME',
     name: name
   };
-}
+};
 
 export const showCityFormOnClick = (boolean) => {
   return {
     type: 'CLICK_SHOW_CITY_FORM',
     showCityForm: !boolean
   };
-}
+};
 //Above Action clicked showCityForm: true
