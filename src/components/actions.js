@@ -54,32 +54,14 @@ export const fetchCities = () => {
   };
 };
 
-/*
-Called when cityListFetchCityList successful, then return cityList array
-export const cityListSetCities = (cityList) => {
+export const addNewCity = (name) => {
   return {
-    type: 'SET_CITIES_TO_CITY_LIST',
-    cityList
-  };
-};
-//thunk below returns function
-export const cityListFetchCities = (url) => {
-  return (dispatch) => {
-    fetch(url)
-      .then(response => response.json())
-      .then(cities => dispatch({ type: 'SET_CITIES_TO_CITY_LIST', cities }))
-      .catch(error => window.alert("Error Loading!"));
-  };
-};
-
-export const addNewCityToCityList = (name) => {
-  return {
-    type: 'ADD_NEW_CITY_TO_CITY_LIST',
+    type: 'ADD_NEW_CITY',
     cityList: name
   };
 };
 
-export const fetchAddNewCity = (name) => {
+export const fetchPostNewCity = (data) => {
   return (dispatch) => {
     fetch('/api/v1/cities', {
       method: "POST",
@@ -87,12 +69,10 @@ export const fetchAddNewCity = (name) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(name)
+      body: JSON.stringify(data)
     })
-      .then(response => response.json())
-      .then(name => dispatch({ type: 'ADD_NEW_CITY_TO_CITY_LIST', name }))
-      .catch(error => window.alert("Error In Loading!"));
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: 'ADD_NEW_CITY', data }))
+      .catch(error => window.alert("Error Loading!"));
   };
 };
-
-*/

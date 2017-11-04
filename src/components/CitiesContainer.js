@@ -6,43 +6,16 @@ import { connect } from 'react-redux'; //connect component to Redux store
 //import { bindActionCreators } from 'redux';
 import { nameHandleChange,
          showCityFormOnClick,
-         fetchCities
+         fetchCities,
+         fetchPostNewCity
        } from './actions';
 //import * as actions from './actions.js';
 export class CitiesContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cityList: [],
-      name: ''
-    };
-  };
-/*call function thunked action (fetchCityList) in Line 100
-  componentDidMount() {
-
-    this.props.dispatch(cityListFetchCities('/api/v1/cities', {accept: 'application/json'}));
-  }
-*/
-//call function thunked action (fetchCityList) in Line 100
+//call function thunked action (fetchCities)
   componentDidMount() {
     this.props.dispatch(fetchCities());
   }
-/*
-  fetchCitiesData(url) {
-    fetch(url)
-      .then(response => response.json())
-      .then(cities => {
-        this.setState({
-          cityList: cities
-        })
-      })
-      .catch(error => window.alert("Error In Loading!"));
-  }
-  //call function thunked action (fetchCityList) in Line 100
-  componentDidMount() {
-    this.fetchCitiesData('/api/v1/cities', {accept: 'application/json'});
-  }
-*/
+
   passCityName =  ( name ) => {
     this.props.fetchDataClick(name)
   }
@@ -61,24 +34,8 @@ export class CitiesContainer extends Component {
     let self = this;
     let data = {
       name: name
-    }
-
-    fetch('/api/v1/cities', {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-      const cities = this.state.cityList.concat(data);
-      self.setState({
-        cityList: cities
-      })
-    })
-    .catch(error => window.alert("Error Loading!"))
+    };
+    this.props.dispatch(fetchPostNewCity(data));
 //reset name st@te to a blank string onSubmit to clear input form
     self.setState({
       name: ''
@@ -96,7 +53,7 @@ export class CitiesContainer extends Component {
     for (var i = 0; i < cities.length; i++) {
       cityNamesList.push(cities[i].name);
     };
-//console.log(cityNamesList);rake
+//console.log(cityNamesList);
     if(searchString.length > 0){
       cityNamesList = cityNamesList.filter(name =>
         name.toLowerCase().match( searchString )

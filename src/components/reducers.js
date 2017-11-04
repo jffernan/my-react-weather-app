@@ -53,29 +53,32 @@ function cityListReducer(state = [], action) {
     case 'LOADING_CITIES':
       return action.cities;
 
-    default:
-      return state;
-  }
-};
-/*
-function cityListReducer(state = [], action) {
-  switch (action.type) {
-    case 'LOADING_CITIES':
-      return action.cities;
-
-    case 'ADD_NEW_CITY_TO_CITY_LIST':
-      return Object.assign({}, state, {
-        cityList: [
-          ...state.cityList,
-          {name: action.name
-          }
-        ]
-      });
+    case 'ADD_NEW_CITY':
+      return [
+        ...state,
+        {
+          cityList: action.name
+        }
+      ];
 
     default:
       return state;
   }
 }
 //Add New City name to cityList array
-*/
 export default mainReducer;
+/*
+case 'ADD_NEW_CITY':
+  return Object.assign({}, state, {
+    cityList: [ X
+      ...state.cityList,
+      {
+        cityList: action.data
+      }
+    ]
+    cityList: [ X
+      ...state.cityList,
+      action.data
+    ]
+  });
+*/
