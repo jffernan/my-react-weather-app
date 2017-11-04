@@ -86,9 +86,9 @@ export class CitiesContainer extends Component {
   };
 
   render() {
-    let cities = this.state.cityList;//Let not const for re-assignment in following filter & map methods
+    let cities = this.state.cityList;
     let searchString = this.props.searchString.trim().toLowerCase();
-
+//Let not const for re-assignment in following filter & map methods
     if(searchString.length > 0){
       cities = cities.filter(city =>
         city.name.toLowerCase().match( searchString )
