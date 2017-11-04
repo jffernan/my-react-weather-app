@@ -4,7 +4,8 @@ const mainReducer = combineReducers({
   location: locationReducer,
   data: dataReducer,
   name: nameReducer,
-  showCityForm: showCityFormReducer
+  showCityForm: showCityFormReducer,
+  cityList: cityListReducer
 });
 
 function locationReducer(state = '', action) {
@@ -46,41 +47,22 @@ function showCityFormReducer(state = false, action) {
       return state;
   }
 }
-/*cityList: cityListReducer
-function cityListReducer(state = [], action) {
-  switch (action.type) {
-    case 'LOADING_CITIES':
-      return [
-        ...state,
-        {
-          cityList: action.cityList
-        }
-      ];
-    default:
-      return state;
-  }
-};
 
 function cityListReducer(state = [], action) {
   switch (action.type) {
-    case 'FETCH_CITIES':
-      return {
-        ...state,
-        cityList: action.cityList
-      }
+    case 'LOADING_CITIES':
+      return action.cities;
+
     default:
       return state;
   }
 };
+/*
 function cityListReducer(state = [], action) {
   switch (action.type) {
-    case 'SET_CITIES_TO_CITY_LIST':
-      return action.cityList;
-      OR?
-      return {
-        ...state,
-        cityList: action.cityList
-      };
+    case 'LOADING_CITIES':
+      return action.cities;
+
     case 'ADD_NEW_CITY_TO_CITY_LIST':
       return Object.assign({}, state, {
         cityList: [
@@ -88,7 +70,8 @@ function cityListReducer(state = [], action) {
           {name: action.name
           }
         ]
-      })
+      });
+
     default:
       return state;
   }

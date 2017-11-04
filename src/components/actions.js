@@ -37,7 +37,7 @@ export const showCityFormOnClick = (boolean) => {
     showCityForm: !boolean
   };
 };
-/*
+
 export const loadingCities = (cities) => {
   return {
     type: 'LOADING_CITIES',
@@ -45,17 +45,7 @@ export const loadingCities = (cities) => {
   };
 };
 
-export function fetchCities() {
-  return (dispatch) => {
-    dispatch({ type: 'START_ADDING_CITIES_REQUEST' });
-    return fetch('/api/v1/cities', {accept: 'application/json'})
-      .then(response => response.json())
-      .then(cities => dispatch({ type: 'LOADING_CITIES', cities }));
-  };
-}
-
-
-export function fetchCities() {
+export const fetchCities = () => {
   return (dispatch) => {
     fetch('/api/v1/cities', {accept: 'application/json'})
       .then((response) => response.json())
@@ -63,27 +53,8 @@ export function fetchCities() {
       .catch((error) => window.alert("Error Loading!"));
   };
 };
-/*
-({ type: 'LOADING_CITIES', cities })) same as (loadingCities(cities))
-export const fetchCities = () => {
-  return (dispatch) => {
-    fetch('/api/v1/cities', {accept: 'application/json'})
-      .then(response => response.json())
-      .then(cities => dispatch({ type: 'LOADING_CITIES', cities }))
-      .catch(error => window.alert("Error Loading!"));
-  };
-};
-DUMMY'S GUIDE TO FETCH API
-export function fetchCities() {
-  return (dispatch) => {
-    dispatch({ type: 'LOADING_CITIES' });
-    return fetch('/api/v1/cities', {accept: 'application/json'})
-      .then((response) => response.json())
-      .then((cities) => dispatch(loadingCities(cities)))
-      .catch((error) => window.alert("Error Loading!"));
-  };
-};
 
+/*
 Called when cityListFetchCityList successful, then return cityList array
 export const cityListSetCities = (cityList) => {
   return {

@@ -38,7 +38,7 @@ class WeatherApp extends Component {
 
   render() {
     const { location } = this.props;
-    const isEnabled =
+    const isButtonEnabled =
       location.length > 0;
 
     let currentTemp, currentCond, googleLoc;
@@ -68,7 +68,7 @@ class WeatherApp extends Component {
               fetchDataSubmit = { this.fetchData}
               changeLocationSubmit = { this.changeLocation }
               location = { this.props.location }
-              disabled={!isEnabled}
+              disabled={!isButtonEnabled}
             />
             <CitiesContainer
               fetchDataClick= {this.callFetchData}
