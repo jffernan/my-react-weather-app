@@ -37,7 +37,7 @@ export const showCityFormOnClick = (boolean) => {
     showCityForm: !boolean
   };
 };
-
+/*
 export const loadingCities = (cities) => {
   return {
     type: 'LOADING_CITIES',
@@ -54,7 +54,7 @@ export function fetchCities() {
   };
 }
 
-/*
+
 export function fetchCities() {
   return (dispatch) => {
     fetch('/api/v1/cities', {accept: 'application/json'})
