@@ -8,18 +8,18 @@ export const changeLocation = (location) => {
   };
 };
 
-export const setData = (data) => {
+export const loadingData = (data) => {
   return {
-    type: 'SET_DATA',
+    type: 'LOADING_DATA',
     data: data
   };
 };
-
+//({ type: 'LOADING_DATA', data })) same as (loadingData(data))
 export const fetchData = (url) => {
   return (dispatch) => {
     fetch(url)
       .then(response => response.json())
-      .then(data => dispatch({ type: 'SET_DATA', data }))
+      .then(data => dispatch({ type: 'LOADING_DATA', data }))
       .catch(error => window.alert("Error Loading!"));
   };
 };
@@ -38,6 +38,23 @@ export const showCityFormOnClick = (boolean) => {
   };
 };
 /*
+export const loadingCities = (cities) => {
+  return {
+    type: 'LOADING_CITIES',
+    cityList: cities
+  };
+};
+
+export function fetchCities() {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_CITIES' });
+    return fetch('/api/v1/cities', {accept: 'application/json'})
+      .then((response) => response.json())
+      .then((cities) => dispatch(loadingCities(cities)))
+      .catch((error) => window.alert("Error Loading!"));
+  };
+};
+
 export function fetchCities() {
   return (dispatch) => {
     dispatch({ type: 'LOADING_CITIES' });

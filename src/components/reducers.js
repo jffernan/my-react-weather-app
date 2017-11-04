@@ -19,7 +19,7 @@ function locationReducer(state = '', action) {
 
 function dataReducer(state = {}, action) {
   switch (action.type) {
-    case 'SET_DATA':
+    case 'LOADING_DATA':
       return action.data;
 
     default:
@@ -47,6 +47,20 @@ function showCityFormReducer(state = false, action) {
   }
 }
 /*
+function cityListReducer(state = [], action) {
+  switch (action.type) {
+    case 'LOADING_CITIES':
+      return [
+        ...state,
+        {
+          cityList: action.cityList
+        }
+      ];
+    default:
+      return state;
+  }
+};
+
 cityList: cityListReducer
 function cityListReducer(state = [], action) {
   switch (action.type) {
