@@ -5,7 +5,8 @@ import Button from 'react-bootstrap/lib/Button';
 import { connect } from 'react-redux'; //connect component to Redux store
 //import { bindActionCreators } from 'redux';
 import { nameHandleChange,
-         showCityFormOnClick
+         showCityFormOnClick,
+         fetchCities
        } from './actions';
 //import * as actions from './actions.js';
 export class CitiesContainer extends Component {
@@ -23,11 +24,11 @@ export class CitiesContainer extends Component {
   }
 */
 //call function thunked action (fetchCityList) in Line 100
-/*import fetchCities
+
   componentDidMount() {
     this.props.dispatch(fetchCities());
   }
-*/
+/*
   fetchCitiesData(url) {
     fetch(url)
       .then(response => response.json())
@@ -42,6 +43,7 @@ export class CitiesContainer extends Component {
   componentDidMount() {
     this.fetchCitiesData('/api/v1/cities', {accept: 'application/json'});
   }
+*/
 
   passCityName =  ( name ) => {
     this.props.fetchDataClick(name)
@@ -86,7 +88,7 @@ export class CitiesContainer extends Component {
   };
 
   render() {
-    let cities = this.state.cityList;
+    let cities = this.props.cityList;
     let searchString = this.props.searchString.trim().toLowerCase();
 //Let not const for re-assignment in following filter & map methods
     if(searchString.length > 0){
