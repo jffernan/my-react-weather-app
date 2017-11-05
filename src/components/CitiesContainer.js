@@ -43,21 +43,19 @@ export class CitiesContainer extends Component {
   };
 
   render() {
-//{name} below is input field to save NEW city
+//Let not const for re-assignment in following filter & map methods
+    let cityNamesList =[];
+    let cities = this.props.cityList;
     const { name } = this.props;
     const isButtonEnabled =
       name.length > 0;
-console.log(name);
-    let cities = this.props.cityList;
-console.log(cities);
+
     let searchString = this.props.searchString.trim().toLowerCase();
-//Let not const for re-assignment in following filter & map methods
-//console.log(cities);
-    let cityNamesList =[];
+
     for (var i = 0; i < cities.length; i++) {
       cityNamesList.push(cities[i].name);
     };
-//console.log(cityNamesList);
+
     if(searchString.length > 0){
       cityNamesList = cityNamesList.filter(name =>
         name.toLowerCase().match( searchString )
@@ -70,7 +68,7 @@ console.log(cities);
         onClick={this.passCityName}
       />
     );
-//display array of cityNames ONLY below
+
     return (
       <div>
         <ul>
