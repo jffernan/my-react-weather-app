@@ -15,8 +15,8 @@ function locationReducer(state = '', action) {
 
     default:
       return state;
-  }
-}
+  };
+};
 
 function dataReducer(state = {}, action) {
   switch (action.type) {
@@ -25,8 +25,8 @@ function dataReducer(state = {}, action) {
 
     default:
       return state;
-  }
-}
+  };
+};
 
 function nameReducer(state = '', action) {
   switch (action.type) {
@@ -35,8 +35,8 @@ function nameReducer(state = '', action) {
 
     default:
       return state;
-  }
-}
+  };
+};
 
 function showCityFormReducer(state = false, action) {
   switch (action.type) {
@@ -45,8 +45,8 @@ function showCityFormReducer(state = false, action) {
 
     default:
       return state;
-  }
-}
+  };
+};
 
 function cityListReducer(state = [], action) {
   switch (action.type) {
@@ -60,7 +60,7 @@ function cityListReducer(state = [], action) {
 
     default:
       return state;
-  }
-}
+  };
+};
 
 export default mainReducer;
