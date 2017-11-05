@@ -31,10 +31,6 @@ export class CitiesContainer extends Component {
       name: name
     };
     this.props.actions.fetchPostNewCity(data);
-
-    self.setState({
-      name: ''
-    });
   };
 
   render() {
