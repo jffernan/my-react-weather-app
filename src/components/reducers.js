@@ -47,7 +47,7 @@ function showCityFormReducer(state = false, action) {
       return state;
   }
 }
-
+//ES6 const todosReducer = (state = [], action) => {
 function cityListReducer(state = [], action) {
   switch (action.type) {
     case 'LOADING_CITIES':
@@ -56,9 +56,7 @@ function cityListReducer(state = [], action) {
     case 'ADD_NEW_CITY':
       return [
         ...state,
-        {
-          cityList: action.name
-        }
+          {name: action.name}
       ];
 
     default:
@@ -68,6 +66,32 @@ function cityListReducer(state = [], action) {
 //Add New City name to cityList array
 export default mainReducer;
 /*
+case ADD_NEW_CITY:
+      return Object.assign({}, state, {
+        cityList: [
+          ...state.cityList,
+          {
+            name: action.name
+          }
+        ]
+      })
+
+      return [
+        ...state,
+        {
+          name: action.name
+        }
+      ]
+
+TRY BELOW:
+      return Object.assign({}, state, {
+        cityList: [
+          {
+            name: action.payload.data
+          }
+        ]
+      })
+
 case 'ADD_NEW_CITY':
   return Object.assign({}, state, {
     cityList: [ X
@@ -81,4 +105,10 @@ case 'ADD_NEW_CITY':
       action.data
     ]
   });
+    OR
+    return [X
+      ...state,
+      {cityList: action.name}
+    ];
+
 */

@@ -76,3 +76,25 @@ export const fetchPostNewCity = (data) => {
       .catch(error => window.alert("Error Loading!"));
   };
 };
+/*
+export function fetchPostNewCity(data) {
+
+  return function(dispatch){
+    dispatch({ type: 'ADD_NEW_CITY', data })
+    return fetch('/api/v1/cities', {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        return response.json()
+      })
+      .then((data) => dispatch({ type: 'ADD_NEW_CITY', data }))
+      .catch(error => window.alert("Error Loading!"));
+    // return cats;
+  }
+}
+*/
