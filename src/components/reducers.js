@@ -47,7 +47,7 @@ function showCityFormReducer(state = false, action) {
       return state;
   }
 };
-//return {cityList: action.data, name: ''}
+//return {cityList: [...state, action.data]};
 function cityListReducer(state = {
   cityList: [],
 }, action) {
