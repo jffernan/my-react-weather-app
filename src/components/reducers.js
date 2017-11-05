@@ -15,7 +15,7 @@ function locationReducer(state = '', action) {
 
     default:
       return state;
-  };
+  }
 };
 
 function dataReducer(state = {}, action) {
@@ -25,7 +25,7 @@ function dataReducer(state = {}, action) {
 
     default:
       return state;
-  };
+  }
 };
 
 function nameReducer(state = '', action) {
@@ -35,7 +35,7 @@ function nameReducer(state = '', action) {
 
     default:
       return state;
-  };
+  }
 };
 
 function showCityFormReducer(state = false, action) {
@@ -45,7 +45,7 @@ function showCityFormReducer(state = false, action) {
 
     default:
       return state;
-  };
+  }
 };
 
 function cityListReducer(state = [], action) {
@@ -60,7 +60,7 @@ function cityListReducer(state = [], action) {
 
     default:
       return state;
-  };
+  }
 };
 
 export default mainReducer;

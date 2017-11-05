@@ -26,7 +26,6 @@ export class CitiesContainer extends Component {
   addNewCity = (handleSubmit) => {
     handleSubmit.preventDefault();
     const { name } = this.props;
-    let self = this;
     let data = {
       name: name
     };
