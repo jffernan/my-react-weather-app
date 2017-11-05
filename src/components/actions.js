@@ -57,7 +57,7 @@ export const fetchCities = () => {
 export const addNewCity = (name) => {
   return {
     type: 'ADD_NEW_CITY',
-    cityList:name
+    cityList: name
   };
 };
 
