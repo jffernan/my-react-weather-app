@@ -72,7 +72,7 @@ class WeatherApp extends Component {
             />
             <CitiesContainer
               fetchDataClick= {this.callFetchData}
-              searchString = { this.props.location }
+              filterLocation = { this.props.location }
             />
             <OutputDisplay
               tempOutput = { currentTemp }

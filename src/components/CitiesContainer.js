@@ -51,16 +51,19 @@ export class CitiesContainer extends Component {
       cityNamesList.push(cities[i].name);
     };
 
-    let searchString = this.props.searchString.trim().toLowerCase();
-    if (searchString.length > 0) {
+    let filterLocation = this.props.filterLocation.trim().toLowerCase();
+    if (filterLocation.length > 0) {
       cityNamesList = cityNamesList.filter(name =>
-        name.toLowerCase().match( searchString )
+        name.toLowerCase().match( filterLocation )
       );
     };
 
     let name = this.props.name;
+    let filterCityName = this.props.name.trim().toLowerCase();
     if (name) {
-      cityNamesList.push(name);
+      cityNamesList = cityNamesList.filter(name =>
+        name.toLowerCase().match( filterCityName )
+      );
     };
 
     const isButtonEnabled =
