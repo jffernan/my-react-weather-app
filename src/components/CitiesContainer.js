@@ -30,7 +30,7 @@ export class CitiesContainer extends Component {
 
   addNewCity = (handleSubmit) => {
     handleSubmit.preventDefault();
-    let name = this.props.name;
+    const { name } = this.props;
     let self = this;
     let data = {
       name: name
@@ -43,9 +43,13 @@ export class CitiesContainer extends Component {
   };
 
   render() {
-//console.log(this.props.cityList);
+//{name} below is input field to save NEW city
+    const { name } = this.props;
+    const isButtonEnabled =
+      name.length > 0;
+console.log(name);
     let cities = this.props.cityList;
-//console.log(cities);
+console.log(cities);
     let searchString = this.props.searchString.trim().toLowerCase();
 //Let not const for re-assignment in following filter & map methods
 //console.log(cities);
@@ -66,10 +70,6 @@ export class CitiesContainer extends Component {
         onClick={this.passCityName}
       />
     );
-//{name} below is input field to save NEW city
-    const { name } = this.props;
-    const isButtonEnabled =
-      name.length > 0;
 //display array of cityNames ONLY below
     return (
       <div>
