@@ -97,7 +97,7 @@ console.log(cities);
         }
       </div>
     );
-  }
+  };
 };
 //map Redux st@te & dispatkhing of action creator to object of props
 const mapStateToProps = (state) => {
@@ -106,7 +106,7 @@ const mapStateToProps = (state) => {
     showCityForm: state.showCityForm,
     name: state.name
   };
-}
+};
 
 export default connect(mapStateToProps)(CitiesContainer);
 /*dis-patch fetchCityList() action creator with prop
