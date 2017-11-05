@@ -3,17 +3,12 @@ import City from './City'
 import CityForm from './CityForm'
 import Button from 'react-bootstrap/lib/Button';
 import { connect } from 'react-redux'; //connect component to Redux store
-//import { bindActionCreators } from 'redux';
-import { nameHandleChange,
-         showCityFormOnClick,
-         fetchCities,
-         fetchPostNewCity
-       } from './actions';
-//import * as actions from './actions.js';
+import { bindActionCreators } from 'redux';//import { (4) actions } from './actions';
+import * as actions from './actions.js';
+
 export class CitiesContainer extends Component {
-//call function thunked action (fetchCities)
   componentDidMount() {
-    this.props.dispatch(fetchCities());
+    this.props.actions.fetchCities();
   }
 
   passCityName =  ( name ) => {
@@ -21,11 +16,11 @@ export class CitiesContainer extends Component {
   }
 
   handleClick() {
-    this.props.dispatch(showCityFormOnClick(this.props.showCityForm));
+    this.props.actions.showCityFormOnClick(this.props.showCityForm);
   }
 
   handleChange = (event) => {
-    this.props.dispatch(nameHandleChange(event.target.value));
+    this.props.actions.nameHandleChange(event.target.value);
   }
 
   addNewCity = (handleSubmit) => {
@@ -35,8 +30,8 @@ export class CitiesContainer extends Component {
     let data = {
       name: name
     };
-    this.props.dispatch(fetchPostNewCity(data));
-//reset name st@te to a blank string onSubmit to clear input form
+    this.props.actions.fetchPostNewCity(data);
+
     self.setState({
       name: ''
     });
@@ -105,16 +100,9 @@ const mapStateToProps = (state) => {
     name: state.name
   };
 };
-
-export default connect(mapStateToProps)(CitiesContainer);
-/*dis-patch fetchCityList() action creator with prop
+//dis-patch action creators with props
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    handleClick: showCityFormOnClick,
-    handleChange: nameHandleChange,
-    cityListFetchCities: cityListFetchCities
-  }, dispatch);
+  return {actions: bindActionCreators(actions, dispatch)}
 };
-connect to Redux for mapping props to use.
+
 export default connect(mapStateToProps, mapDispatchToProps)(CitiesContainer);
-*/

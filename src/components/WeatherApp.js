@@ -10,8 +10,7 @@ import About from './About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from './actions.js';
-//import { changeLocation, fetchData } from './actions';
+import * as actions from './actions.js';//import { (2) actions } from './actions';
 
 class WeatherApp extends Component {
 
