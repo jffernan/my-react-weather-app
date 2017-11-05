@@ -47,8 +47,10 @@ function showCityFormReducer(state = false, action) {
       return state;
   }
 };
-
-function cityListReducer(state = [], action) {
+//return {cityList: action.data, name: ''}
+function cityListReducer(state = {
+  cityList: [],
+}, action) {
   switch (action.type) {
     case 'LOADING_CITIES':
       return action.cities;
@@ -62,5 +64,5 @@ function cityListReducer(state = [], action) {
       return state;
   }
 };
-
+//Instead spread operator, return {cityList: state.cityList.concat(action.data), name: ''};
 export default mainReducer;
