@@ -30,10 +30,10 @@ const nameReducer = (state = '', action) => {
   }
 };
 
-const showCityFormReducer = (state = false, action) => {
+const toggleCityFormReducer = (state = false, action) => {
   switch (action.type) {
-    case 'CLICK_SHOW_CITY_FORM':
-      return action.showCityForm;
+    case 'CLICK_TOGGLE_CITY_FORM':
+      return action.toggleCityForm;
 
     default:
       return state;
@@ -61,7 +61,7 @@ const mainReducer = combineReducers({
   location: locationReducer,
   data: dataReducer,
   name: nameReducer,
-  showCityForm: showCityFormReducer,
+  toggleCityForm: toggleCityFormReducer,
   cityList: cityListReducer
 });
 

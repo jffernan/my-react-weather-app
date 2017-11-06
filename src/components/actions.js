@@ -30,11 +30,11 @@ export const nameHandleChange = (name) => {
     name: name
   };
 };
-//Action clicked showCityForm: true
-export const showCityFormOnClick = (boolean) => {
+//Action clicked toggleCityForm: true
+export const toggleCityFormOnClick = (boolean) => {
   return {
-    type: 'CLICK_SHOW_CITY_FORM',
-    showCityForm: !boolean
+    type: 'CLICK_TOGGLE_CITY_FORM',
+    toggleCityForm: !boolean
   };
 };
 

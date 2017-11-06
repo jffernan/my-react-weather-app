@@ -16,7 +16,7 @@ export class CitiesContainer extends Component {
   }
 
   handleClick() {
-    this.props.actions.showCityFormOnClick(this.props.showCityForm);
+    this.props.actions.toggleCityFormOnClick(this.props.toggleCityForm);
   }
 
   handleChange = (event) => {
@@ -75,7 +75,7 @@ export class CitiesContainer extends Component {
             </span>
           </Button>
         </div>
-        { this.props.showCityForm &&
+        { this.props.toggleCityForm &&
           <CityForm
             addNewCitySubmit={this.addNewCity}
             name={this.props.name}
@@ -91,7 +91,7 @@ export class CitiesContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     cityList: state.cityList,
-    showCityForm: state.showCityForm,
+    toggleCityForm: state.toggleCityForm,
     name: state.name
   };
 };
