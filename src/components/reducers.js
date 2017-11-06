@@ -1,14 +1,6 @@
 import { combineReducers } from 'redux';
 //Separation Of Concerns each reducer concerns itself with piece of state
-const mainReducer = combineReducers({
-  location: locationReducer,
-  data: dataReducer,
-  name: nameReducer,
-  showCityForm: showCityFormReducer,
-  cityList: cityListReducer
-});
-
-function locationReducer(state = '', action) {
+const locationReducer = (state = '', action) => {
   switch (action.type) {
     case 'CHANGE_LOCATION':
       return action.location;
@@ -18,7 +10,7 @@ function locationReducer(state = '', action) {
   }
 };
 
-function dataReducer(state = {}, action) {
+const dataReducer = (state = {}, action) => {
   switch (action.type) {
     case 'LOADING_DATA':
       return action.data;
@@ -28,7 +20,7 @@ function dataReducer(state = {}, action) {
   }
 };
 
-function nameReducer(state = '', action) {
+const nameReducer = (state = '', action) => {
   switch (action.type) {
     case 'CHANGE_NAME':
       return action.name;
@@ -38,7 +30,7 @@ function nameReducer(state = '', action) {
   }
 };
 
-function showCityFormReducer(state = false, action) {
+const showCityFormReducer = (state = false, action) => {
   switch (action.type) {
     case 'CLICK_SHOW_CITY_FORM':
       return action.showCityForm;
@@ -48,9 +40,9 @@ function showCityFormReducer(state = false, action) {
   }
 };
 //return {cityList: [...state, action.data]};
-function cityListReducer(state = {
+const cityListReducer = (state = {
   cityList: [],
-}, action) {
+}, action) => {
   switch (action.type) {
     case 'LOADING_CITIES':
       return action.cities;
@@ -65,4 +57,12 @@ function cityListReducer(state = {
   }
 };
 //Instead spread operator, return {cityList: state.cityList.concat(action.data), name: ''};
+const mainReducer = combineReducers({
+  location: locationReducer,
+  data: dataReducer,
+  name: nameReducer,
+  showCityForm: showCityFormReducer,
+  cityList: cityListReducer
+});
+
 export default mainReducer;
