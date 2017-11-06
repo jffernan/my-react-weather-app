@@ -59,6 +59,7 @@ p {
 Form {
   text-align: center;
   line-height: 25px;
+  width: 100%;
 }
 
 .menu {
@@ -228,33 +229,30 @@ p.capitalize {
   border: 2px solid black;
   border-radius: 10px;
   position: relative;
-  width: 330px;
+  width: 340px;
   line-height: 15px;
   padding: 6px 6px;
 }
 
 .cityList{
   list-style: none;
-  display: block;
-  width: 140px;
+  width: 100%;
   text-align: center;
-  position: relative;
-  margin-left: 44.2%;
+  height:32px;
   font-weight: bold;
 }
 
 .cityList li{
+  width: 105px;
   font-size: 14px;
-  display: block;
+  font-weight: bold;
+  display: inline-block;
+  background-color: white;
+  color: black;
+  margin-right:40px;
   border: 2px solid #0059b3;
   border-radius: 4px;
   padding: 3px 6px;
-  background-color: white;
-  color: black;
-  margin-bottom: 3px;
-  position: relative;
-  text-align: center;
-  font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
