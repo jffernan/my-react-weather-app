@@ -7,14 +7,14 @@ export const changeLocation = (location) => {
     location: location
   };
 };
-
+//({ type: 'LOADING_DATA', data })) same (loadingData(data)) same {data:data}
 export const loadingData = (data) => {
   return {
     type: 'LOADING_DATA',
     data: data
   };
 };
-//({ type: 'LOADING_DATA', data })) same as (loadingData(data))
+//Thunk: return function thunk(dispatch) {FETCH}; below Thunk written in ES6 
 export const fetchData = (url) => {
   return (dispatch) => {
     fetch(url)
@@ -23,7 +23,7 @@ export const fetchData = (url) => {
       .catch(error => window.alert("Error Loading!"));
   };
 };
-
+//dispatch{ type: 'WEATHER_IS_LOADING', isLoading } same as Line 20
 export const nameHandleChange = (name) => {
   return {
     type: 'CHANGE_NAME',
