@@ -1,7 +1,11 @@
 # my-react-weather-app
 
-Welcome to My React Weather App, where you can fetch the current weather by entering a location or selecting from a list of provided cities.  
+Welcome to My React Weather App, where you can fetch the current weather by entering a location or selecting from a list of provided cities.
+
 Video demo at: https://youtu.be/WA0c3tG6zGo
+
+View my blog about the development of my app at: https://github.com/jffernan/jffernan.github.io/blob/master/_posts/2017-10-13-project_5_blog_react-redux-app.markdown
+
 The app was created with create-react-app.  See the [full create-react-app guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).  Thank you for using my app.
 
 ## Installation
