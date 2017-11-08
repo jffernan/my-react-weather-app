@@ -57,12 +57,23 @@ const cityListReducer = (state = {
   }
 };
 //Instead spread operator, return {cityList: state.cityList.concat(action.data), name: ''};
+const loadingStatusReducer = (state = null, action) => {
+  switch (action.type) {
+    case 'WEATHER_IS_LOADING':
+      return action.loadingStatus;
+
+    default:
+      return state;
+  }
+};
+
 const mainReducer = combineReducers({
   location: locationReducer,
   data: dataReducer,
   name: nameReducer,
   toggleCityForm: toggleCityFormReducer,
-  cityList: cityListReducer
+  cityList: cityListReducer,
+  loadingStatus: loadingStatusReducer
 });
 
 export default mainReducer;
