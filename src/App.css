@@ -260,3 +260,11 @@ p.capitalize {
 .cityList li:hover{
   background-color: #98FB98;
 }
+
+.likeOption {
+  margin-right: 30px;
+}
+
+.likesCounter {
+  margin-right: 30px;
+}

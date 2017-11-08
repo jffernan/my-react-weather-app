@@ -5,8 +5,8 @@ export default class City extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      likeCounter: 0
-    };
+      likeCounter: 0};
+      this.handleClickLike = this.handleClickLike.bind(this);
   };
 
   handleClick = () => {
@@ -32,6 +32,6 @@ export default class City extends Component {
           [{this.state.likeCounter}]
         </span>
       </div>
-    )
+    );
   }
 }
