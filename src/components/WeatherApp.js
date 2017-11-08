@@ -36,16 +36,22 @@ class WeatherApp extends Component {
   };
 
   render() {
-    const { location } = this.props;
+    const { location, loadingStatus } = this.props;
     const isButtonEnabled =
       location.length > 0;
 
     let currentTemp, currentCond, googleLoc;
 
-    if (this.props.data.list) {
+    if (this.props.data.list && loadingStatus === 'loaded') {
       currentTemp = Math.round(this.props.data.list[0].main.temp);
       currentCond = this.props.data.list[1].weather[0].description;
       googleLoc = this.props.location;
+    } else if (loadingStatus === 'loading') {
+      currentTemp = 'Loading Data...';
+      currentCond = 'Please Wait.';
+    } else if (loadingStatus === 'error') {
+      currentTemp = 'Error Loading Data...';
+      currentCond = 'Please Try again.';
     };
 //currentLat = this.props.data.city.coord.lat;currentLon = this.props.data.city.coord.lon;
     return (
@@ -87,7 +93,8 @@ class WeatherApp extends Component {
 const mapStateToProps = (state) => {
   return {
     location: state.location,
-    data: state.data
+    data: state.data,
+    loadingStatus: state.loadingStatus
   };
 }
 
