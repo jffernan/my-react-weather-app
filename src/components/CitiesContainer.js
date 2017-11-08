@@ -7,6 +7,14 @@ import { bindActionCreators } from 'redux';//import { (4) actions } from './acti
 import * as actions from './actions.js';
 
 export class CitiesContainer extends Component {
+//Define new related States for likeClick: true & likeCounter: 0 ++
+  constructor() {
+    super();
+    this.state = {
+      likeCounter: 0
+    };
+  };
+
   componentDidMount() {
     this.props.actions.fetchCities();
   }
@@ -17,6 +25,10 @@ export class CitiesContainer extends Component {
 
   handleClick() {
     this.props.actions.toggleCityFormOnClick(this.props.toggleCityForm);
+  }
+
+  handleLikeClick = () => {
+    this.setState({likeCounter: ++this.state.likeCounter});
   }
 
   handleChange = (event) => {
@@ -56,6 +68,8 @@ export class CitiesContainer extends Component {
       <City
         cityName = {name}
         onClick={this.passCityName}
+        handleLikeClick={this.state.handleLikeClick}
+        likeCounter={this.state.likeCounter}
       />
     );
 

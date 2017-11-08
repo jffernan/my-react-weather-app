@@ -12,6 +12,14 @@ export default class City extends Component {
         <li onClick={this.handleClick}>
           {this.props.cityName}
         </li>
+        <button
+          className = "addNewCity"
+          onClick={this.props.handleLikeClick}
+          >LIKE
+        </button>
+        <span className = "likesCounter">
+          [{this.props.likeCounter}]
+        </span>
       </div>
     )
   }
