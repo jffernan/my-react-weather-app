@@ -53,7 +53,7 @@ export class CitiesContainer extends Component {
       name.length > 0;
 
     cityNamesList = cityNamesList.map(name =>
-      <City
+      <City key={name.id}
         cityName = {name}
         onClick={this.passCityName}
       />
