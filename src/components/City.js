@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
 
 export default class City extends Component {
+//Define new State likeCounter: 0 ++
+  constructor(props) {
+    super(props);
+    this.state = {
+      likeCounter: 0
+    };
+  };
 
   handleClick = () => {
     this.props.onClick(this.props.cityName)
   }
 
-  handleAdoptPet = () => this.props.onAdoptPet(this.props.city.id)
+  handleClickLike = () => {
+    this.setState({likeCounter: ++this.state.likeCounter});
+  }
 
-  render (props) {
+  render () {
     return (
       <div className = "cityList" >
         <li onClick={this.handleClick}>
@@ -16,11 +25,11 @@ export default class City extends Component {
         </li>
         <button
           className = "likeOption"
-          onClick={this.handleAdoptPet}
+          onClick={this.handleClickLike}
           >LIKE
         </button>&nbsp;
         <span className = "likesCounter">
-          [{this.props.likeCounter}]
+          [{this.state.likeCounter}]
         </span>
       </div>
     )
