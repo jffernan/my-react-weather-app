@@ -27,8 +27,8 @@ export class CitiesContainer extends Component {
     this.props.actions.toggleCityFormOnClick(this.props.toggleCityForm);
   }
 
-  handleLikeClick = () => {
-    this.setState({likeCounter: ++this.state.likeCounter});
+  handleAdoptPet = (id) => {
+    this.setState({likeCounter: ++this.state.likeCounter}, id);
   }
 
   handleChange = (event) => {
@@ -65,10 +65,10 @@ export class CitiesContainer extends Component {
       name.length > 0;
 
     cityNamesList = cityNamesList.map(name =>
-      <City
+      <City key={name.id}
         cityName = {name}
         onClick={this.passCityName}
-        handleLikeClick={this.state.handleLikeClick}
+        onAdoptPet={this.handleAdoptPet}
         likeCounter={this.state.likeCounter}
       />
     );

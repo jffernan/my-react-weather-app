@@ -6,6 +6,8 @@ export default class City extends Component {
     this.props.onClick(this.props.cityName)
   }
 
+  handleAdoptPet = () => this.props.onAdoptPet(this.props.city.id)
+
   render (props) {
     return (
       <div className = "cityList" >
@@ -13,10 +15,10 @@ export default class City extends Component {
           {this.props.cityName}
         </li>
         <button
-          className = "addNewCity"
-          onClick={this.props.handleLikeClick}
+          className = "likeOption"
+          onClick={this.handleAdoptPet}
           >LIKE
-        </button>
+        </button>&nbsp;
         <span className = "likesCounter">
           [{this.props.likeCounter}]
         </span>
