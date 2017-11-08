@@ -22,9 +22,14 @@ class WeatherApp extends Component {
     if (e) {
       e.preventDefault();
     }
-
+    let query;
     let newLocation = this.props.location || location
-    let encodedLocation = encodeURIComponent(newLocation);
+    if (!newLocation || newLocation === '') {
+      query = this.props.location || location;
+    } else {
+      query = newLocation;
+    };
+    let encodedLocation = encodeURIComponent(query);
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     let url = urlPrefix + encodedLocation + urlSuffix;
@@ -49,7 +54,7 @@ class WeatherApp extends Component {
     } else if (loadingStatus === 'loading') {
       currentTemp = 'Loading Data...';
       currentCond = 'Please Wait.';
-    } else if (loadingStatus === 'error') {
+    } else if (!this.props.data.list || loadingStatus === 'error') {
       currentTemp = 'Error Loading Data...';
       currentCond = 'Please Try again.';
     };
