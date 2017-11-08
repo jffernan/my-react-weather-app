@@ -14,13 +14,14 @@ export const loadingData = (data) => {
     data: data
   };
 };
-//Thunk: return function thunk(dispatch) {FETCH}; below Thunk written in ES6 
+//Thunk: return function thunk(dispatch) {FETCH}; below Thunk written in ES6
 export const fetchData = (url) => {
   return (dispatch) => {
+    dispatch(weatherIsLoading('loading'));
     fetch(url)
-      .then(response => response.json())
+      .then((response) => {setTimeout(() => {dispatch(weatherIsLoading('loaded'));}, 1500);return response.json();})
       .then(data => dispatch({ type: 'LOADING_DATA', data }))
-      .catch(error => window.alert("Error Loading!"));
+      .catch(error => dispatch(weatherIsLoading('error')));
   };
 };
 //dispatch{ type: 'WEATHER_IS_LOADING', isLoading } same as Line 20
@@ -74,5 +75,12 @@ export const fetchPostNewCity = (data) => {
       .then(response => response.json())
       .then(data => dispatch({ type: 'ADD_NEW_CITY', data }))
       .catch(error => window.alert("Error Loading!"));
+  };
+};
+
+export const weatherIsLoading = (loadingStatus) => {
+  return {
+    type: 'WEATHER_IS_LOADING',
+    loadingStatus: loadingStatus
   };
 };
