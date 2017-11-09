@@ -55,7 +55,7 @@ export class CitiesContainer extends Component {
     cityNamesList = cityNamesList.map(name =>
       <City key={name.id}
         cityName = {name}
-        onClick={this.passCityName}
+        handleClick={this.passCityName.bind(this, name)}
       />
     );
 
@@ -66,7 +66,7 @@ export class CitiesContainer extends Component {
         </ul>
         <div className="addNewCity" >
           <Button
-            onClick={() => this.handleToggle()}
+            onClick={this.handleToggle.bind(this)}
             type="submit"
             style={{marginBottom: '5px'}}
             bsStyle="primary" active>
