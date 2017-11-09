@@ -14,12 +14,12 @@ export default class City extends Component {
     this.props.onClick(this.props.cityName)
   }
 //city or name in parameter
-  handleClickLike = (name) => {
+  handleClickLike = () => {
     let likeCounter = this.state.likeCounter;
     let name = this.props.cityName;
     let self = this;
     let data = {
-      total: likeCounter
+      total: likeCounter,
       name: name
     }
 
@@ -33,7 +33,7 @@ export default class City extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      self.setState({likeCounter: ++this.state.likeCounter);
+      self.setState({likeCounter: ++this.state.likeCounter});
     })
     .catch(error => alert("Error In Loading!"))
   };
