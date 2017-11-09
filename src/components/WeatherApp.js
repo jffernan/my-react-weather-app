@@ -54,7 +54,7 @@ class WeatherApp extends Component {
     } else if (loadingStatus === 'loading') {
       currentTemp = 'Loading Data...';
       currentCond = 'Please Wait.';
-    } else if (!this.props.data.list || loadingStatus === 'error') {
+    } else if (location && !this.props.data.list) {
       currentTemp = 'Error Loading Data...';
       currentCond = 'Please Try again.';
     };
