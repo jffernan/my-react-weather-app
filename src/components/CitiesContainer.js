@@ -36,9 +36,16 @@ export class CitiesContainer extends Component {
 //Let not const for re-assignment in following filter & map methods
     let cityNamesList =[];
     let cities = this.props.cityList;
-
+console.log(cities);
     for (var i = 0; i < cities.length; i++) {
       cityNamesList.push(cities[i].name);
+    };
+console.log(cityNamesList);
+    let filterLocation = this.props.filterLocation.trim().toLowerCase();
+    if (filterLocation.length > 0) {
+      cityNamesList = cityNamesList.filter(name =>
+        name.toLowerCase().match( filterLocation )
+      );
     };
 
     let name = this.props.name;
