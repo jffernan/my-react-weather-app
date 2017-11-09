@@ -15,7 +15,7 @@ export class CitiesContainer extends Component {
     this.props.fetchDataClick(name)
   }
 
-  handleClick() {
+  handleToggle() {
     this.props.actions.toggleCityFormOnClick(this.props.toggleCityForm);
   }
 
@@ -66,7 +66,7 @@ export class CitiesContainer extends Component {
         </ul>
         <div className="addNewCity" >
           <Button
-            onClick={() => this.handleClick()}
+            onClick={() => this.handleToggle()}
             type="submit"
             style={{marginBottom: '5px'}}
             bsStyle="primary" active>
