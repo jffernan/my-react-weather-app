@@ -5,17 +5,38 @@ export default class City extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      likeCounter: 0};
+      likeCounter: 0
+    };
       this.handleClickLike = this.handleClickLike.bind(this);
   };
 
   handleClick = () => {
     this.props.onClick(this.props.cityName)
   }
+//city or name in parameter
+  handleClickLike = (name) => {
+    let likeCounter = this.state.likeCounter;
+    let name = this.props.cityName;
+    let self = this;
+    let data = {
+      total: likeCounter
+      name: name
+    }
 
-  handleClickLike = () => {
-    this.setState({likeCounter: ++this.state.likeCounter});
-  }
+    fetch(`/api/v1/cities/${name.id}`, {
+      method: "PUT",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+      self.setState({likeCounter: ++this.state.likeCounter);
+    })
+    .catch(error => alert("Error In Loading!"))
+  };
 
   render () {
     return (

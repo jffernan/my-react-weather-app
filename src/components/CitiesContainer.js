@@ -41,13 +41,6 @@ export class CitiesContainer extends Component {
       cityNamesList.push(cities[i].name);
     };
 
-    let filterLocation = this.props.filterLocation.trim().toLowerCase();
-    if (filterLocation.length > 0) {
-      cityNamesList = cityNamesList.filter(name =>
-        name.toLowerCase().match( filterLocation )
-      );
-    };
-
     let name = this.props.name;
     const isButtonEnabled =
       name.length > 0;
