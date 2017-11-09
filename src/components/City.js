@@ -13,14 +13,13 @@ export default class City extends Component {
   handleClick = () => {
     this.props.onClick(this.props.cityName)
   }
-//city or name in parameter
-  handleClickLike = () => {
+//On click, updating total Likes in Rails DB
+  handleClickLike = (name.id) => {
     let likeCounter = this.state.likeCounter;
     let name = this.props.cityName;
     let self = this;
     let data = {
-      total: likeCounter,
-      name: name
+      total: likeCounter
     }
 
     fetch(`/api/v1/cities/${name.id}`, {
