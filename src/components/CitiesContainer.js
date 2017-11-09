@@ -53,10 +53,12 @@ export class CitiesContainer extends Component {
       name.length > 0;
 
     cityNamesList = cityNamesList.map(name =>
-      <City key={name.id}
-        cityName = {name}
-        handleClick={this.passCityName.bind(this, name)}
-      />
+      <div key={name.id}>
+        <City
+          cityName = {name}
+          handleClick={this.passCityName.bind(this, name)}
+        />
+      </div>
     );
 
     return (
