@@ -54,7 +54,9 @@ export class CitiesContainer extends Component {
 
     cityNamesList = cityNamesList.map(name =>
       <div key={name.id}>
-        <City
+        <City className = "cityList"
+          key={name.id}
+          id={name.id}
           cityName = {name}
           handleClick={this.passCityName.bind(this, name)}
         />
