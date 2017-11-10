@@ -15,6 +15,7 @@ export default class City extends Component {
 
 //On click, updating total Likes in Rails DB
   handleClickLike = (id) => {
+
     let likeCounter = this.state.likeCounter;
     let self = this;
     let data = {
@@ -44,7 +45,8 @@ export default class City extends Component {
         </li>
         <button
           className = "likeOption"
-          onClick={this.handleClickLike.bind(this, this.props.cityName.id)}
+          onClick={this.handleClickLike.bind(this, this.props.cityName)}
+          debugger
           >LIKE
         </button>&nbsp;
         <span className = "likesCounter">

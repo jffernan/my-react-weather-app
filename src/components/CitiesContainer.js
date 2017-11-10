@@ -25,8 +25,9 @@ export class CitiesContainer extends Component {
 
   addNewCity = (handleSubmit) => {
     handleSubmit.preventDefault();
-    const { name } = this.props;
+    const { name, id } = this.props;
     let data = {
+      id: id,
       name: name
     };
     this.props.actions.fetchPostNewCity(data);
@@ -49,16 +50,16 @@ console.log(cityNamesList[2]);
       );
     };
 
-    let name = this.props.name;
+//    let name = this.props.name;
     const isButtonEnabled =
-      name.length > 0;
+      this.props.name.length > 0;
 //Keys don’t get passed to components
-    cityNamesList = cityNamesList.map(name =>
+    cityNamesList = cities.map(city =>
       <div className = "cityList" >
         <City
-          key={name.id}
-          id = {name.id}
-          cityName = {name}
+          key={city.id}
+          id = {city.id}
+          cityName = {city.name}
           onClick={this.passCityName}
         />
       </div>
@@ -98,7 +99,8 @@ const mapStateToProps = (state) => {
   return {
     cityList: state.cityList,
     toggleCityForm: state.toggleCityForm,
-    name: state.name
+    name: state.name,
+    id: state.id
   };
 };
 //dis-patch action creators with props
