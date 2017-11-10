@@ -41,6 +41,7 @@ console.log(cities);
       cityNamesList.push(cities[i].name);
     };
 console.log(cityNamesList);
+console.log(cityNamesList[2]);
     let filterLocation = this.props.filterLocation.trim().toLowerCase();
     if (filterLocation.length > 0) {
       cityNamesList = cityNamesList.filter(name =>
@@ -53,15 +54,19 @@ console.log(cityNamesList);
       name.length > 0;
 
     cityNamesList = cityNamesList.map(name =>
-      <City key={name.id}
-        cityName = {name}
-        onClick={this.passCityName}
-      />
+      <div className = "cityList" >
+        <City key={name.id}
+          id = {name.id}
+          cityName = {name}
+          onClick={this.passCityName}
+        />
+      </div>
     );
 
     return (
       <div>
         <ul>
+
           { cityNamesList }
         </ul>
         <div className="addNewCity" >

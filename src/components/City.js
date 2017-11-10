@@ -14,15 +14,14 @@ export default class City extends Component {
     this.props.onClick(this.props.cityName)
   }
 //On click, updating total Likes in Rails DB
-  handleClickLike = (name.id) => {
+  handleClickLike = () => {
     let likeCounter = this.state.likeCounter;
-    let name = this.props.cityName;
     let self = this;
     let data = {
       total: likeCounter
     }
 
-    fetch(`/api/v1/cities/${name.id}`, {
+    fetch(`/api/v1/cities/${this.props.cityName.id}`, {
       method: "PUT",
       headers: {
         'Accept': 'application/json',
