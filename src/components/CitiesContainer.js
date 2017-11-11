@@ -53,7 +53,7 @@ export class CitiesContainer extends Component {
       name.length > 0;
 //Keys don’t get passed to components
     cityNamesList = cityNamesList.map(name =>
-      <City key={name.id}>
+      <City key={name.id}
         cityName = {name}
         handleClick={this.passCityName.bind(this, name)}
       />
