@@ -53,13 +53,10 @@ export class CitiesContainer extends Component {
       name.length > 0;
 //Keys don’t get passed to components
     cityNamesList = cityNamesList.map(name =>
-      <div key={name.id}>
-        <City className = "cityList"
-          id={name.id}
-          cityName = {name}
-          handleClick={this.passCityName.bind(this, name)}
-        />
-      </div>
+      <City key={name.id}>
+        cityName = {name}
+        handleClick={this.passCityName.bind(this, name)}
+      />
     );
 //pass id value as prop w/ different name props.cityName.id to child, City comp
     return (
