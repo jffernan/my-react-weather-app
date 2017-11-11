@@ -37,38 +37,34 @@ export class CitiesContainer extends Component {
 //Let not const for re-assignment in following filter & map methods
     let cityNamesList =[];
     let cities = this.props.cityList;
-console.log(cities);
+
     for (var i = 0; i < cities.length; i++) {
       cityNamesList.push(cities[i].name);
     };
-console.log(cityNamesList);
-console.log(cityNamesList[2]);
-    let filterLocation = this.props.filterLocation.trim().toLowerCase();
-    if (filterLocation.length > 0) {
+
+    let filterLocation = this.props.filterLocation;
+    if (filterLocation && filterLocation.length > 0) {
+      filterLocation.trim().toLowerCase();
       cityNamesList = cityNamesList.filter(name =>
         name.toLowerCase().match( filterLocation )
       );
     };
 
-//    let name = this.props.name;
+    let name = this.props.name;
     const isButtonEnabled =
-      this.props.name.length > 0;
+      name.length > 0;
 //Keys don’t get passed to components
     cityNamesList = cities.map(city =>
-      <div className = "cityList" >
-        <City
-          key={city.id}
-          id = {city.id}
-          cityName = {city.name}
-          onClick={this.passCityName}
-        />
-      </div>
+      <City
+        key={city.id}
+        cityName = {city.name}
+        onClick={this.passCityName}
+      />
     );
 //pass id value as prop w/ different name props.cityName.id to child, City comp
     return (
       <div>
         <ul>
-
           { cityNamesList }
         </ul>
         <div className="addNewCity" >

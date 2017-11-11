@@ -46,7 +46,6 @@ export default class City extends Component {
         <button
           className = "likeOption"
           onClick={this.handleClickLike.bind(this, this.props.cityName)}
-          debugger
           >LIKE
         </button>&nbsp;
         <span className = "likesCounter">
