@@ -57,8 +57,9 @@ export class CitiesContainer extends Component {
     cityNamesList = cities.map(city =>
       <City
         key={city.id}
+        id={city.id}
         cityName = {city.name}
-        onClick={this.passCityName}
+        onClick={this.passCityName.bind(this, city.name)}
       />
     );
 //pass id value as prop w/ different name props.cityName.id to child, City comp
