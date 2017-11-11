@@ -40,9 +40,7 @@ const toggleCityFormReducer = (state = false, action) => {
   }
 };
 //return {cityList: [...state, action.data]};
-const cityListReducer = (state = {
-  cityList: [],
-}, action) => {
+const cityListReducer = (state = [], action) => {
   switch (action.type) {
     case 'LOADING_CITIES':
       return action.cities;
