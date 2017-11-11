@@ -41,19 +41,13 @@ const toggleCityFormReducer = (state = false, action) => {
 };
 //return {cityList: [...state, action.data]};
 const cityListReducer = (state = [], action) => {
-  let id=0;
   switch (action.type) {
     case 'LOADING_CITIES':
       return action.cities;
 
     case 'ADD_NEW_CITY':
-
       return [
-        ...state,
-        {
-          cityList: action.data,
-          id: ++id
-        }
+        ...state, action.data
       ];
 
     default:
