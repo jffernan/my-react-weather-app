@@ -41,8 +41,9 @@ export class CitiesContainer extends Component {
       cityNamesList.push(cities[i].name);
     };
 
-    let filterLocation = this.props.filterLocation.trim().toLowerCase();
-    if (filterLocation.length > 0) {
+    let filterLocation = this.props.filterLocation;
+    if (filterLocation && filterLocation.length > 0) {
+      filterLocation.trim().toLowerCase();
       cityNamesList = cityNamesList.filter(name =>
         name.toLowerCase().match( filterLocation )
       );
