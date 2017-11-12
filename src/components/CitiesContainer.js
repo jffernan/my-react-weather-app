@@ -25,9 +25,8 @@ export class CitiesContainer extends Component {
 
   addNewCity = (handleSubmit) => {
     handleSubmit.preventDefault();
-    const { name, id } = this.props;
+    const { name } = this.props;
     let data = {
-      id: id,
       name: name
     };
     this.props.actions.fetchPostNewCity(data);
@@ -62,7 +61,7 @@ export class CitiesContainer extends Component {
         onClick={this.passCityName.bind(this, city.name)}
       />
     );
-//pass id value as prop w/ different name props.cityName.id to child, City comp
+//pass id value as prop w/ this.props.id to child, City comp
     return (
       <div>
         <ul>

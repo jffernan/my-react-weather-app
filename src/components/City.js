@@ -13,13 +13,13 @@ export default class City extends Component {
     this.props.onClick(this.props.cityName)
   }
 
-//On click, updating total Likes in Rails DB
-  handleClickLike = (id) => {
-
+  handleClickLike = () => {
+    const { id } = this.props;
     let likeCounter = this.state.likeCounter;
     let self = this;
     let data = {
-      total: likeCounter
+      id: id,
+      total: likeCounter + 1
     }
 
     fetch(`/api/v1/cities/${id}`, {
@@ -32,7 +32,7 @@ export default class City extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      self.setState({likeCounter: ++this.state.likeCounter});
+      self.setState({likeCounter: this.state.likeCounter + 1});
     })
     .catch(error => alert("Error In Loading!"))
   };
@@ -45,7 +45,7 @@ export default class City extends Component {
         </li>
         <button
           className = "likeOption"
-          onClick={this.handleClickLike.bind(this, this.props.cityName)}
+          onClick={this.handleClickLike.bind(this, this.props.id)}
           >LIKE
         </button>&nbsp;
         <span className = "likesCounter">
