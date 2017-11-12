@@ -33,8 +33,6 @@ export class CitiesContainer extends Component {
   };
 
   deleteCity = (id) => {
-    //let id = city.id
-    //let self = this;
     fetch(`/api/v1/cities/${id}/`, {
       method: "DELETE"
     })
@@ -44,6 +42,9 @@ export class CitiesContainer extends Component {
         });
       this.setState({ cityList: cities
       });
+    })
+    .then(id => {
+      window.location.reload();
     })
   };
 
