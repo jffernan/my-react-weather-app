@@ -34,18 +34,11 @@ export class CitiesContainer extends Component {
 
   render() {
 //Let not const for re-assignment in following filter & map methods
-    let cityNamesList =[];
     let cities = this.props.cityList;
-
-    for (var i = 0; i < cities.length; i++) {
-      cityNamesList.push(cities[i].name);
-    };
-
-    let filterLocation = this.props.filterLocation;
-    if (filterLocation && filterLocation.length > 0) {
-      filterLocation.trim().toLowerCase();
-      cityNamesList = cityNamesList.filter(name =>
-        name.toLowerCase().match( filterLocation )
+    let filterLocation = this.props.filterLocation.trim().toLowerCase();
+    if (filterLocation.length > 0) {
+      cities = cities.filter(city =>
+        city.name.toLowerCase().match( filterLocation )
       );
     };
 
@@ -53,7 +46,7 @@ export class CitiesContainer extends Component {
     const isButtonEnabled =
       name.length > 0;
 //Keys don’t get passed to components
-    cityNamesList = cities.map(city =>
+    cities = cities.map(city =>
       <City key={city.id}
         cityName = {city.name}
         handleClick={this.passCityName.bind(this, city.name)}
@@ -63,7 +56,7 @@ export class CitiesContainer extends Component {
     return (
       <div>
         <ul>
-          { cityNamesList }
+          { cities }
         </ul>
         <div className="addNewCity" >
           <Button
