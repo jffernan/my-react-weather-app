@@ -22,12 +22,11 @@ class WeatherApp extends Component {
     if (e) {
       e.preventDefault();
     }
-    let query;
-    let newLocation = this.props.location || location
-    if (!newLocation || newLocation === '') {
-      query = this.props.location || location;
+    let query = this.props.location || location
+    if (!location || location === '') {
+      query = this.props.location;
     } else {
-      query = newLocation;
+      query = location;
     };
     let encodedLocation = encodeURIComponent(query);
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
