@@ -22,9 +22,13 @@ class WeatherApp extends Component {
     if (e) {
       e.preventDefault();
     }
-
-    let newLocation = this.props.location || location
-    let encodedLocation = encodeURIComponent(newLocation);
+    let query = this.props.location || location
+    if (!location || location === '') {
+      query = this.props.location;
+    } else {
+      query = location;
+    };
+    let encodedLocation = encodeURIComponent(query);
     let urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
     let urlSuffix = '&APPID=eec418ceb1be72168ff8ff738033e935&units=imperial';
     let url = urlPrefix + encodedLocation + urlSuffix;
