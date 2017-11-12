@@ -32,6 +32,21 @@ export class CitiesContainer extends Component {
     this.props.actions.fetchPostNewCity(data);
   };
 
+  deleteCity = (id) => {
+    //let id = city.id
+    //let self = this;
+    fetch(`/api/v1/cities/${id}/`, {
+      method: "DELETE"
+    })
+    .then(response => {
+      let cities = this.props.cityList.filter((city) => {
+        return city.id !== id;
+        });
+      this.setState({ cityList: cities
+      });
+    })
+  };
+
   render() {
 //Let not const for re-assignment in following filter & map methods
     let cities = this.props.cityList;
@@ -50,6 +65,7 @@ export class CitiesContainer extends Component {
       <City key={city.id}
         cityName = {city.name}
         handleClick={this.passCityName.bind(this, city.name)}
+        onDelete={this.deleteCity.bind(this, city.id)}
       />
     );
 //pass id value as prop w/ different name props.cityName.id to child, City comp

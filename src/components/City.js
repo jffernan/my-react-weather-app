@@ -5,6 +5,9 @@ const City = (props) =>
     <li onClick={ props.handleClick }>
       { props.cityName }
     </li>
+    <span className="deleteButton"
+      onClick={ props.onDelete }>X
+    </span>
   </div>
 
 export default City;
