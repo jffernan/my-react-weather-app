@@ -1,17 +1,6 @@
 import { combineReducers } from 'redux';
 //Separation Of Concerns each reducer concerns itself with piece of state
-const initialState = [
-  {
-    location: '',
-    data: {},
-    name: '',
-    toggleCityForm: false,
-    cityList: [],
-    loadingStatus: null
-    }
-];
-  
-const locationReducer = (state = initialState, action) => {
+const locationReducer = (state = '', action) => {
   switch (action.type) {
     case 'CHANGE_LOCATION':
       return action.location;
@@ -21,7 +10,7 @@ const locationReducer = (state = initialState, action) => {
   }
 };
 
-const dataReducer = (state = initialState, action) => {
+const dataReducer = (state = {}, action) => {
   switch (action.type) {
     case 'LOADING_DATA':
       return action.data;
@@ -31,7 +20,7 @@ const dataReducer = (state = initialState, action) => {
   }
 };
 
-const nameReducer = (state = initialState, action) => {
+const nameReducer = (state = '', action) => {
   switch (action.type) {
     case 'CHANGE_NAME':
       return action.name;
@@ -41,7 +30,7 @@ const nameReducer = (state = initialState, action) => {
   }
 };
 
-const toggleCityFormReducer = (state = initialState, action) => {
+const toggleCityFormReducer = (state = false, action) => {
   switch (action.type) {
     case 'CLICK_TOGGLE_CITY_FORM':
       return action.toggleCityForm;
@@ -51,7 +40,7 @@ const toggleCityFormReducer = (state = initialState, action) => {
   }
 };
 //return {cityList: [...state, action.data]};
-const cityListReducer = (state = initialState, action) => {
+const cityListReducer = (state = [], action) => {
   switch (action.type) {
     case 'LOADING_CITIES':
       return action.cities;
@@ -66,7 +55,7 @@ const cityListReducer = (state = initialState, action) => {
   }
 };
 //Instead spread operator, return {cityList: state.cityList.concat(action.data), name: ''};
-const loadingStatusReducer = (state = initialState, action) => {
+const loadingStatusReducer = (state = null, action) => {
   switch (action.type) {
     case 'WEATHER_IS_LOADING':
       return action.loadingStatus;
