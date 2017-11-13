@@ -88,8 +88,7 @@ const mapStateToProps = (state) => {
   return {
     cityList: state.cityList,
     toggleCityForm: state.toggleCityForm,
-    name: state.name,
-    id: state.id
+    name: state.name
   };
 };
 //dis-patch action creators with props
