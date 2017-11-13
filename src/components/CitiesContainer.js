@@ -37,16 +37,15 @@ export class CitiesContainer extends Component {
       method: "DELETE"
     })
     .then(response => {
-      this.removeCityFromList(id);
+      let cities = this.props.cityList.filter(city =>
+        city.id !== id
+      );
+      this.setState({ cityList: cities
+      });
     })
-  };
-
-  removeCityFromList(id) {
-    let cities = this.props.cityList.filter(city =>
-      city.id !== id
-    );
-    this.setState({ cityList: cities });
-    window.location.reload();
+    .then(id => {
+      window.location.reload();
+    })
   };
 
   render() {
