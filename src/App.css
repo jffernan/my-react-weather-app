@@ -264,7 +264,7 @@ p.capitalize {
 .deleteButton {
   visibility: hidden;
   display: inline-block;
-  margin-left: 2px;
+  margin-right: 1px;
   font-size: 14px;
   cursor: pointer;
   color: black;

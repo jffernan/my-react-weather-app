@@ -37,9 +37,9 @@ export class CitiesContainer extends Component {
       method: "DELETE"
     })
     .then(response => {
-      let cities = this.props.cityList.filter((city) => {
-        return city.id !== id;
-        });
+      let cities = this.props.cityList.filter(city =>
+        city.id !== id
+      );
       this.setState({ cityList: cities
       });
     })
