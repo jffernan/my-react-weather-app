@@ -9,10 +9,6 @@ export default class City extends Component {
     };
   };
 
-  handleClick = () => {
-    this.props.onClick(this.props.cityName)
-  }
-
   handleClickLike = () => {
     const { id } = this.props;
     let likeCounter = this.state.likeCounter;
@@ -40,7 +36,7 @@ export default class City extends Component {
   render () {
     return (
       <div className = "cityList" >
-        <li onClick={this.handleClick}>
+        <li onClick={this.props.handleClick}>
           {this.props.cityName}
         </li>
         <button

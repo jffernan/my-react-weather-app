@@ -51,7 +51,7 @@ export class CitiesContainer extends Component {
         key={city.id}
         id={city.id}
         cityName = {city.name}
-        onClick={this.passCityName.bind(this, city.name)}
+        handleClick={this.passCityName.bind(this, city.name)}
       />
     );
 //pass id value as prop w/ this.props.id to child, City comp
