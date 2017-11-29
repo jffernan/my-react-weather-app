@@ -5,8 +5,10 @@ const Map = (props) => {
     <div>
       <h1 className="text-center page-title">Map Location</h1>
         <h4>
-          <a target="_blank" href={"https://www.google.com/maps/search/" + encodeURIComponent(props.gLocation)}
-          onClick="alert('Are you sure you want to leave?')">
+          <a target="_blank"
+            rel="noopener noreferrer"
+            href={"https://www.google.com/maps/search/" + encodeURIComponent(props.gLocation)}
+            onClick="alert('Are you sure you want to leave?')">
             'Click' Here To GoogleMap</a>
           <span className="gloc">&nbsp;{ props.gLocation }</span>
         </h4>
