@@ -1,6 +1,6 @@
 # my-react-redux-weather-app
 
-Welcome to My Weather App, where you can enter a location to fetch the current weather or select from a sample list of cities to get weather.  You can save a new city to the list, and also delete a city from the list.
+Welcome to My Weather App, where you can enter a location to fetch the current weather or select from a sample list of cities to get weather.  You can save a new city to the list, and also delete a city from the list. [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/jffernan/demo-react-redux-weather-app)
 
 Demo at: https://jffernan.github.io/my-react-redux-weather-app/
 Video at: https://youtu.be/WA0c3tG6zGo
